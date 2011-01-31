@@ -9,9 +9,9 @@ echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
 git config --global user.name "Anup Bishnoi"
 git config --global user.email pixelsallover@gmail.com
 cd config_files
-git remote add origin git@github.com:anupbishnoi/config_files.git
-git commit -m "committing from fresh ubuntu install"
-git push origin master
+git remote add github git@github.com:anupbishnoi/config_files.git
+git commit -am "committing from fresh ubuntu install"
+git push github master
 cd ~
 
 sudo apt-get upgrade
