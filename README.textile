@@ -1,10 +1,10 @@
-h1. Joe Ferris' Config Files
+h1. Anup Bishnoi's Config Files
 
 a.k.a. dot files
 
 h2. Install
 
-Clone this repository, change into the cloned directory, and run:
+Fork this repository, git clone and change into the cloned directory, and run:
 
 <pre>
 ./install.sh
@@ -21,3 +21,11 @@ http://github.com/jferris/scripts
 
 Just clone that repository and add it to your PATH.
 
+h2. Fresh ubuntu install
+If it's a fresh ubuntu install, run:
+
+<pre>
+./firstboot.sh
+</pre>
+
+This will set the machine up with build-essential, node.js, npm, and other important packages
