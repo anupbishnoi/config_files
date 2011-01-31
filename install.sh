@@ -1,6 +1,4 @@
-#!/bin/sh
-
-cutstring="DO NOT EDIT BELOW THIS LINE"
+#!/bin/bash
 
 for name in *; do
   target="$HOME/.$name"
@@ -33,3 +31,9 @@ for name in *; do
     fi
   fi
 done
+
+cutstring="PERSONAL"
+
+git config --global user.name "Anup Bishnoi"
+git config --global user.email pixelsallover@gmail.com
+git remote add github git@github.com:anupbishnoi/config_files.git
