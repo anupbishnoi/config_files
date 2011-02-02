@@ -12,8 +12,6 @@ sudo apt-get -y install curl zsh vim ctags vim-doc vim-scripts vim-gnome flashpl
 
 sudo apt-get upgrade
 
-chsh -s /bin/zsh
-
 git clone git://github.com/ry/node.git
 cd node
 ./configure --prefix=~/local
