@@ -46,3 +46,5 @@ _save_last_cwd() {
 }
 chpwd_functions=( "${chpwd_functions[@]}" _save_last_cwd )
 
+export PATH=$HOME/local/bin:$PATH
+#modmap $HOME/.Xmodmap
