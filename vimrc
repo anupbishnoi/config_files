@@ -143,13 +143,13 @@ nnoremap <leader>kk :m-2<cr>
 nnoremap <leader>.<leader> <C-w>999>
 
 " open vimrc in a split window"
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> 
+nnoremap <leader>ev <C-w>v:e ~/config_files/vimrc<cr> 
 
 " update vimrc and bring into effect
-nnoremap <leader>ew :w<cr>:source ~/.vimrc<cr>  
+nnoremap <leader>ew :w<cr>:source ~/config_files/vimrc<cr>  
 
 " also exit the vimrc file
-nnoremap <leader>eq :w<cr>:source ~/.vimrc<cr>:q<cr>  
+nnoremap <leader>eq :w<cr>:source ~/config_files/vimrc<cr>:q<cr>  
 
 " remove all whitespace at the end of sentences"
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
