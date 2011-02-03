@@ -1,5 +1,4 @@
-.*.swp
+*.swp
+*.swo
+*~
 tags
-.swo
-jferris-*.gemspec
-*.scratch.*

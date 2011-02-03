@@ -13,35 +13,44 @@ filetype plugin indent on
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+        au!
 
-  " Save on changing to another window
-  "au FocusLost * :wa
+        " Save on changing to another window
+        "au FocusLost * :wa
 
-  au FileType helpfile nnoremap <buffer><cr> <C-[>  " Enter selects subject
-  au FileType helpfile nnoremap <buffer><bs> <C-T>  " Backspace to go back
+        au FileType helpfile nnoremap <buffer><cr> <C-[>  " Enter selects subject
+        au FileType helpfile nnoremap <buffer><bs> <C-T>  " Backspace to go back
 
-  " For Haml
-  au! BufRead,BufNewFile *.haml         setfiletype haml
+        " For Haml
+        au! BufRead,BufNewFile *.haml         setfiletype haml
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+        " For all text files set 'textwidth' to 78 characters.
+        autocmd FileType text setlocal textwidth=78
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        " When editing a file, always jump to the last known cursor position.
+        " Don't do it when the position is invalid or when inside an event handler
+        " (happens when dropping a file on gvim).
+        autocmd BufReadPost *
+                    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                    \   exe "normal g`\"" |
+                    \ endif
 
-  augroup END
+        "if has("unix")
+            "autocmd BufWritePost *
+                        "\ if getline(1) =~ '^#!'    |
+                        "\   if getline(1) =~ '/bin/'|
+                        "\       !chmod u+x <afile>  |
+                        "\   endif                   |
+                        "\ endif
+        "endif
+
+    augroup END
 
 else
 
-  set autoindent		" always set autoindenting on
+    set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -71,7 +80,6 @@ set smartcase
 set gdefault
 set showmatch
 set nobackup
-set nowritebackup
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -104,10 +112,12 @@ nnoremap k gk
 nnoremap ; :
 vnoremap ; :
 inoremap jj <Esc>
-nnoremap <C-h> <C-w>h
+nnoremap <C-h> <C-w>h<C-w>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-l> <C-w>l<C-w>
+nnoremap JJ gT
+nnoremap KK gt
 
 nnoremap <leader>ft Vatzf
 "nnoremap <leader>v V`]
@@ -119,6 +129,11 @@ nnoremap <leader>wq :wq<cr>
 nnoremap <leader>w<leader> :w<cr>
 nnoremap <leader>ww <C-w>v<C-w>l
 vnoremap <leader>s<leader> :s/
+nnoremap <leader>sh :sh<cr>
+nnoremap <leader>rd ggg?G
+nnoremap <leader><cr> i<cr><Esc>
+nnoremap <leader>jj :m+<cr>
+nnoremap <leader>kk :m-2<cr>
 
 nnoremap <leader>.<leader> <C-w>999>
 
@@ -160,12 +175,13 @@ map <F1> <Esc>
 " Plugins
 nmap <leader>ls :NERDTreeToggle<cr>
 nmap <leader>gi :Git 
+nmap <leader>gc :Git commit -a -m ""<left>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-  set hlsearch
+    syntax on
+    set hlsearch
 endif
 
 " set font and color scheme
@@ -188,12 +204,12 @@ endif
 
 " Local config
 if filereadable(".vimrc.local")
- source .vimrc.local
+    source .vimrc.local
 endif
 
 " Use Ack instead of Grep when available
 if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor
+    set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
 
 " Edit the README_FOR_APP (makes :R commands work)
@@ -268,10 +284,10 @@ endif
 "nmap <C-K> <C-W><C-K>
 
 " if has("folding")
-  " set foldenable
-  " set foldmethod=syntax
-  " set foldlevel=1
-  " set foldnestmax=2
-  " set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+" set foldenable
+" set foldmethod=syntax
+" set foldlevel=1
+" set foldnestmax=2
+" set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
 " endif
 
