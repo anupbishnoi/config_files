@@ -188,7 +188,7 @@ nmap <leader>gp :Git push github master<cr>
 nmap <leader>gs :Git status<cr>
 nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
 nmap <leader>gd :Gdiff<cr>
-nmap <leader>t<leader> :CommandT<cr>
+"qmap <leader>t<leader> :CommandT<cr>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
