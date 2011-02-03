@@ -54,6 +54,9 @@ else
 
 endif " has("autocmd")
 
+" Press ^F from command mode to insert the current file name
+cmap <C-f> <C-r>=expand("%:p")<CR>
+
 " don't allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -118,6 +121,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l<C-w>
 nnoremap JJ gT
 nnoremap KK gt
+vnoremap <C-c> "+y
+vnoremap <C-x> "+d
+nnoremap <C-v> "+p
 
 nnoremap <leader>ft Vatzf
 "nnoremap <leader>v V`]
@@ -134,7 +140,6 @@ nnoremap <leader>rd ggg?G
 nnoremap <leader><cr> i<cr><Esc>
 nnoremap <leader>jj :m+<cr>
 nnoremap <leader>kk :m-2<cr>
-
 nnoremap <leader>.<leader> <C-w>999>
 
 " open vimrc in a split window"
@@ -174,8 +179,11 @@ map <F1> <Esc>
 
 " Plugins
 nmap <leader>ls :NERDTreeToggle<cr>
-nmap <leader>gi :Git 
-nmap <leader>gc :Git commit -a -m ""<left>
+nmap <leader>g<space> :Git 
+nmap <leader>gc :Git commit -m ""<left>
+nmap <leader>gp :Git push github master<cr>
+nmap <leader>gs :Git status<cr>
+nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -231,9 +239,6 @@ endif
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
-
-" Press ^F from insert mode to insert the current file name
-"imap <C-F> <C-R>=expand("%")<CR>
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
