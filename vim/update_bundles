@@ -46,9 +46,10 @@ Dir["*"].each {|d| FileUtils.rm_rf d }
 git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
   puts "  Unpacking #{url} into #{dir}"
-  `git clone #{url} #{dir}`
-  FileUtils.rm_rf(File.join(dir, ".git"))
+  `git submodule add #{url} #{dir}`
+  #FileUtils.rm_rf(File.join(dir, ".git"))
 end
+`git submodule init`
 
 vim_org_scripts.each do |name, script_id, script_type|
   puts "  Downloading #{name}"
