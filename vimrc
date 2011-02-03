@@ -6,7 +6,8 @@ cd $HOME
 
 " Load pathogen and all the bundles
 filetype off
-call pathogen#helptags()
+" Generate help tags when new bundles are added
+"call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
@@ -115,10 +116,10 @@ nnoremap k gk
 nnoremap ; :
 vnoremap ; :
 inoremap jj <Esc>
-nnoremap <C-h> <C-w>h<C-w>
+nnoremap <C-h> <C-w>h<C-w>999>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l<C-w>
+nnoremap <C-l> <C-w>l<C-w>999>
 nnoremap JJ gT
 nnoremap KK gt
 vnoremap <C-c> "+y
@@ -163,7 +164,7 @@ map <Leader>e<leader> :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Maps autocomplete to tab
 imap <Tab> <C-P>
