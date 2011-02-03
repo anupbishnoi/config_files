@@ -134,7 +134,6 @@ nnoremap <leader>j<leader> yyp
 nnoremap <leader>k<leader> yyP
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>w<leader> :w<cr>
-nnoremap <leader>ww <C-w>v<C-w>l
 vnoremap <leader>s<leader> :s/
 nnoremap <leader>sh :sh<cr>
 nnoremap <leader>rd ggg?G
@@ -160,11 +159,14 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
-map <Leader>e<leader> :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>e<leader> :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>et
-map <Leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a split window
+nnoremap <leader>es <C-w>v:e <C-r>=expand("%:p:h") . "/"<cr>
 
 " Maps autocomplete to tab
 imap <Tab> <C-P>
@@ -185,6 +187,8 @@ nmap <leader>gc :Git commit -m ""<left>
 nmap <leader>gp :Git push github master<cr>
 nmap <leader>gs :Git status<cr>
 nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>t<leader> :CommandT<cr>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
