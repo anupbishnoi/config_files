@@ -183,9 +183,9 @@ map <F1> <Esc>
 " Plugins
 nmap <leader>ls :NERDTreeToggle<cr>
 nmap <leader>g<space> :Git 
-nmap <leader>gc :Git commit -m ""<left>
+nmap <leader>gc :Git commit -m  ""<left>
 nmap <leader>gp :Git push github master<cr>
-nmap <leader>gs :Git status<cr>
+nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
 nmap <leader>gd :Gdiff<cr>
 "qmap <leader>t<leader> :CommandT<cr>
