@@ -36,8 +36,3 @@ for name in *; do
     fi
 done
 
-Pcutstring="PERSONAL"
-
-#git config --global user.name "Anup Bishnoi"
-#git config --global user.email pixelsallover@gmail.com
-#git remote add github git@github.com:anupbishnoi/config_files.git

@@ -85,7 +85,7 @@ set gdefault
 set showmatch
 set nobackup
 set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
+"set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set visualbell t_vb=    " turn off both visual and audio bell
@@ -181,14 +181,24 @@ imap <F1> <Esc>
 map <F1> <Esc>
 
 " Plugins
+nmap <leader>ss :ScratchOpen<cr>
 nmap <leader>ls :NERDTreeToggle<cr>
 nmap <leader>g<space> :Git 
-nmap <leader>gc :Git commit -m  ""<left>
+nmap <leader>gc :Git commit -m ""<left>
 nmap <leader>gp :Git push github master<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
 nmap <leader>gd :Gdiff<cr>
 "qmap <leader>t<leader> :CommandT<cr>
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
+
+" To explore all commits 
+nmap <leader>ge :Gedit HEAD<cr> 
+
+" Status line has git information
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P " 
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
