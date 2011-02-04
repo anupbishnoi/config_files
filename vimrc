@@ -184,7 +184,7 @@ map <F1> <Esc>
 nmap <leader>ss :ScratchOpen<cr>
 nmap <leader>ls :NERDTreeToggle<cr>
 nmap <leader>g<space> :Git 
-nmap <leader>gc :Git commit -m ""<left>
+nmap <leader>gc :Gcommit<left>
 nmap <leader>gp :Git push github master<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
