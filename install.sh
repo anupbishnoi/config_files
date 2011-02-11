@@ -24,6 +24,7 @@ for name in *; do
         fi
     else
         if [[ $name != 'install.sh' ]]; then
+          if [[ $name != 'README' ]]; then
             if [[ $name != 'firstboot.sh' ]]; then
                 echo "Creating $target"
                 if [[ -n `grep "$cutstring" "$name"` ]]; then
@@ -32,6 +33,7 @@ for name in *; do
                     ln -s "$PWD/$name" "$target"
                 fi
             fi
+          fi
         fi
     fi
 done

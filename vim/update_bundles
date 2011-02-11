@@ -25,6 +25,7 @@ git_bundles = [
   "git://github.com/wincent/Command-T.git",
   "git://github.com/mileszs/ack.git",
   "git://github.com/kana/vim-scratch.git",
+  "git://github.com/digitaltoad/vim-jade.git",
   "git://github.com/mhz/vim-matchit.git"
 ]
 

@@ -64,10 +64,10 @@ set backspace=indent,eol,start
 " turn off security exploit
 set modelines=0
 
-" Softtabs, 4 spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Always display the status line
@@ -76,7 +76,8 @@ set laststatus=2
 set encoding=utf-8
 set scrolloff=3
 set showmode
-set hidden
+"set hidden
+"set virtualedit=all
 set ttyfast
 set undofile
 set ignorecase
@@ -107,31 +108,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" map each number to its shift-key character
-inoremap 1 !
-inoremap 2 @
-inoremap 3 #
-inoremap 4 $
-inoremap 5 %
-inoremap 6 ^
-inoremap 7 &
-inoremap 8 *
-inoremap 9 (
-inoremap 0 )
-inoremap - _
-" and then the opposite
-inoremap ! 1
-inoremap @ 2
-inoremap # 3
-inoremap $ 4
-inoremap % 5
-inoremap ^ 6
-inoremap & 7
-inoremap * 8
-inoremap ( 9
-inoremap ) 0
-inoremap _ -
-
+map < <cr>
 nnoremap/ /\v
 vnoremap/ /\v
 nnoremap <tab> %
@@ -145,8 +122,8 @@ nnoremap <C-h> <C-w>h<C-w>999>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l<C-w>999>
-nnoremap JJ gT
-nnoremap KK gt
+nnoremap <c-tab> gT
+nnoremap <c-s-tab> gt
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
 nnoremap <C-v> "+p
@@ -216,11 +193,11 @@ nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
 nmap <leader>gd :Gdiff<cr>
 "qmap <leader>t<leader> :CommandT<cr>
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabMappingForward = '<c-space>'
-let g:SuperTabMappingBackward = '<s-c-space>'
+"let g:SuperTabMappingForward = '<c-space>'
+"let g:SuperTabMappingBackward = '<s-c-space>'
 
 " To explore all commits 
-nmap <leader>ge :Gedit HEAD<cr> 
+nmap <leader>ge :Gedit HEAD<cr><cr><cr>
 
 " Status line has git information
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P " 
@@ -243,11 +220,13 @@ if has("gui_running")
     colorscheme vividchalk
     highlight NonText guibg=#060606
     highlight Folded  guibg=#0A0A0A guifg=#9090D0
-    highlight LineNr  guibg=#444444 guifg=#777777
+    highlight LineNr  guibg=#444444 guifg=#777777 
     nnoremap <leader>gn :set guioptions=<cr>
     nnoremap <leader>gm :set guioptions+=m<cr>
 else
     set background=dark
+    colorscheme vividchalk
+    highlight LineNr ctermfg=DarkGrey ctermbg=Black
 endif
 
 " Local config
