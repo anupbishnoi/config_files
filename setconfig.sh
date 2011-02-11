@@ -23,7 +23,7 @@ for name in *; do
             fi
         fi
     else
-        if [[ $name != 'install.sh' ]]; then
+        if [[ $name != 'setconfig.sh' ]]; then
           if [[ $name != 'README' ]]; then
             if [[ $name != 'firstboot.sh' ]]; then
                 echo "Creating $target"

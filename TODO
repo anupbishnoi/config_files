@@ -1,2 +1,3 @@
 add bashrc with separated local and default settings
-check if slime is installed and if vimrc is up to date in github
+sudo apt-get install rake ruby-dev lynx-cur
+npm install connect express jade step less supervisor

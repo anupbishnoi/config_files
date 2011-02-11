@@ -1,3 +1,10 @@
+
+# ADD LOCAL CONFIGURATION HERE
+
+echo -e '\033]P0000022'
+setfont Uni3-TerminusBold20x10
+
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -102,8 +109,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# DO NOT EDIT BELOW THIS LINE
+
 export PATH=$HOME/bin:$HOME/local/bin:$PATH
-echo -e '\033]P0000022'
-setfont Uni3-TerminusBold20x10
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
 
