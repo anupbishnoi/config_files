@@ -10,7 +10,7 @@ h2. Install
 * Run:
 
 <pre>
-./setconfig.sh
+./.setconfig.sh
 </pre>
 
 This will create symlinks for all config files in your home directory. You can
@@ -29,7 +29,7 @@ h2. Fresh ubuntu install
 If it's a fresh ubuntu install:
 
 <pre>
-./firstboot.sh
+./.firstboot.sh
 </pre>
 
 This will set the machine up with build-essential, node.js, npm, and other important packages

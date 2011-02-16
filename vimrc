@@ -118,6 +118,8 @@ nnoremap k gk
 nnoremap ; :
 vnoremap ; :
 inoremap jj <Esc>
+inoremap ;; <Esc>$a;<Esc>o
+inoremap ll <Esc>$a
 nnoremap <C-h> <C-w>h<C-w>999>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -132,16 +134,16 @@ nnoremap <leader>ft Vatzf
 "nnoremap <leader>v V`]
 nnoremap <leader>q<leader> :q<cr>
 nnoremap <leader>qq :q!<cr>
-nnoremap <leader>j<leader> yyp
-nnoremap <leader>k<leader> yyP
+nnoremap <leader>j<leader> :m+<cr>
+nnoremap <leader>k<leader> :m-2<cr>
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>w<leader> :w<cr>
 vnoremap <leader>s<leader> :s/
 nnoremap <leader>sh :sh<cr>
 nnoremap <leader>rd ggg?G
 nnoremap <leader><cr> i<cr><Esc>
-nnoremap <leader>jj :m+<cr>
-nnoremap <leader>kk :m-2<cr>
+nnoremap <leader>jj yyp
+nnoremap <leader>kk yyp
 nnoremap <leader>.<leader> <C-w>999>
 
 " open vimrc in a split window"

@@ -1,3 +1,1 @@
-add bashrc with separated local and default settings
-sudo apt-get install rake ruby-dev lynx-cur
-npm install connect express jade step less supervisor
+irssi config etc
