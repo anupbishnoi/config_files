@@ -9,7 +9,7 @@ sudo add-apt-repository ppa:passy/vim
 sudo add-apt-repository ppa:couchapp/couchapp
 sudo apt-get update
 
-sudo apt-get -y install curl zsh vim ctags vim-doc vim-scripts vim-gnome flashplugin-nonfree build-essential rar unrar p7zip p7zip-full gstreamer0.10-pitfdll gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse vlc-nox libssl-dev chromium-browser ack-grep xchm bum rcconf rake ruby-dev lynx-cur
+sudo apt-get -y install curl zsh vim ctags vim-doc vim-scripts vim-gnome flashplugin-nonfree build-essential rar unrar p7zip p7zip-full gstreamer0.10-pitfdll gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse vlc-nox libssl-dev chromium-browser ack-grep xchm bum rcconf rake ruby-dev lynx-cur irssi
 
 sudo apt-get upgrade
 
