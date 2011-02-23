@@ -38,4 +38,4 @@ git clone git@github.com:anupbishnoi/informationgraph.git
 cd ~
 
 rm .bashrc
-rm .bash_logout
+
