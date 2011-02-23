@@ -27,7 +27,7 @@ cd npm
 make install
 cd ~
 
-npm install connect express jade step less supervisor
+npm install connect express jade step less supervisor mingy optimist npmdep
 
 sudo apt-get install couchdb couchapp
 

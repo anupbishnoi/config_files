@@ -119,7 +119,7 @@ nnoremap ; :
 vnoremap ; :
 inoremap jj <Esc>
 inoremap ;; <Esc>$a;<Esc>o
-inoremap ll <Esc>$a
+"inoremap ll <Esc>$a
 nnoremap <C-h> <C-w>h<C-w>999>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
