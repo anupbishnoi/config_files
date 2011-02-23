@@ -1,7 +1,10 @@
-# ADD YOUR LOCAL CONFIGURATION HERE
+# ~/.bash_logout: executed by bash(1) when login shell exits.
 
+# when leaving the console clear the screen to increase privacy
 
-# DO NOT EDIT BELOW THIS LINE
+if [ "$SHLVL" = 1 ]; then
+    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
+fi
 
 cd ~/code/informationgraph/
 git push

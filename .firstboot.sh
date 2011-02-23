@@ -37,5 +37,5 @@ git clone git@github.com:anupbishnoi/informationgraph.git
 
 cd ~
 
-echo "# DO NOT EDIT BELOW THIS LINE" >> .bashrc
-echo "# DO NOT EDIT BELOW THIS LINE" >> .bash_logout
+rm .bashrc
+rm .bash_logout

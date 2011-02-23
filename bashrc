@@ -1,9 +1,3 @@
-# ADD LOCAL CONFIGURATION HERE
-
-
-
-# DO NOT EDIT BELOW THIS LINE
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
