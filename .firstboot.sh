@@ -27,7 +27,7 @@ cd npm
 make install
 cd ~
 
-npm install connect express jade step less supervisor
+npm install connect express jade step less supervisor mingy optimist npmdep
 
 sudo apt-get install couchdb couchapp
 
@@ -37,4 +37,5 @@ git clone git@github.com:anupbishnoi/informationgraph.git
 
 cd ~
 
-echo "# DO NOT EDIT BELOW THIS LINE\n" >> .bashrc
+rm .bashrc
+

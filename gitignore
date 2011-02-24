@@ -6,3 +6,4 @@ logs
 pids
 .couchapprc
 .netrwhist
+.loginData.js
