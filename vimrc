@@ -117,7 +117,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap ; :
 vnoremap ; :
-inoremap jj <Esc>
+"inoremap jj <Esc>
 inoremap ;; <Esc>$a;<Esc>o
 inoremap ,, <Esc>$a,<Esc>o
 "inoremap ll <Esc>$a
