@@ -81,6 +81,7 @@ fi
 alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
+alias ig='cd ~/code/informationgraph/home/_attachments'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
