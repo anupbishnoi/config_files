@@ -90,6 +90,7 @@ set history=50		" keep 50 lines of command line history
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set visualbell t_vb=    " turn off both visual and audio bell
+set autoread
 
 " Numbers
 set relativenumber
@@ -141,6 +142,17 @@ inoremap <leader><cr> <Esc>o
 nnoremap <leader>jj yyp
 nnoremap <leader>kk yyp
 nnoremap <leader>.<leader> <C-w>999>
+
+" session management
+nmap QQ <Esc>:mksession! ~/.session.vim<cr>:wqa<cr>
+"set sessionoptions-=options
+function! RestoreSession()
+  if argc() == 0 "vim called without arguments"
+    execute 'source ~/.session.vim'
+    highlight LineNr ctermfg=DarkGrey ctermbg=Black
+  end
+endfunction
+autocmd VimEnter * call RestoreSession()
 
 " open vimrc in a split window"
 nnoremap <leader>ev <C-w>v:e ~/config_files/vimrc<cr> 
