@@ -108,20 +108,13 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-map < <cr>
-nnoremap/ /\v
-vnoremap/ /\v
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
-nnoremap ; :
-vnoremap ; :
-"inoremap jj <Esc>
-inoremap ;; <Esc>$a;<Esc>o
-inoremap ,, <Esc>$a,<Esc>o
-"inoremap ll <Esc>$a
-inoremap ll; <Esc>$a;<Esc>
+"inoremap ;; <Esc>$a;<Esc>o
+"inoremap ,, <Esc>$a,<Esc>o
+"inoremap ll; <Esc>$a;<Esc>
 nnoremap <C-h> <C-w>h<C-w>999>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -144,6 +137,7 @@ vnoremap <leader>s<leader> :s/
 nnoremap <leader>sh :sh<cr>
 nnoremap <leader>rd ggg?G
 nnoremap <leader><cr> i<cr><Esc>
+inoremap <leader><cr> <Esc>o
 nnoremap <leader>jj yyp
 nnoremap <leader>kk yyp
 nnoremap <leader>.<leader> <C-w>999>
@@ -195,6 +189,7 @@ nmap <leader>gp :Git push github master<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
 nmap <leader>gd :Gdiff<cr>
+vmap <leader>cc :CoffeeCompile<cr>
 "qmap <leader>t<leader> :CommandT<cr>
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabMappingForward = '<c-space>'
