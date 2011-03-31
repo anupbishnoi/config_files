@@ -176,8 +176,6 @@ imap <Tab> <C-P>
 vmap D y'>p
 
 " No Help, please
-nmap <F1> <Esc>
-imap <F1> <Esc>
 map <F1> <Esc>
 
 " Plugins
@@ -189,7 +187,7 @@ nmap <leader>gp :Git push github master<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
 nmap <leader>gd :Gdiff<cr>
-vmap <leader>cc :CoffeeCompile<cr>
+vmap <leader>js :CoffeeCompile<cr>
 "qmap <leader>t<leader> :CommandT<cr>
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabMappingForward = '<c-space>'
