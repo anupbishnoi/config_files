@@ -142,6 +142,7 @@ inoremap <leader><cr> <Esc>o
 nnoremap <leader>jj yyp
 nnoremap <leader>kk yyp
 nnoremap <leader>.<leader> <C-w>999>
+nnoremap <leader>rr :edit<cr>
 
 " session management
 nmap QQ <Esc>:mksession! ~/.session.vim<cr>:wqa<cr>
