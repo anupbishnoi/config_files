@@ -144,11 +144,11 @@ nnoremap <leader>kk yyp
 nnoremap <leader>.<leader> <C-w>999>
 
 " session management
-nmap QQ <Esc>:mksession! ~/.session.vim<cr>:wqa<cr>
+nmap QQ <Esc>:mksession! ~/.vim/session.vim<cr>:wqa<cr>
 "set sessionoptions-=options
 function! RestoreSession()
   if argc() == 0 "vim called without arguments"
-    execute 'source ~/.session.vim'
+    execute 'source ~/.vim/session.vim'
     highlight LineNr ctermfg=DarkGrey ctermbg=Black
   end
 endfunction
