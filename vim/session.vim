@@ -145,6 +145,7 @@ nnoremap  W :%s/\s\+$//:let @/=''
 nnoremap  eq :w:source ~/config_files/vimrc:q  
 nnoremap  ew :w:source ~/config_files/vimrc  
 nnoremap  ev v:e ~/config_files/vimrc 
+nnoremap  rr :edit
 nnoremap  .  999>
 nnoremap  kk yyp
 nnoremap  jj yyp
@@ -273,6 +274,7 @@ set helplang=en
 set history=50
 set ignorecase
 set incsearch
+set isident=@,48-57,_,192-255,$
 set laststatus=2
 set modelines=0
 set runtimepath=~/.vim,~/.vim/bundle/AutoClose,~/.vim/bundle/IndexedSearch,~/.vim/bundle/gist-vim,~/.vim/bundle/greplace.vim,~/.vim/bundle/jQuery,~/.vim/bundle/nerdcommenter,~/.vim/bundle/nerdtree,~/.vim/bundle/slime,~/.vim/bundle/snipmate.vim,~/.vim/bundle/vim-align,~/.vim/bundle/vim-coffee-script,~/.vim/bundle/vim-fugitive,~/.vim/bundle/vim-git,~/.vim/bundle/vim-haml,~/.vim/bundle/vim-jade,~/.vim/bundle/vim-markdown,~/.vim/bundle/vim-matchit,~/.vim/bundle/vim-repeat,~/.vim/bundle/vim-scratch,~/.vim/bundle/vim-supertab,~/.vim/bundle/vim-surround,~/.vim/bundle/vim-vividchalk,~/.vim/bundle/zencoding-vim,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,~/.vim/bundle/snipmate.vim/after,~/.vim/after
@@ -296,31 +298,50 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 code/informationgraph/home/_attachments/scripts/flow.js
+badd +131 code/informationgraph/home/_attachments/scripts/flow.js
+badd +486 code/informationgraph/home/vendor/ig/_attachments/jquery.couch.ig.orig.js
+badd +147 code/informationgraph/home/vendor/ig/_attachments/jquery.couch.ig.coffee
+badd +506 code/informationgraph/home/vendor/ig/_attachments/jquery.couch.ig.js
+badd +96 code/informationgraph/home/_attachments/index.html
+badd +53 code/informationgraph/home/_attachments/scripts/startup.coffee
+badd +143 code/informationgraph/home/_attachments/scripts/startup.orig.js
+badd +135 code/informationgraph/home/_attachments/scripts/startup.js
+badd +0 code/informationgraph/home/coffeescript/app/startup.coffee
+badd +0 code/informationgraph/home/coffeescript/ig/jquery.couch.ig.coffee
 silent! argdel *
-edit code/informationgraph/home/_attachments/scripts/flow.js
+edit code/informationgraph/home/coffeescript/ig/jquery.couch.ig.coffee
 set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 26 + 40) / 80)
+exe 'vert 2resize ' . ((&columns * 26 + 40) / 80)
+exe 'vert 3resize ' . ((&columns * 26 + 40) / 80)
 argglobal
 cnoremap <buffer> <expr>  fugitive#buffer().rev()
 setlocal keymap=
 setlocal noarabic
-setlocal noautoindent
+setlocal autoindent
 setlocal balloonexpr=
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
-setlocal cindent
+setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=j1,J1
+setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=//%s
+setlocal comments=s:###,m:\ ,e:###,:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,t
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -336,8 +357,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'javascript'
-setlocal filetype=javascript
+if &filetype != 'coffee'
+setlocal filetype=coffee
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -357,8 +378,8 @@ setlocal iminsert=2
 setlocal imsearch=2
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal indentexpr=GetCoffeeIndent(v:lnum)
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0],0),0.,=else,=when,=catch,=finally
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -372,7 +393,7 @@ setlocal modifiable
 setlocal nrformats=octal,hex
 setlocal nonumber
 setlocal numberwidth=4
-setlocal omnifunc=javascriptcomplete#CompleteJS
+setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -388,15 +409,15 @@ setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=2
 setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellcapcheck=
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'javascript'
-setlocal syntax=javascript
+if &syntax != 'coffee'
+setlocal syntax=coffee
 endif
 setlocal tabstop=2
 setlocal tags=./tags,./TAGS,tags,TAGS,~/code/informationgraph/.git/tags
@@ -408,12 +429,240 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 131 - ((15 * winheight(0) + 16) / 32)
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-131
-normal! 08l
+1
+normal! 0
+wincmd w
+argglobal
+edit code/informationgraph/home/coffeescript/app/startup.coffee
+cnoremap <buffer> <expr>  fugitive#buffer().rev()
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s:###,m:\ ,e:###,:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,t
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'coffee'
+setlocal filetype=coffee
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetCoffeeIndent(v:lnum)
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0],0),0.,=else,=when,=catch,=finally
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'coffee'
+setlocal syntax=coffee
+endif
+setlocal tabstop=2
+setlocal tags=./tags,./TAGS,tags,TAGS,~/code/informationgraph/.git/tags
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal undofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+argglobal
+edit code/informationgraph/home/_attachments/index.html
+cnoremap <buffer> <expr>  fugitive#buffer().rev()
+setlocal keymap=
+setlocal noarabic
+setlocal noautoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+setlocal commentstring=<!--%s-->
+setlocal complete=.,w,t
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'html'
+setlocal filetype=html
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=HtmlIndentGet(v:lnum)
+setlocal indentkeys=o,O,*<Return>,<>>,{,}
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'html'
+setlocal syntax=html
+endif
+setlocal tabstop=2
+setlocal tags=./tags,./TAGS,tags,TAGS,~/code/informationgraph/.git/tags
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal undofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 96 - ((6 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+96
+normal! 041l
+wincmd w
+exe 'vert 1resize ' . ((&columns * 26 + 40) / 80)
+exe 'vert 2resize ' . ((&columns * 26 + 40) / 80)
+exe 'vert 3resize ' . ((&columns * 26 + 40) / 80)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
