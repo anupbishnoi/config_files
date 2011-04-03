@@ -315,9 +315,9 @@ badd +1 code/informationgraph/home/coffeescript/app/shortenItem.orig.js
 badd +14 code/informationgraph/home/coffeescript/app/shortenItem.coffee
 badd +9 code/informationgraph/home/_attachments/scripts/shortenItem.js
 badd +32 code/informationgraph/home/validate_doc_update.js
-badd +2 code/informationgraph/home/coffeescript/views/itemSuggestions/map.coffee
-badd +0 code/informationgraph/home/coffeescript/views/allItems/map.coffee
-badd +0 code/informationgraph/home/views/allItems/map.js
+badd +1 code/informationgraph/home/coffeescript/views/itemSuggestions/map.coffee
+badd +1 code/informationgraph/home/coffeescript/views/allItems/map.coffee
+badd +1 code/informationgraph/home/views/allItems/map.js
 badd +649 code/informationgraph/home/vendor/couch/_attachments/jquery.couch.js
 badd +2 code/informationgraph/home/views/itemSuggestions/map.js
 silent! argdel *
@@ -340,11 +340,11 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 119 + 63) / 127)
-exe 'vert 2resize ' . ((&columns * 1 + 63) / 127)
-exe 'vert 3resize ' . ((&columns * 1 + 63) / 127)
-exe 'vert 4resize ' . ((&columns * 1 + 63) / 127)
-exe 'vert 5resize ' . ((&columns * 1 + 63) / 127)
+exe 'vert 1resize ' . ((&columns * 94 + 51) / 102)
+exe 'vert 2resize ' . ((&columns * 1 + 51) / 102)
+exe 'vert 3resize ' . ((&columns * 1 + 51) / 102)
+exe 'vert 4resize ' . ((&columns * 1 + 51) / 102)
+exe 'vert 5resize ' . ((&columns * 1 + 51) / 102)
 argglobal
 cnoremap <buffer> <expr>  fugitive#buffer().rev()
 setlocal keymap=
@@ -454,7 +454,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 0
+normal! 02l
 wincmd w
 argglobal
 edit code/informationgraph/home/coffeescript/views/answers/map.coffee
@@ -673,12 +673,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 285 - ((6 * winheight(0) + 16) / 32)
+let s:l = 2 - ((1 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-285
-normal! 021l
+2
+normal! 04l
 wincmd w
 argglobal
 edit code/informationgraph/home/coffeescript/app/startup.coffee
@@ -785,12 +785,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((13 * winheight(0) + 16) / 32)
+let s:l = 6 - ((3 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
-normal! 02l
+6
+normal! 04l
 wincmd w
 argglobal
 edit code/informationgraph/home/_attachments/index.html
@@ -897,18 +897,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 99 - ((3 * winheight(0) + 16) / 32)
+let s:l = 64 - ((5 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-99
-normal! 06l
+64
+normal! 034l
 wincmd w
-exe 'vert 1resize ' . ((&columns * 119 + 63) / 127)
-exe 'vert 2resize ' . ((&columns * 1 + 63) / 127)
-exe 'vert 3resize ' . ((&columns * 1 + 63) / 127)
-exe 'vert 4resize ' . ((&columns * 1 + 63) / 127)
-exe 'vert 5resize ' . ((&columns * 1 + 63) / 127)
+exe 'vert 1resize ' . ((&columns * 94 + 51) / 102)
+exe 'vert 2resize ' . ((&columns * 1 + 51) / 102)
+exe 'vert 3resize ' . ((&columns * 1 + 51) / 102)
+exe 'vert 4resize ' . ((&columns * 1 + 51) / 102)
+exe 'vert 5resize ' . ((&columns * 1 + 51) / 102)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
