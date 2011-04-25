@@ -28,6 +28,12 @@ cd ..
 git clone git://github.com/isaacs/npm.git
 cd npm
 make install
+cd ..
+
+git clone --recursive git://github.com/nvie/gitflow.git
+cd gitflow
+sudo make install
+
 cd ~
 
 npm install connect express jade step less supervisor mingy optimist npmdep http-console less coffee-script docco
@@ -37,6 +43,10 @@ sudo apt-get install couchdb couchapp
 mkdir code
 cd code
 git clone git@github.com:anupbishnoi/informationgraph.git
+git clone git@github.com:anupbishnoi/coffeeapp.git
+cd coffeeapp
+npm link
+git remote add upstream git://github.com/andrzejsliwa/coffeeapp.git
 
 cd ~
 
