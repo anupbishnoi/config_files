@@ -6,5 +6,4 @@ logs
 pids
 .couchapprc
 .netrwhist
-.loginData.js
 session.vim
