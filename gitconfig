@@ -1,6 +1,3 @@
-# ADD LOCAL CONFIGURATION HERE
-
-
 # DO NOT EDIT BELOW THIS LINE
 [push]
     default = tracking
@@ -21,6 +18,9 @@
     dic = diff --cached
     pl = pull
     ps = push
+    br = branch
+    co = checkout
+    cl = clone
     ;plre = pull --rebase
     st = status
     out = log origin..HEAD
