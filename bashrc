@@ -82,6 +82,8 @@ alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 alias ig='cd ~/code/informationgraph/home/'
+alias conf='cd ~/config_files/'
+alias cof='cd ~/code/coffeeapp/'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
