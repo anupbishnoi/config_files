@@ -1,5 +1,8 @@
 #!/bin/sh
 
+git config --global branch.autosetupmerge always
+git config --global push.default tracking
+
 cd ~
 rmdir Public/ Pictures/ Videos/ Documents/ Music/ Templates/
 sudo chown -R $USER /usr/local
@@ -28,6 +31,12 @@ cd ..
 git clone git://github.com/isaacs/npm.git
 cd npm
 make install
+cd ..
+
+git clone --recursive git://github.com/nvie/gitflow.git
+cd gitflow
+sudo make install
+
 cd ~
 
 npm install connect express jade step less supervisor mingy optimist npmdep http-console less coffee-script docco coffeeapp
@@ -37,6 +46,17 @@ sudo apt-get install couchdb couchapp
 mkdir code
 cd code
 git clone git@github.com:anupbishnoi/informationgraph.git
+cd informationgraph
+git config --add remote.origin.push 'refs/heads/*:refs/heads/*'
+git config --add remote.origin.push 'refs/tags/*:refs/tags/*'
+
+cd ..
+git clone git@github.com:anupbishnoi/coffeeapp.git
+cd coffeeapp
+npm link
+git remote add upstream git://github.com/andrzejsliwa/coffeeapp.git
+git config --add remote.origin.push 'refs/heads/*:refs/heads/*'
+git config --add remote.origin.push 'refs/tags/*:refs/tags/*'
 
 cd ~
 
