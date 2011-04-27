@@ -21,6 +21,9 @@
     dic = diff --cached
     pl = pull
     ps = push
+    br = branch
+    cl = clone
+    co = checkout
     ;plre = pull --rebase
     st = status
     out = log origin..HEAD
