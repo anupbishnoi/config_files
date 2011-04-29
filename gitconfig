@@ -21,14 +21,18 @@
     br = branch
     co = checkout
     cl = clone
-    ;plre = pull --rebase
     st = status
     out = log origin..HEAD
-    ;qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
-    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     ca = commit -a
     cam = commit -a -m
     cm = commit -m
+    f = flow feature
+    r = flow release
+    h = flow hotfix
+    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+    ;plre = pull --rebase
+    ;qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
     ;ca = commit --amend
     ;pr = remote prune origin
     ;up = !git fetch origin && git rebase origin/master

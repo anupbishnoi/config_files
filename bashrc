@@ -87,6 +87,7 @@ alias conf='cd ~/config_files/'
 alias cof='cd ~/code/coffeeapp/'
 
 alias src='vim -O src/*'
+alias pushapp='coffeeapp push'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
