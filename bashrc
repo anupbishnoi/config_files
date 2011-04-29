@@ -81,7 +81,7 @@ fi
 alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
-alias ig='cd ~/code/informationgraph/home/'
+alias ig='cd ~/code/informationgraph/'
 alias conf='cd ~/config_files/'
 alias cof='cd ~/code/coffeeapp/'
 
