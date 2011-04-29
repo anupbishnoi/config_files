@@ -145,7 +145,8 @@ nnoremap <leader>.<leader> <C-w>999>
 nnoremap <leader>rr :edit<cr>
 
 " session management
-nmap QQ <Esc>:mksession! ~/.vim/session.vim<cr>:wqa<cr>
+"nmap QQ <Esc>:mksession! ~/.vim/session.vim<cr>:wqa<cr>
+nmap QQ <Esc>:wqa<cr>
 "set sessionoptions-=options
 function! RestoreSession()
   if argc() == 0 "vim called without arguments"
@@ -153,7 +154,7 @@ function! RestoreSession()
     highlight LineNr ctermfg=DarkGrey ctermbg=Black
   end
 endfunction
-autocmd VimEnter * call RestoreSession()
+"autocmd VimEnter * call RestoreSession()
 
 " open vimrc in a split window"
 nnoremap <leader>ev <C-w>v:e ~/config_files/vimrc<cr> 
@@ -195,11 +196,13 @@ map <F1> <Esc>
 nmap <leader>ss :ScratchOpen<cr>
 nmap <leader>ls :NERDTreeToggle<cr>
 nmap <leader>g<space> :Git 
-nmap <leader>gc :Gcommit<left>
-nmap <leader>gp :Git push github master<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gg :Git push<cr>
 nmap <leader>gs :Gstatus<cr>
-nmap <leader>ga :Git add <C-r>=expand("%:p")<cr><cr>:Git commit -m ""<left>
-nmap <leader>gd :Gdiff<cr>
+nmap <leader>ga :Git add .<cr>:Git commit<cr>
+nmap <leader>gf :Git flow feature start 
+nmap <leader>gr :Git flow release start 
+
 vmap <leader>js :CoffeeCompile<cr>
 "qmap <leader>t<leader> :CommandT<cr>
 let g:SuperTabDefaultCompletionType = "context"
