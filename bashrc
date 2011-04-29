@@ -107,6 +107,6 @@ fi
 
 
 
-export PATH=$HOME/bin:$HOME/local/bin:$PATH
+export PATH=$HOME/local/bin:/var/lib/gems/1.8/bin/:$PATH
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
 
