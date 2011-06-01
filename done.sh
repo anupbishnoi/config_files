@@ -1,10 +1,5 @@
 #!/bin/sh
 
-cd ~/code/coffeeapp
-git commit -a
-echo "pushing changes to coffeeapp"
-git push
-
 cd ~/config_files
 git commit -a
 echo "pushing changes to config_files"

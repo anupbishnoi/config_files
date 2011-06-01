@@ -1,11 +1,5 @@
 #!/bin/sh
 
-cd ~/code/coffeeapp
-echo "Committing coffeeapp"
-git commit -a
-echo "Pulling changes for coffeeapp"
-git pull
-
 cd ~/config_files
 echo "Committing config_files"
 git commit -a
