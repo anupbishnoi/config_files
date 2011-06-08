@@ -87,6 +87,7 @@ alias conf='cd ~/config_files/'
 
 alias src='vim -O src/*'
 alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
+alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
