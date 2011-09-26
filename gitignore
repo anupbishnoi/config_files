@@ -7,3 +7,4 @@ pids
 .couchapprc
 .netrwhist
 session.vim
+.DS_Store
