@@ -120,14 +120,14 @@ nnoremap <C-h> <C-w>h<C-w>999>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l<C-w>999>
-nnoremap <c-tab> gT
-nnoremap <c-s-tab> gt
+nnoremap <c-tab> gt
+nnoremap <c-s-tab> gT
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
 nnoremap <C-v> "+p
 
 nnoremap <leader>ft Vatzf
-"nnoremap <leader>v V`]
+nnoremap <leader>v<leader> V`]
 nnoremap <leader>q<leader> :q<cr>
 nnoremap <leader>qq :q!<cr>
 nnoremap <leader>j<leader> :m+<cr>
@@ -138,11 +138,13 @@ vnoremap <leader>s<leader> :s/
 nnoremap <leader>sh :sh<cr>
 nnoremap <leader>rd ggg?G
 nnoremap <leader><cr> i<cr><Esc>
-inoremap <leader><cr> <Esc>o
 nnoremap <leader>jj yyp
 nnoremap <leader>kk yyp
 nnoremap <leader>.<leader> <C-w>999>
 nnoremap <leader>rr :edit<cr>
+
+inoremap <leader><cr> <Esc>o
+inoremap <leader>f<leader> <Esc>$a-><cr>
 
 " session management
 "nmap QQ <Esc>:mksession! ~/.vim/session.vim<cr>:wqa<cr>
@@ -151,7 +153,7 @@ nmap QQ <Esc>:wqa<cr>
 function! RestoreSession()
   if argc() == 0 "vim called without arguments"
     execute 'source ~/.vim/session.vim'
-    highlight LineNr ctermfg=DarkGrey ctermbg=Black
+    "highlight LineNr ctermfg=DarkGrey ctermbg=Black
   end
 endfunction
 "autocmd VimEnter * call RestoreSession()
@@ -231,9 +233,9 @@ if has("gui_running")
     "set columns=999
 
     colorscheme vividchalk
-    highlight NonText guibg=#060606
-    highlight Folded  guibg=#0A0A0A guifg=#9090D0
-    highlight LineNr  guibg=#444444 guifg=#777777 
+    "highlight NonText guibg=#060606
+    "highlight Folded  guibg=#0A0A0A guifg=#9090D0
+    "highlight LineNr  guibg=#444444 guifg=#777777 
     nnoremap <leader>gn :set guioptions=<cr>
     nnoremap <leader>gm :set guioptions+=m<cr>
 else

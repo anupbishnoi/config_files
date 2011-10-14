@@ -31,3 +31,8 @@ if filereadable($HOME . "/.gvimrc.local")
   source ~/.gvimrc.local
 endif
 
+" save sessions with .vis extension
+nmap QQ :mksession!  ~/code/code_session.vis<CR>:wqa<CR>
+" automatically source vim sessions so I can open them with the finder
+au BufRead *.vis so %"
+"autocmd VimEnter * call RestoreSession()

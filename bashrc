@@ -78,16 +78,19 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
+alias ls='ls -GpFh'
 alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 
 alias ig='cd ~/code/informationgraph/'
 alias conf='cd ~/config_files/'
+alias practice='cd ~/code/practice/'
 
 alias src='vim -O src/*'
 alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
 alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
+alias coffeemake='coffee -bc'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -111,6 +114,9 @@ fi
 
 
 
-export PATH=$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:$PATH
+export PATH=/usr/local/lib/node_modules:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:~/Library/Python/2.7/site-packages:$PATH
+export PYTHONPATH="~/bin:~/Library/Python/2.7/site-packages"
+export NODE_PATH="/usr/local/lib/node"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
 
+alias current='cd ~/code/practice/reversewords'

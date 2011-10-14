@@ -41,7 +41,7 @@ sudo make install
 
 cd ~
 
-npm install connect express jade step less supervisor mingy optimist npmdep http-console less coffee-script docco coffeeapp
+npm install connect express jade step less supervisor mingy optimist npmdep http-console less coffee-script docco coffeeapp natural
 
 sudo apt-get install couchdb couchapp
 
