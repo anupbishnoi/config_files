@@ -233,8 +233,8 @@ if has("gui_running")
     "set columns=999
 
     colorscheme vividchalk
-    "highlight NonText guibg=#060606
-    "highlight Folded  guibg=#0A0A0A guifg=#9090D0
+    highlight NonText guibg=#060606
+    highlight Folded  guibg=#0A0A0A guifg=#9090D0
     "highlight LineNr  guibg=#444444 guifg=#777777 
     nnoremap <leader>gn :set guioptions=<cr>
     nnoremap <leader>gm :set guioptions+=m<cr>

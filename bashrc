@@ -90,7 +90,7 @@ alias practice='cd ~/code/practice/'
 alias src='vim -O src/*'
 alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
 alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
-alias coffeemake='coffee -bc'
+alias ccoffee='coffee -bc'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -119,4 +119,4 @@ export PYTHONPATH="~/bin:~/Library/Python/2.7/site-packages"
 export NODE_PATH="/usr/local/lib/node"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
 
-alias current='cd ~/code/practice/reversewords'
+alias current='cd ~/code/vmc'
