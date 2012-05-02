@@ -1,7 +1,4 @@
-ig /Users/anup/code/informationgraph/home/vendor/ig/_attachments
-igapp /Users/anup/code/informationgraph/home/_attachments/scripts
-igsrc /Users/anup/code/informationgraph/src
 practice /Users/anup/code/practice
+projects /Users/anup/code/projects
+seatingplan /Users/anup/code/projects/seatingplan
 vimplugins /Users/anup/config_files/vim/bundle
-
-seating_plan /Users/anup/code/vmc/pdf/seating.coffee

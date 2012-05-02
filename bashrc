@@ -83,9 +83,10 @@ alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias ig='cd ~/code/informationgraph/'
+alias ig='cd ~/code/projects/informationgraph/'
 alias conf='cd ~/config_files/'
 alias practice='cd ~/code/practice/'
+alias vmc='cd ~/code/projects/vidyamandir/'
 
 alias src='vim -O src/*'
 alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
