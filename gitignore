@@ -10,3 +10,4 @@ session.vim
 session.vis
 .DS_Store
 node_modules
+.meteor

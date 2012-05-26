@@ -26,9 +26,10 @@
     ca = commit -a
     cam = commit -a -m
     cm = commit -m
-    f = flow feature
-    r = flow release
-    h = flow hotfix
+    ;f = flow feature
+    ;r = flow release
+    ;h = flow hotfix
+    deletelast = reset --hard HEAD~1
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
     ;plre = pull --rebase

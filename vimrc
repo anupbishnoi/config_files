@@ -1,12 +1,10 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 filetype plugin indent on
 set nocompatible
 
 call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
 
 let $PATH=substitute(system("echo \$PATH"), "\r\*\n", "", "g")
 
@@ -26,6 +24,9 @@ if has("autocmd")
 
         " For Haml
         au! BufRead,BufNewFile *.haml         setfiletype haml
+
+        " For Coffee
+        "au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
         " For all text files set 'textwidth' to 78 characters.
         autocmd FileType text setlocal textwidth=78
@@ -48,7 +49,7 @@ if has("autocmd")
         endif
 
         " Change to directory of opened file
-        autocmd BufEnter * lcd %:p:h
+        "autocmd BufEnter * lcd %:p:h
 
     augroup END
 
@@ -80,8 +81,6 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
-
-set scrollbind
 
 " Always display the status line
 set laststatus=2
@@ -118,8 +117,8 @@ syntax enable
 
 let mapleader = ","
 
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
 nnoremap <C-h> <C-w>h
@@ -130,15 +129,21 @@ nnoremap <c-tab> gt
 nnoremap <c-s-tab> gT
 
 nnoremap <leader>v V`]
-nnoremap <leader>q :q<cr>
 nnoremap <leader>qq :q!<cr>
-nnoremap <leader>j :m+<cr>
-nnoremap <leader>k :m-2<cr>
+nnoremap <leader>j<leader> :m+<cr>
+nnoremap <leader>jj yyp
+nnoremap <leader>k<leader> :m-2<cr>
+nnoremap <leader>kk yyP
 nnoremap <leader>w :w<cr>
 vnoremap <leader>s :s/
-nnoremap <cr><cr> i<cr><esc>
+nnoremap <leader><cr> i<cr><esc>
 nnoremap <leader>> <C-w>999>
 nnoremap <leader>r :edit<cr>
+nnoremap <leader>f za
+nnoremap <leader>F zA
+nnoremap <leader><leader> @q
+nnoremap <leader>s :grep 
+nnoremap <leader>cd :lcd %:p:h<cr>
 
 inoremap <leader><cr> <Esc>o
 inoremap <leader>f <Esc>$a-><cr>
@@ -152,9 +157,6 @@ nnoremap <leader>ew :w<cr>:source ~/config_files/vimrc<cr>
 
 " also exit the vimrc file
 nnoremap <leader>eq :w<cr>:source ~/config_files/vimrc<cr>:q<cr>
-
-" remove all whitespace at the end of sentences"
-nnoremap <leader>wt :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
@@ -178,12 +180,27 @@ nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Git add .<cr>:Git commit<cr>
 nmap <leader>ge :Gedit HEAD<cr><cr><cr>
 
-vmap <leader>js :CoffeeCompile watch vert<cr>
+nmap <leader>js :CoffeeCompile watch vert<cr>
+nmap <leader>jq <c-w>l:q<cr>
+vmap <leader>js :CoffeeCompile<cr>
+nmap <leader>ch :CoffeeLint! \| cwindow<cr>
 
-nmap <leader>o :NERDTreeToggle<cr>
+nmap <leader>ls :NERDTreeToggle<cr>
+vmap <leader>c<leader> <leader>c<space>
+nmap <leader>c<leader> <leader>c<space>
+
+nmap <leader>md :Mm<cr>
+
+nmap <c-n> :cn<cr>
+nmap <c-p> :cp<cr>
+nmap <c-o> :copen<cr>
 
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabMidWordCompletion = 0
+
+
+let coffee_make_options = '--bare'
+let coffee_linter = '/usr/local/n/versions/0.7.8/bin/coffeelint'
 
 " Status line has git information
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "
@@ -202,7 +219,7 @@ if has("gui_running")
     "highlight NonText guibg=#060606
     "highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
-    set transparency=15
+    "set transparency=2
     set visualbell t_vb=    " turn off both visual and audio bell
     set guioptions=aAce
     set guifont=Monaco:h18
@@ -222,7 +239,7 @@ endif
 
 " Use Ack instead of Grep when available
 if executable("ack")
-    set grepprg=ack\ -H\ --nogroup\ --nocolor
+    set grepprg=ack\ -H\ --ignore-dir=lib\ --ignore-dir=.meteor\ --type-add\ js=.coffee
 endif
 
 " session management

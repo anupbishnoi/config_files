@@ -87,10 +87,10 @@ alias ig='cd ~/code/projects/informationgraph/'
 alias conf='cd ~/config_files/'
 alias practice='cd ~/code/practice/'
 alias vmc='cd ~/code/projects/vidyamandir/'
+alias src='cd ~/code/src/'
 
-alias src='vim -O src/*'
-alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
-alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
+#alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
+#alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
 alias ccoffee='coffee -bc'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -114,8 +114,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-
-export PATH=/usr/local/lib/node_modules:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:~/Library/Python/2.7/site-packages:$PATH
+export PATH=/usr/local/n/versions/0.7.8/bin:/usr/local/lib/node_modules:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:~/Library/Python/2.7/site-packages:$PATH
 export PYTHONPATH="~/bin:~/Library/Python/2.7/site-packages"
 export NODE_PATH="/usr/local/lib/node"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
