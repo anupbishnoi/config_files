@@ -8,6 +8,8 @@ call pathogen#infect()
 
 let $PATH=substitute(system("echo \$PATH"), "\r\*\n", "", "g")
 
+cd ~/code/projects/vidyamandir
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -65,7 +67,7 @@ endif " has("autocmd")
 " Press ^F from command mode to insert the current file name
 cmap <C-f> <C-r>=expand("%:p")<CR>
 
-" don't allow backspacing over everything in insert mode
+" backspacing in insert mode
 set backspace=indent,eol,start
 
 " turn off security exploit
@@ -77,7 +79,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-set foldmethod=indent
+set foldmethod=manual
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
@@ -117,7 +119,7 @@ syntax enable
 
 let mapleader = ","
 
-"nnoremap <tab> %
+nnoremap <tab> %
 "vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
@@ -128,7 +130,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <c-tab> gt
 nnoremap <c-s-tab> gT
 
-nnoremap <leader>v V`]
+nnoremap <leader>vv V`]
 nnoremap <leader>qq :q!<cr>
 nnoremap <leader>j<leader> :m+<cr>
 nnoremap <leader>jj yyp
@@ -144,10 +146,17 @@ nnoremap <leader>F zA
 nnoremap <leader><leader> @q
 nnoremap <leader>s :grep 
 nnoremap <leader>cd :lcd %:p:h<cr>
+nnoremap <leader>vl v$h
+nnoremap <leader>v' F'lvf'h
+nnoremap <leader>c' F'lvf'hc
+nnoremap <leader>v" F"lvf"h
+nnoremap <leader>c" F"lvf"hc
 
+" Editing help
 inoremap <leader><cr> <Esc>o
-inoremap <leader>f <Esc>$a-><cr>
 inoremap <leader>l <Esc>$a
+inoremap <leader>f <Esc>$a-><cr>
+inoremap <leader>> <esc>$a-> 
 
 " open vimrc in a split window"
 nnoremap <leader>ev :tabe ~/config_files/vimrc<cr>
@@ -158,11 +167,11 @@ nnoremap <leader>ew :w<cr>:source ~/config_files/vimrc<cr>
 " also exit the vimrc file
 nnoremap <leader>eq :w<cr>:source ~/config_files/vimrc<cr>:q<cr>
 
-" Opens an edit command with the path of the currently edited file filled in
+" Opens an edit command with the path of the current file filled in
 " Normal mode: <Leader>e
-nmap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+"nmap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" Opens a tab edit command with the path of the currently edited file filled in
+" Opens a tab edit command with the path of the current file filled in
 " Normal mode: <Leader>et
 nmap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -172,7 +181,8 @@ nnoremap <leader>es <C-w>v:e <C-r>=expand("%:p:h") . "/"<cr>
 " No Help, please
 map <F1> <Esc>
 
-" Plugins
+" ## Plugins
+" Git
 nmap <leader>g :Git
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gg :Git push<cr>
@@ -180,17 +190,21 @@ nmap <leader>gs :Gstatus<cr>
 nmap <leader>ga :Git add .<cr>:Git commit<cr>
 nmap <leader>ge :Gedit HEAD<cr><cr><cr>
 
+" Coffee
 nmap <leader>js :CoffeeCompile watch vert<cr>
 nmap <leader>jq <c-w>l:q<cr>
 vmap <leader>js :CoffeeCompile<cr>
 nmap <leader>ch :CoffeeLint! \| cwindow<cr>
 
+" NERDTree and NERDCommenter
 nmap <leader>ls :NERDTreeToggle<cr>
 vmap <leader>c<leader> <leader>c<space>
 nmap <leader>c<leader> <leader>c<space>
 
+" Compile and open markdown as HTML
 nmap <leader>md :Mm<cr>
 
+" Ack/grep results jumping
 nmap <c-n> :cn<cr>
 nmap <c-p> :cp<cr>
 nmap <c-o> :copen<cr>
@@ -200,7 +214,6 @@ let g:SuperTabMidWordCompletion = 0
 
 
 let coffee_make_options = '--bare'
-let coffee_linter = '/usr/local/n/versions/0.7.8/bin/coffeelint'
 
 " Status line has git information
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "
@@ -216,9 +229,6 @@ endif
 if has("gui_running")
     "colorscheme vividchalk
     colorscheme solarized
-    "highlight NonText guibg=#060606
-    "highlight Folded  guibg=#0A0A0A guifg=#9090D0
-
     "set transparency=2
     set visualbell t_vb=    " turn off both visual and audio bell
     set guioptions=aAce
@@ -227,14 +237,11 @@ else
     "colorscheme vividchalk
     set background=dark
     colorscheme solarized
-    "highlight LineNr ctermfg=DarkGrey ctermbg=Black
-    "highlight NonText guibg=#060606
-    "highlight Folded  guibg=#0A0A0A guifg=#9090D0
 endif
 
 " Local config
-if filereadable(".vimrc.macvim")
-    source .vimrc.macvim
+if filereadable(".vimrc.local")
+    source .vimrc.local
 endif
 
 " Use Ack instead of Grep when available
@@ -242,14 +249,17 @@ if executable("ack")
     set grepprg=ack\ -H\ --ignore-dir=lib\ --ignore-dir=.meteor\ --type-add\ js=.coffee
 endif
 
-" session management
+" Session management
 nmap QQ <Esc>:mksession! ~/code/code_session.vis<cr>:wqa<cr>
-"nmap QQ <Esc>:wqa<cr>
-"set sessionoptions-=options
 function! RestoreSession()
   if argc() == 0 "vim called without arguments"
-    execute 'source ~/.vim/session.vim'
-    "highlight LineNr ctermfg=DarkGrey ctermbg=Black
+    execute 'source ~/code/code_session.vis'
   end
 endfunction
-"autocmd VimEnter * call RestoreSession()
+autocmd VimEnter * call RestoreSession()
+
+" For MacVim
+vnoremap <D-c> "+y
+vnoremap <D-x> "+d
+nnoremap <D-v> "+p
+

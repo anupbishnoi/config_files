@@ -1,4 +1,0 @@
-vnoremap <D-c> "+y
-vnoremap <D-x> "+d
-nnoremap <D-v> "+p
-
