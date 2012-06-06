@@ -54,4 +54,7 @@
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "vim/bundle/markdown-preview"]
 	path = vim/bundle/markdown-preview
-	url = https://github.com/swaroopch/vim-markdown-preview.git
+	url = https://github.com/nelstrom/vim-markdown-preview.git
+[submodule "vim/bundle/mru"]
+	path = vim/bundle/mru
+	url = https://github.com/vim-scripts/mru.vim.git

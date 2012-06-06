@@ -88,6 +88,7 @@ alias conf='cd ~/config_files/'
 alias practice='cd ~/code/practice/'
 alias vmc='cd ~/code/projects/vidyamandir/'
 alias src='cd ~/code/src/'
+alias cleanmacvimsession='rm ~/code/code_session.vis'
 
 #alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
 #alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
