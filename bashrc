@@ -115,9 +115,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-export PATH=/usr/local/n/versions/0.7.8/bin:/usr/local/lib/node_modules:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:~/Library/Python/2.7/site-packages:$PATH
+export PATH=$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:~/Library/Python/2.7/site-packages:$PATH
 export PYTHONPATH="~/bin:~/Library/Python/2.7/site-packages"
-export NODE_PATH="/usr/local/lib/node"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
 
 alias current='cd ~/code/vmc'

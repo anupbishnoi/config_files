@@ -51,26 +51,19 @@ nnoremap <tab> %
 "vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <c-h> <C-w>h
+nnoremap <c-l> <C-w>l
 nnoremap <c-tab> gt
 nnoremap <c-s-tab> gT
 nnoremap <tab> :bn<cr>
 nnoremap <s-tab> :bp<cr>
+nnoremap <c-j> <c-e>
+nnoremap <c-k> <c-y>
 
-function! LoadLocalProjectFilesInBuffer()
-  " Local config
-  if filereadable("~/.vimrc.local")
-      source ~/.vimrc.local
-  endif
-endfunction
-
-nnoremap <leader>L :call LoadLocalProjectFilesInBuffer()<cr>
+nnoremap <leader>L :source .vimrc.local<cr>
 nnoremap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>es <C-w>v:e <C-r>=expand("%:p:h") . "/"<cr>
-nnoremap <leader>V V`]
+nnoremap <leader>vv V`]
 nnoremap <leader>q :bd<cr>
 nnoremap <leader>Q :bw<cr>
 nnoremap <leader>J :m+<cr>
@@ -84,14 +77,19 @@ nnoremap <leader>r :edit<cr>
 nnoremap <leader>f za
 nnoremap <leader>F zA
 nnoremap <leader><leader> @q
-nnoremap <leader>s :grep
+nnoremap <leader>s<space> :grep 
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
 nnoremap <leader>v' F'lvf'h
 nnoremap <leader>c' F'lvf'hc
 nnoremap <leader>v" F"lvf"h
 nnoremap <leader>c" F"lvf"hc
-nnoremap <leader>ll $a
+nnoremap <leader>ll $a 
+nnoremap <leader>ls :ls<cr>:buffer 
+nnoremap <leader>tt :grep \\#todo\:<cr><cr>
+nnoremap <leader>tl :grep \\#todo\ later\:<cr><cr>
+nnoremap <leader>mm :grep \\#mark<cr><cr>
+nnoremap <leader>oo :! open .<cr><cr>
 
 vnoremap <leader>s :s/
 
@@ -101,23 +99,24 @@ vnoremap <D-x> "+d
 nnoremap <D-v> "+p
 
 " Editing help
-inoremap <leader><cr> <Esc>o
+"inoremap <leader><cr> <Esc>o
 inoremap <leader>l <Esc>$a
-inoremap <leader>f <Esc>$a-><cr>
-inoremap <leader>> <esc>$a-> 
+inoremap <leader>f <Esc>$a -><cr>
+inoremap <leader>g <Esc>$a, -><cr>
+inoremap <leader>> <esc>$a -> 
 
 " Press ^F from command mode to insert the current file name
 cmap <C-f> <C-r>=expand("%:p")<cr>
 
 " ## Plugins
 " Git
-nnoremap <leader>g :Git
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gg :Git push<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>ga :Git add .<cr>:Git commit<cr>
+nnoremap <leader>g :w<cr>:Git
+nnoremap <leader>gc :w<cr>:Gcommit<cr>
+nnoremap <leader>gg :w<cr>:Git push<cr>
+nnoremap <leader>gs :w<cr>:Gstatus<cr>
+nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "
+set statusline=%02n:%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Coffee
 nnoremap <leader>js :CoffeeCompile watch vert<cr>
@@ -127,7 +126,7 @@ nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
 let coffee_make_options = '--bare'
 
 " NERDTree and NERDCommenter
-nnoremap <leader>ls :NERDTreeToggle<cr>
+nnoremap <leader>nd :NERDTreeToggle<cr>
 
 " Compile and open markdown as HTML
 nnoremap <leader>md :Mm<cr>
@@ -150,7 +149,7 @@ let MRU_Exclude_Files='.*vimrc.*'
 
 " Use Ack instead of Grep when available
 if executable("ack")
-    set grepprg=ack\ -H\ --ignore-dir=lib\ --ignore-dir=.meteor\ --type-add\ js=.coffee
+    set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -183,7 +182,10 @@ if has("autocmd")
     endif
     " Change to directory of opened file
     "autocmd BufEnter * lcd %:p:h
+    "autocmd VimEnter * call LoadLocal()
   augroup END
 else
   set autoindent		" always set autoindenting on
 endif " has("autocmd")
+
+source ~/.vimrc.local

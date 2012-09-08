@@ -58,3 +58,6 @@
 [submodule "vim/bundle/mru"]
 	path = vim/bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
+[submodule "vim/bundle/table-format"]
+	path = vim/bundle/table-format
+	url = https://github.com/vim-scripts/table_format.vim.git
