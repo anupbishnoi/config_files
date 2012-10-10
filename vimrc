@@ -109,6 +109,12 @@ inoremap <leader>> <esc>$a ->
 cmap <C-f> <C-r>=expand("%:p")<cr>
 
 " ## Plugins
+
+" JSLint
+nnoremap <leader>jn :cc<cr>
+nnoremap <leader>jc :JSLintToggle<cr>
+let g:JSLintHighlightErrorLine = 0
+
 " Git
 nnoremap <leader>g :w<cr>:Git
 nnoremap <leader>gc :w<cr>:Gcommit<cr>
