@@ -87,6 +87,7 @@ alias ig='cd ~/code/projects/informationgraph/'
 alias conf='cd ~/config_files/'
 alias practice='cd ~/code/practice/'
 alias vmc='cd ~/code/projects/vidyamandir/'
+alias bmw='cd ~/code/projects/bmw'
 alias src='cd ~/code/src/'
 alias cleanmacvimsession='rm ~/code/code_session.vis'
 

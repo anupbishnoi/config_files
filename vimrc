@@ -7,9 +7,9 @@ let mapleader = ","
 set nocompatible
 set backspace=indent,eol,start
 set modelines=0 " turn off security exploit
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set foldmethod=indent
 set foldnestmax=10
@@ -154,38 +154,41 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-    au!
-    au FocusLost * :wa
-    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-    au FileType helpfile nnoremap <buffer><cr> <C-[>  " Enter selects subject
-    au FileType helpfile nnoremap <buffer><bs> <C-T>  " Backspace to go back
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+        au!
+        au FocusLost * :wa
+        autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+        au FileType helpfile nnoremap <buffer><cr> <C-[>  " Enter selects subject
+        au FileType helpfile nnoremap <buffer><bs> <C-T>  " Backspace to go back
 
-    au! BufRead,BufNewFile *.haml         setfiletype haml
-    autocmd FileType text setlocal textwidth=78
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \   exe "normal g`\"" |
+        au! BufRead,BufNewFile *.haml             setfiletype haml
+        autocmd FileType text setlocal textwidth=78
+        " When editing a file, always jump to the last known cursor position.
+        " Don't do it when the position is invalid or when inside an event handler
+        " (happens when dropping a file on gvim).
+        autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal g`\"" |
+            \ endif
+        if has("unix")
+            autocmd BufWritePost *
+                \ if getline(1) =~ '^#!'      |
+                \     if getline(1) =~ '/bin/'|
+                \         !chmod u+x <afile>  |
+                \     endif                   |
                 \ endif
-    if has("unix")
-      autocmd BufWritePost *
-                  \ if getline(1) =~ '^#!'    |
-                  \   if getline(1) =~ '/bin/'|
-                  \       !chmod u+x <afile>  |
-                  \   endif                   |
-                  \ endif
-    endif
-    " Change to directory of opened file
-    "autocmd BufEnter * lcd %:p:h
-    "autocmd VimEnter * call LoadLocal()
-  augroup END
+        endif
+        " Change to directory of opened file
+        "autocmd BufEnter * lcd %:p:h
+        "autocmd VimEnter * call LoadLocal()
+        autocmd FileType html
+            \ setlocal shiftwidth=2 |
+            \ setlocal tabstop=2
+    augroup END
 else
-  set autoindent		" always set autoindenting on
+    set autoindent		" always set autoindenting on
 endif " has("autocmd")
 
 source ~/.vimrc.local
