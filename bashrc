@@ -91,6 +91,9 @@ alias bmw='cd ~/code/projects/bmw'
 alias src='cd ~/code/src/'
 alias cleanmacvimsession='rm ~/code/code_session.vis'
 
+alias ijust='echo >> ~/ijust '
+alias about='cat ijust | grep -i '
+
 #alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
 #alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
 alias ccoffee='coffee -bc'

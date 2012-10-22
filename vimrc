@@ -114,11 +114,13 @@ cmap <C-f> <C-r>=expand("%:p")<cr>
 nnoremap <leader>jn :cc<cr>
 nnoremap <leader>jc :JSLintToggle<cr>
 let g:JSLintHighlightErrorLine = 0
+call JSLintToggle()
 
 " Git
 nnoremap <leader>g :w<cr>:Git
 nnoremap <leader>gc :w<cr>:Gcommit<cr>
 nnoremap <leader>gg :w<cr>:Git push<cr>
+nnoremap <leader>gd :w<cr>:Gdiff<cr>
 nnoremap <leader>gs :w<cr>:Gstatus<cr>
 nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
