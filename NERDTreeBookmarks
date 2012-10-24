@@ -1,8 +1,9 @@
-ensure /Users/anup/code/projects/ensure
+projects /Users/anup/code/projects
 bmw /Users/anup/code/projects/bmw
 homepage /Users/anup/code/anupbishnoi.github.com
 practice /Users/anup/code/practice
-projects /Users/anup/code/projects
+ensure /Users/anup/code/projects/ensure
+conf /Users/anup/config_files
 seatingplan /Users/anup/code/projects/seatingplan
 vimplugins /Users/anup/config_files/vim/bundle
 vmc /Users/anup/code/projects/vidyamandir

@@ -77,30 +77,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ls='ls -GpFh'
-alias ll='ls -al'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias ig='cd ~/code/projects/informationgraph/'
-alias conf='cd ~/config_files/'
-alias practice='cd ~/code/practice/'
-alias vmc='cd ~/code/projects/vidyamandir/'
-alias bmw='cd ~/code/projects/bmw'
-alias src='cd ~/code/src/'
-alias cleanmacvimsession='rm ~/code/code_session.vis'
-
-alias ijust='echo >> ~/ijust '
-alias about='cat ijust | grep -i '
-
-#alias igpush="kanso push http://anup:password@localhost:5984/informationgraph"
-#alias igpushadmin="kanso pushadmin http://anup:password@localhost:5984/informationgraph"
-alias ccoffee='coffee -bc'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -118,9 +94,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# CUSTOM
+if [ -f ~/.todo/completion ]; then
+    . ~/.todo/completion
+fi
+complete -F _todo t
 
 export PATH=$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:~/Library/Python/2.7/site-packages:$PATH
 export PYTHONPATH="~/bin:~/Library/Python/2.7/site-packages"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
-
-alias current='cd ~/code/vmc'
