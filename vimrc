@@ -44,9 +44,6 @@ set guioptions=aAce
 set guifont=Monaco:h18
 "set transparency=2
 
-"colorscheme vividchalk
-colorscheme solarized
-
 nnoremap <tab> %
 "vnoremap <tab> %
 nnoremap j gj
@@ -59,6 +56,7 @@ nnoremap <tab> :bn<cr>
 nnoremap <s-tab> :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
+nnoremap <s-k> k
 
 nnoremap <leader>L :source .vimrc.local<cr>
 nnoremap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <cr>
@@ -111,10 +109,9 @@ cmap <C-f> <C-r>=expand("%:p")<cr>
 " ## Plugins
 
 " JSLint
-nnoremap <leader>jn :cc<cr>
-nnoremap <leader>jc :JSLintToggle<cr>
+nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
+"nnoremap <leader>jc :JSLintToggle<cr>:JSLintUpdate<cr>:cc<cr>
 let g:JSLintHighlightErrorLine = 0
-call JSLintToggle()
 
 " Git
 nnoremap <leader>g :w<cr>:Git
@@ -157,7 +154,8 @@ let MRU_Exclude_Files='.*vimrc.*'
 
 " Use Ack instead of Grep when available
 if executable("ack")
-    set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
+    "set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
+    set grepprg=ack\ -H\ --ignore-dir=.git\ --ignore-dir=_skytec\ --ignore-dir=frontend/js/lib\ --ignore-dir=poc/poc_classbinding/lib\ --ignore-dir=frontend/css\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -166,7 +164,7 @@ if has("autocmd")
     augroup vimrcEx
         au!
         au FocusLost * :wa
-        autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+        "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
         autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
         au FileType helpfile nnoremap <buffer><cr> <C-[>  " Enter selects subject
         au FileType helpfile nnoremap <buffer><bs> <C-T>  " Backspace to go back
@@ -198,5 +196,9 @@ if has("autocmd")
 else
     set autoindent		" always set autoindenting on
 endif " has("autocmd")
+
+if has("gui")
+    colorscheme solarized
+endif
 
 source ~/.vimrc.local

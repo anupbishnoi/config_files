@@ -2,5 +2,9 @@
 set editing-mode vi
 set keymap vi
 
-set show-all-if-ambiguous on
 "\t": menu-complete
+
+set show-all-if-ambiguous on
+set bind-tty-special-chars on
+set mark-symlinked-directories on
+set completion-ignore-case On

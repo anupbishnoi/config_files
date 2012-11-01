@@ -100,6 +100,6 @@ if [ -f ~/.todo/completion ]; then
 fi
 complete -F _todo t
 
-export PATH=$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:~/Library/Python/2.7/site-packages:$PATH
-export PYTHONPATH="~/bin:~/Library/Python/2.7/site-packages"
+export PATH=$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin/:/usr/local/sbin:/usr/local/mysql/bin:$PATH:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
+export PYTHONPATH="$HOME/lib/python2.7/site-packages"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
