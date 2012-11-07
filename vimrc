@@ -49,8 +49,8 @@ set guifont=Monaco\ for\ Powerline:h18  " based on Monaco:h18
 "vnoremap <tab> %
 "nnoremap j gj
 "nnoremap k gk
-"nnoremap <c-tab> gt
-"nnoremap <c-s-tab> gT
+nnoremap <c-tab> gt
+nnoremap <c-s-tab> gT
 nnoremap <leader>jo J
 nnoremap K :bn<cr>
 nnoremap J :bp<cr>
@@ -115,9 +115,8 @@ let g:JSLintHighlightErrorLine = 0
 
 " Powerline status bar
 let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme = 'solarized256'
+"let g:Powerline_theme = 'solarized256'
 let g:Powerline_colorscheme = 'solarized256'
-"let g:Powerline_stl_path_style = 'short'
 
 " Sparkup
 let g:sparkupExecuteMapping = '<leader>hh'
