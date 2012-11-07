@@ -32,57 +32,54 @@ set history=50		" keep 50 lines of command line history
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set visualbell t_vb=    " turn off both visual and audio bell
+set t_Co=256
 set autoread
 set relativenumber
 set numberwidth=4
 set wildmode=list:longest,list:full
 set wildmenu
-set complete=.,w,t
+set complete=.,w,b,u
 set autowrite
 set visualbell t_vb=    " turn off both visual and audio bell
 set guioptions=aAce
-set guifont=Monaco:h18
+set guifont=Monaco\ for\ Powerline:h18  " based on Monaco:h18
 "set transparency=2
 
-nnoremap <tab> %
+"nnoremap <tab> %
 "vnoremap <tab> %
-nnoremap j gj
-nnoremap k gk
-nnoremap <c-h> <C-w>h
-nnoremap <c-l> <C-w>l
-nnoremap <c-tab> gt
-nnoremap <c-s-tab> gT
-nnoremap <tab> :bn<cr>
-nnoremap <s-tab> :bp<cr>
+"nnoremap j gj
+"nnoremap k gk
+"nnoremap <c-tab> gt
+"nnoremap <c-s-tab> gT
+nnoremap <leader>jo J
+nnoremap K :bn<cr>
+nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
-nnoremap <s-k> k
+nnoremap <tab> <c-w>w
+nnoremap Q :w<cr>:bd<cr>
+nnoremap <leader>q <c-w>q
+nnoremap _ g;
+nnoremap + g,
 
 nnoremap <leader>L :source .vimrc.local<cr>
-nnoremap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <cr>
-nnoremap <leader>es <C-w>v:e <C-r>=expand("%:p:h") . "/"<cr>
+nnoremap <leader>et :tabe <c-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>vv V`]
-nnoremap <leader>q :bd<cr>
-nnoremap <leader>Q :bw<cr>
 nnoremap <leader>J :m+<cr>
 nnoremap <leader>jj yyp
 nnoremap <leader>K :m-2<cr>
 nnoremap <leader>kk yyP
 nnoremap <leader>w :w<cr>
 nnoremap <leader><cr> i<cr><esc>
-nnoremap <leader>> <C-w>999>
+nnoremap <leader>> <c-w>999>
 nnoremap <leader>r :edit<cr>
-nnoremap <leader>f za
-nnoremap <leader>F zA
+nnoremap <leader>F zM
 nnoremap <leader><leader> @q
 nnoremap <leader>s<space> :grep 
+nnoremap <leader>sh :split<cr>
+nnoremap <leader>sv :vsplit<cr>
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
-nnoremap <leader>v' F'lvf'h
-nnoremap <leader>c' F'lvf'hc
-nnoremap <leader>v" F"lvf"h
-nnoremap <leader>c" F"lvf"hc
-nnoremap <leader>ll $a 
 nnoremap <leader>ls :ls<cr>:buffer 
 nnoremap <leader>tt :grep \\#todo\:<cr><cr>
 nnoremap <leader>tl :grep \\#todo\ later\:<cr><cr>
@@ -104,24 +101,36 @@ inoremap <leader>g <Esc>$a, -><cr>
 inoremap <leader>> <esc>$a -> 
 
 " Press ^F from command mode to insert the current file name
-cmap <C-f> <C-r>=expand("%:p")<cr>
+cmap <c-f> <c-r>=expand("%:p")<cr>
 
 " ## Plugins
+
+" UltiSnips
+nnoremap <D-e> :UltiSnipsEdit<cr>
 
 " JSLint
 nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
 "nnoremap <leader>jc :JSLintToggle<cr>:JSLintUpdate<cr>:cc<cr>
 let g:JSLintHighlightErrorLine = 0
 
+" Powerline status bar
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_theme = 'solarized256'
+let g:Powerline_colorscheme = 'solarized256'
+"let g:Powerline_stl_path_style = 'short'
+
+" Sparkup
+let g:sparkupExecuteMapping = '<leader>hh'
+let g:sparkupNextMapping = '<c-e>'
+
 " Git
-nnoremap <leader>g :w<cr>:Git
+nnoremap <leader>g  :w<cr>:Git
 nnoremap <leader>gc :w<cr>:Gcommit<cr>
 nnoremap <leader>gg :w<cr>:Git push<cr>
 nnoremap <leader>gd :w<cr>:Gdiff<cr>
 nnoremap <leader>gs :w<cr>:Gstatus<cr>
 nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
-set statusline=%02n:%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Coffee
 nnoremap <leader>js :CoffeeCompile watch vert<cr>
@@ -155,19 +164,20 @@ let MRU_Exclude_Files='.*vimrc.*'
 " Use Ack instead of Grep when available
 if executable("ack")
     "set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
-    set grepprg=ack\ -H\ --ignore-dir=.git\ --ignore-dir=_skytec\ --ignore-dir=frontend/js/lib\ --ignore-dir=poc/poc_classbinding/lib\ --ignore-dir=frontend/css\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
+    set grepprg=ack\ -H\ --ignore-dir=.git\ --ignore-dir=_skytec\ --ignore-dir=frontend/js/lib\ --ignore-dir=poc\ --ignore-dir=frontend/docs\ --ignore-dir=frontend/css\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
 endif
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
     " Put these in an autocmd group, so that we can delete them easily.
     augroup vimrcEx
         au!
         au FocusLost * :wa
-        "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-        au FileType helpfile nnoremap <buffer><cr> <C-[>  " Enter selects subject
-        au FileType helpfile nnoremap <buffer><bs> <C-T>  " Backspace to go back
+        autocmd FileType javascript setlocal fdm=expr 
+        autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
+
+        autocmd FileType javascript set omnifunc=
+        au FileType helpfile nnoremap <buffer><cr> <c-[>  " Enter selects subject
+        au FileType helpfile nnoremap <buffer><bs> <c-T>  " Backspace to go back
 
         au! BufRead,BufNewFile *.haml             setfiletype haml
         autocmd FileType text setlocal textwidth=78
@@ -193,12 +203,8 @@ if has("autocmd")
             \ setlocal shiftwidth=2 |
             \ setlocal tabstop=2
     augroup END
-else
-    set autoindent		" always set autoindenting on
 endif " has("autocmd")
 
-if has("gui")
-    colorscheme solarized
-endif
+colorscheme solarized
 
 source ~/.vimrc.local

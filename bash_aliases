@@ -14,3 +14,5 @@ alias src='cd ~/code/src/'
 alias ijust='echo >> ~/ijust '
 alias about='cat ijust | grep -i '
 alias t='todo.sh '
+
+alias jsdocs='rocco -l js'

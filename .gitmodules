@@ -64,3 +64,21 @@
 [submodule "vim/bundle/jslint"]
 	path = vim/bundle/jslint
 	url = git://github.com/hallettj/jslint.vim.git
+[submodule "vim/bundle/foldsearch"]
+	path = vim/bundle/foldsearch
+	url = git://github.com/vim-scripts/foldsearch.git
+[submodule "vim/bundle/signature"]
+	path = vim/bundle/signature
+	url = git://github.com/kshenoy/vim-signature.git
+[submodule "vim/bundle/sparkup"]
+	path = vim/bundle/sparkup
+	url = http://github.com/bingaman/vim-sparkup.git
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/css-color"]
+	path = vim/bundle/css-color
+	url = git://github.com/skammer/vim-css-color.git
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = git://github.com/vim-scripts/UltiSnips.git
