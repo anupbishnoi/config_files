@@ -21,18 +21,26 @@ $(document).ready(function () {
 });
 endsnippet
 
-snippet extend "underscore extend"
+snippet extend "underscore extend" w
 _(${1:obj}).extend({
     $0
 });
 endsnippet
 
-snippet closure "IIFE function closure"
+snippet closure "IIFE function closure" w
 (function (){
     "use strict";
 
     $0
 }());
+endsnippet
+
+snippet _ "Underscore wrapper" w
+_(${1:obj}).${2:extend}(${3:{}});
+endsnippet
+
+snippet { "Description" w
+};
 endsnippet
 
 ###########################################################################

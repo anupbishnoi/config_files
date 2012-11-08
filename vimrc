@@ -28,10 +28,10 @@ set smartcase
 set gdefault
 set showmatch
 set nobackup
-set history=50		" keep 50 lines of command line history
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-set visualbell t_vb=    " turn off both visual and audio bell
+set history=50       " keep 50 lines of command line history
+set showcmd          " display incomplete commands
+set incsearch        " do incremental searching
+set visualbell t_vb= " turn off both visual and audio bell
 set t_Co=256
 set autoread
 set relativenumber
@@ -61,7 +61,8 @@ nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
 nnoremap <tab> <c-w>w
 nnoremap Q :w<cr>:bd<cr>
-nnoremap <leader>q <c-w>q
+"nnoremap <leader>q <c-w>q
+nnoremap <leader>q :bd<cr>
 nnoremap _ g;
 nnoremap + g,
 
