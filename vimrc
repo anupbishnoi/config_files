@@ -39,19 +39,22 @@ set numberwidth=4
 set wildmode=list:longest,list:full
 set wildmenu
 set complete=.,w,b,u
+set completeopt=longest,menu
 set autowrite
 set visualbell t_vb=    " turn off both visual and audio bell
 set guioptions=aAce
 set guifont=Monaco\ for\ Powerline:h18  " based on Monaco:h18
+"set colorcolumn=80
 "set transparency=2
 
 "nnoremap <tab> %
 "vnoremap <tab> %
 "nnoremap j gj
 "nnoremap k gk
-"nnoremap <c-tab> gt
-"nnoremap <c-s-tab> gT
 nnoremap <leader>jo J
+nnoremap <D-j> J
+nnoremap <c-tab> gt
+nnoremap <c-s-tab> gT
 nnoremap K :bn<cr>
 nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
@@ -73,7 +76,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader><cr> i<cr><esc>
 nnoremap <leader>> <c-w>999>
 nnoremap <leader>r :edit<cr>
-nnoremap <leader>F zM
+nnoremap <leader>F zR
 nnoremap <leader><leader> @q
 nnoremap <leader>s<space> :grep 
 nnoremap <leader>sh :split<cr>
@@ -115,9 +118,8 @@ let g:JSLintHighlightErrorLine = 0
 
 " Powerline status bar
 let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme = 'solarized256'
+"let g:Powerline_theme = 'solarized256'
 let g:Powerline_colorscheme = 'solarized256'
-"let g:Powerline_stl_path_style = 'short'
 
 " Sparkup
 let g:sparkupExecuteMapping = '<leader>hh'
@@ -136,7 +138,7 @@ nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 nnoremap <leader>js :CoffeeCompile watch vert<cr>
 nnoremap <leader>jq <c-w>l:q<cr>
 vnoremap <leader>js :CoffeeCompile<cr>
-nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
+"nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
 let coffee_make_options = '--bare'
 
 " NERDTree and NERDCommenter
@@ -153,6 +155,10 @@ nnoremap <c-o> :copen<cr>
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabMidWordCompletion = 0
+let g:SuperTabMappingForward = '<tab>'
+let g:SuperTabMappingBackward = '<s-tab>'
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabRetainCompletionDuration = 'insert'
 
 " MRU - Most recently used files
 nnoremap <leader>lf :MRU<cr>
@@ -174,6 +180,8 @@ if has("autocmd")
         au FocusLost * :wa
         autocmd FileType javascript setlocal fdm=expr 
         autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
+        autocmd FileType javascript hi Folded guifg=bg
+        autocmd syntax javascript normal zM
 
         autocmd FileType javascript set omnifunc=
         au FileType helpfile nnoremap <buffer><cr> <c-[>  " Enter selects subject
