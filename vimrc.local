@@ -5,12 +5,11 @@ nnoremap <leader>ev :e ~/config_files/vimrc<cr>
 nnoremap <leader>el :e ~/config_files/vimrc.local<cr>
 nnoremap <leader>ew :w ~/config_files/vimrc<cr>:source ~/config_files/vimrc<cr>
 nnoremap <leader>eq :w<cr>:source ~/config_files/vimrc<cr>:bd<cr>
-nnoremap <leader>ej :e ~/config_files/jslintrc<cr>
 
 nnoremap <leader>ss :mks! ~/code/session.vim<cr>
 nnoremap <leader>sd :!rm  ~/code/session.vim<cr>
 nnoremap <leader>sl :so   ~/code/session.vim<cr>
 
 "cd ~/code/projects/vidyamandir
-cd ~/code/projects/bmw
+cd ~/code/projects/bmw/frontend
 nnoremap <leader>eL :e .vimrc.local<cr>

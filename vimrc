@@ -40,6 +40,7 @@ set wildmode=list:longest,list:full
 set wildmenu
 set complete=.,w,b,u
 set completeopt=longest,menu
+set clipboard=unnamed
 set autowrite
 set visualbell t_vb=    " turn off both visual and audio bell
 set guioptions=aAce
@@ -109,8 +110,13 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 
 " ## Plugins
 
+" Tabular
+nnoremap <leader>t<space> :Tabular /
+vnoremap <leader>t<space> :Tabular /
+
 " UltiSnips
 nnoremap <D-e> :UltiSnipsEdit<cr>
+nnoremap <leader>ej :UltiSnipsEdit<cr>
 
 " JSLint
 nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
@@ -164,7 +170,7 @@ let g:SuperTabRetainCompletionDuration = 'insert'
 " MRU - Most recently used files
 nnoremap <leader>lf :MRU<cr>
 let MRU_Max_Entries=20
-let MRU_Exclude_Files='.*vimrc.*'
+"let MRU_Exclude_Files='.*vimrc.*'
 
 " More
 
@@ -173,6 +179,7 @@ if executable("ack")
     "set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
     set grepprg=ack\ -H\ --ignore-dir=.git\ --ignore-dir=_skytec\ --ignore-dir=frontend/js/lib\ --ignore-dir=poc\ --ignore-dir=frontend/docs\ --ignore-dir=frontend/css\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
 endif
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
     " Put these in an autocmd group, so that we can delete them easily.
@@ -181,7 +188,11 @@ if has("autocmd")
         au FocusLost * :wa
         autocmd FileType javascript setlocal fdm=expr 
         autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
-        autocmd FileType javascript hi Folded guifg=bg
+        if has("gui")
+            autocmd FileType javascript hi Folded guifg=bg
+        else
+            autocmd FileType javascript hi Folded ctermfg=bg
+        endif
         autocmd syntax javascript normal zM
 
         autocmd FileType javascript set omnifunc=
@@ -208,9 +219,6 @@ if has("autocmd")
         " Change to directory of opened file
         "autocmd BufEnter * lcd %:p:h
         "autocmd VimEnter * call LoadLocal()
-        autocmd FileType html
-            \ setlocal shiftwidth=2 |
-            \ setlocal tabstop=2
     augroup END
 endif " has("autocmd")
 
