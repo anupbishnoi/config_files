@@ -177,7 +177,7 @@ let MRU_Max_Entries=20
 " Use Ack instead of Grep when available
 if executable("ack")
     "set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
-    set grepprg=ack\ -H\ --ignore-dir=.git\ --ignore-dir=_skytec\ --ignore-dir=frontend/js/lib\ --ignore-dir=poc\ --ignore-dir=frontend/docs\ --ignore-dir=frontend/css\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
+    set grepprg=ack\ -H\ --ignore-dir=js/lib\ --ignore-dir=docs\ --ignore-dir=css\ --ignore-dir=dist\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
 endif
 
 " Only do this part when compiled with support for autocommands.

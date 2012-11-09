@@ -4,12 +4,18 @@ extends php
 #  Custom  #
 ############
 
-snippet tb "target blank" w
-target="_blank"$0
+snippet data "data-bind" w
+data-bind="${1:handler}: ${2:value}"$0
 endsnippet
 
-snippet copy "Copyright Symbol"
-&copy;
+snippet templ "knockout template" w
+<script type="text/html" id="${1:${2:element}Template}">
+    $0
+</script>
+endsnippet
+
+snippet tb "target blank" w
+target="_blank"$0
 endsnippet
 
 snippet style "style"
@@ -18,12 +24,12 @@ snippet style "style"
 </style> 
 endsnippet   
 
-snippet il "inline style" w
+snippet sty "inline style" w
 style="$0"
 endsnippet
 
-snippet link "link" w
-<link rel="stylesheet" href="$1" type="text/css" />$0
+snippet css "include css file" w
+<link rel="stylesheet" type="text/css" href="$1">$0
 endsnippet
 
 ##############
@@ -31,17 +37,18 @@ endsnippet
 ##############
 
 snippet html "html" w
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>$1</title>
-</head>
-<body>
-    <div class="${2:wrapper}">
-      $3
-    </div>
-</body>
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>$1</title>
+        $2
+    </head>
+    <body>
+        <div class="${2:wrapper}">
+            $3
+        </div>
+    </body>
 </html>
 endsnippet
 
@@ -49,46 +56,32 @@ snippet script "js script"
 <script type="text/javascript"${1: src="$2"}>$3</script>$0
 endsnippet
 
-snippet b "br" w
+snippet br "br" w
 <br>$0
 endsnippet
 
-snippet 2b "2x br" w
-<br><br>$0
-endsnippet
-
-snippet s "strong" w
+snippet strong "strong" w
 <strong>$1</strong>$0
 endsnippet
 
-snippet e "em" w
+snippet em "em" w
 <em>$1</em>$0
 endsnippet
 
 snippet div "div" w
-<div>
-    $0
-</div>
-endsnippet
-
-snippet divc "div with class" w
-<div class="$1">
-    $0
-</div>
-endsnippet
-
-snippet divi "div with id" w
-<div id="$1">
+<div${1: id="$2"}${3: class="$4"}$5>
     $0
 </div>
 endsnippet
 
 snippet span "span" w
-<span>$1</span>$0
+<span$1>$2</span>$0
 endsnippet
 
 snippet p "paragraph" w
-<p>$0</p>
+<p>
+    $0
+</p>
 endsnippet
 
 snippet img "image" w
@@ -107,7 +100,7 @@ snippet ol "ordered list" w
 </ol>
 endsnippet
 
-snippet li "list item"
+snippet li "list item" w
 <li>$0</li>
 endsnippet
 
@@ -138,5 +131,3 @@ endsnippet
 snippet a "anchor" w
 <a href="$1">$0</a>
 endsnippet
-
-
