@@ -28,9 +28,6 @@
 [submodule "vim/bundle/gist"]
 	path = vim/bundle/gist
 	url = https://github.com/mattn/gist-vim.git
-;[submodule "vim/bundle/auto-close"]
-	;path = vim/bundle/auto-close
-	;url = http://github.com/Townk/vim-autoclose.git
 [submodule "vim/bundle/nerd-tree"]
 	path = vim/bundle/nerd-tree
 	url = https://github.com/scrooloose/nerdtree.git
