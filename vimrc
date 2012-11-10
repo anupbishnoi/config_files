@@ -1,26 +1,17 @@
-filetype plugin indent on
 call pathogen#infect()
 let $PATH=substitute(system("echo \$PATH"), "\r\*\n", "", "g")
 syntax enable
 let mapleader = ","
 
+if has("autocmd")
+    filetype plugin indent on
+endif
+
 set nocompatible
-set backspace=indent,eol,start
-set modelines=0 " turn off security exploit
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set expandtab
-set foldmethod=indent
-set foldnestmax=10
 set nofoldenable
-set foldlevel=1
-set laststatus=2
-set encoding=utf-8
-set scrolloff=3
 set showmode
 "set hidden
-"set virtualedit=all
 set ttyfast
 set undofile
 set ignorecase
@@ -28,21 +19,32 @@ set smartcase
 set gdefault
 set showmatch
 set nobackup
-set history=50       " keep 50 lines of command line history
 set showcmd          " display incomplete commands
 set incsearch        " do incremental searching
-set visualbell t_vb= " turn off both visual and audio bell
-set t_Co=256
 set autoread
 set relativenumber
+set wildmenu
+set autowrite
+set backspace=indent,eol,start
+set modelines=0 " turn off security exploit
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set foldmethod=indent
+set foldnestmax=10
+set foldlevel=1
+set laststatus=2
+set encoding=utf-8
+set scrolloff=3
+"set virtualedit=all
+set history=50       " keep 50 lines of command line history
+set visualbell t_vb= " turn off both visual and audio bell
+set t_Co=256
 set numberwidth=4
 set wildmode=list:longest,list:full
-set wildmenu
 set complete=.,w,b,u
 set completeopt=longest,menu
 set clipboard=unnamed
-set autowrite
-set visualbell t_vb=    " turn off both visual and audio bell
 set guioptions=aAce
 set guifont=Monaco\ for\ Powerline:h18  " based on Monaco:h18
 "set colorcolumn=80
@@ -66,6 +68,7 @@ nnoremap Q :w<cr>:bd<cr>
 nnoremap <leader>q :bd<cr>
 nnoremap _ g;
 nnoremap + g,
+nnoremap @ @q
 
 nnoremap <leader>L :source .vimrc.local<cr>
 nnoremap <leader>et :tabe <c-R>=expand("%:p:h") . "/" <cr>
@@ -93,6 +96,11 @@ nnoremap <leader>oo :! open .<cr><cr>
 
 vnoremap <leader>s :s/
 
+" Ack/grep results jumping
+nnoremap <c-n> :cn<cr>
+nnoremap <c-p> :cp<cr>
+nnoremap <c-o> :copen<cr>
+
 " For MacVim
 vnoremap <D-c> "+y
 vnoremap <D-x> "+d
@@ -111,53 +119,64 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 " ## Plugins
 
 " Tabular
-nnoremap <leader>t<space> :Tabular /
-vnoremap <leader>t<space> :Tabular /
+if exists(":Tabularize")
+    nnoremap <leader>t<space> :Tabularize /
+    vnoremap <leader>t<space> :Tabularize /
+    nnoremap <leader>t: :Tabularize /:\zs<cr>
+    vnoremap <leader>t: :Tabularize /:\zs<cr>
+    nnoremap <leader>t= :Tabularize /=<cr>
+    vnoremap <leader>t= :Tabularize /=<cr>
+endif
 
 " UltiSnips
-nnoremap <D-e> :UltiSnipsEdit<cr>
-nnoremap <leader>ej :UltiSnipsEdit<cr>
+if exists("UltiSnipsEdit")
+    nnoremap <D-e> :UltiSnipsEdit<cr>
+    nnoremap <leader>ej :UltiSnipsEdit<cr>
+endif
 
 " JSLint
-nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
-"nnoremap <leader>jc :JSLintToggle<cr>:JSLintUpdate<cr>:cc<cr>
-let g:JSLintHighlightErrorLine = 0
+if exists(":JSLintUpdate")
+    nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
+    "nnoremap <leader>jc :JSLintToggle<cr>:JSLintUpdate<cr>:cc<cr>
+    let g:JSLintHighlightErrorLine = 0
+endif
 
 " Powerline status bar
-let g:Powerline_symbols = 'fancy'
-"let g:Powerline_theme = 'solarized256'
-let g:Powerline_colorscheme = 'solarized256'
-
-" Sparkup
-let g:sparkupExecuteMapping = '<leader>hh'
-let g:sparkupNextMapping = '<c-e>'
+if exists(":Powerline")
+    let g:Powerline_symbols = 'fancy'
+    "let g:Powerline_theme = 'solarized256'
+    let g:Powerline_colorscheme = 'solarized256'
+endif
 
 " Git
-nnoremap <leader>g  :w<cr>:Git
-nnoremap <leader>gc :w<cr>:Gcommit<cr>
-nnoremap <leader>gg :w<cr>:Git push<cr>
-nnoremap <leader>gd :w<cr>:Gdiff<cr>
-nnoremap <leader>gs :w<cr>:Gstatus<cr>
-nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
-nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
+if exists(":Git")
+    nnoremap <leader>g  :w<cr>:Git
+    nnoremap <leader>gc :w<cr>:Gcommit<cr>
+    nnoremap <leader>gg :w<cr>:Git push<cr>
+    nnoremap <leader>gd :w<cr>:Gdiff<cr>
+    nnoremap <leader>gs :w<cr>:Gstatus<cr>
+    nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
+    nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
+endif
 
 " Coffee
-nnoremap <leader>js :CoffeeCompile watch vert<cr>
-nnoremap <leader>jq <c-w>l:q<cr>
-vnoremap <leader>js :CoffeeCompile<cr>
-"nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
-let coffee_make_options = '--bare'
+if exists(":CoffeeCompile")
+    nnoremap <leader>js :CoffeeCompile watch vert<cr>
+    nnoremap <leader>jq <c-w>l:q<cr>
+    vnoremap <leader>js :CoffeeCompile<cr>
+    "nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
+    let coffee_make_options = '--bare'
+endif
 
 " NERDTree and NERDCommenter
-nnoremap <leader>nd :NERDTreeToggle<cr>
+if exists(":NERDTree")
+    nnoremap <leader>nd :NERDTreeToggle<cr>
+endif
 
 " Compile and open markdown as HTML
-nnoremap <leader>md :Mm<cr>
-
-" Ack/grep results jumping
-nnoremap <c-n> :cn<cr>
-nnoremap <c-p> :cp<cr>
-nnoremap <c-o> :copen<cr>
+if exists(":Mm")
+    nnoremap <leader>md :Mm<cr>
+endif
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
@@ -168,11 +187,11 @@ let g:SuperTabLongestHighlight = 1
 let g:SuperTabRetainCompletionDuration = 'insert'
 
 " MRU - Most recently used files
-nnoremap <leader>lf :MRU<cr>
-let MRU_Max_Entries=20
-"let MRU_Exclude_Files='.*vimrc.*'
-
-" More
+if exists(":MRU")
+    nnoremap <leader>lf :MRU<cr>
+    let MRU_Max_Entries=20
+    "let MRU_Exclude_Files='.*vimrc.*'
+endif
 
 " Use Ack instead of Grep when available
 if executable("ack")
@@ -195,7 +214,6 @@ if has("autocmd")
         endif
         autocmd syntax javascript normal zM
 
-        autocmd FileType javascript set omnifunc=
         au FileType helpfile nnoremap <buffer><cr> <c-[>  " Enter selects subject
         au FileType helpfile nnoremap <buffer><bs> <c-T>  " Backspace to go back
 

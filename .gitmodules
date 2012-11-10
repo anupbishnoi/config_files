@@ -73,3 +73,6 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = git://github.com/vim-scripts/UltiSnips.git
+[submodule "vim/bundle/cucumber-align-pipes"]
+	path = vim/bundle/cucumber-align-pipes
+	url = git://github.com/quentindecock/vim-cucumber-align-pipes.git
