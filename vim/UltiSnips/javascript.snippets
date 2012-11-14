@@ -7,6 +7,14 @@ snippet cons "console log" w
 console.log($1);$0
 endsnippet
 
+snippet closure "IIFE function closure" w
+(function (){
+    "use strict";
+
+    $0
+}());
+endsnippet
+
 snippet j "jquery object" w
 $($1)$0;
 endsnippet  
@@ -15,24 +23,26 @@ snippet J "jquery object" w
 jQuery($1)$0;
 endsnippet  
 
-snippet ready "document ready" w
-$(document).ready(function () {
+snippet $( "document ready" w
+$(function () {
     $0
 });
+endsnippet
+
+snippet comp "ko.computed"
+ko.computed(function () {
+    $0
+})${1:,}
+endsnippet
+
+snippet obs "ko.observable"
+ko.observable($1)$0
 endsnippet
 
 snippet extend "underscore extend" w
 _(${1:obj}).extend({
     $0
 });
-endsnippet
-
-snippet closure "IIFE function closure" w
-(function (){
-    "use strict";
-
-    $0
-}());
 endsnippet
 
 snippet _ "Underscore wrapper" w
@@ -73,10 +83,6 @@ endsnippet
 
 snippet :, "Object Value JS"
 ${1:value_name}:${0:value},
-endsnippet
-
-snippet : "Object key key: 'value'"
-${1:key}: ${2:"${3:value}"}${4:, }
 endsnippet
 
 snippet forf "for (...) {...} (faster)"

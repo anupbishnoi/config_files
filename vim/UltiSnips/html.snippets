@@ -5,7 +5,7 @@ extends php
 ############
 
 snippet data "data-bind" w
-data-bind="${1:handler}: ${2:value}"$0
+data-bind="${1:${2:handler}: ${3:value}}"$0
 endsnippet
 
 snippet templ "knockout template" w
@@ -14,8 +14,8 @@ snippet templ "knockout template" w
 </script>
 endsnippet
 
-snippet temp: "Template name, data specification" w
-template: { name: $1, data: $2${3:,} }$0
+snippet templ: "Template name, data specification" w
+template: { name: $1, data: $2 }$0
 endsnippet
 
 snippet tb "target blank" w
@@ -29,7 +29,7 @@ snippet style "style"
 endsnippet   
 
 snippet sty "inline style" w
-style="$0"
+style="${0:display: none}"
 endsnippet
 
 snippet css "include css file" w
@@ -45,19 +45,24 @@ snippet html "html" w
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
-        <title>$1</title>
-        $2
+        <title>$1</title>$2
     </head>
     <body>
-        <div class="${2:wrapper}">
-            $3
+        <div${3: class="${4:wrapper}"}>
+            $5
         </div>
     </body>
 </html>
 endsnippet
 
-snippet script "js script" 
-<script type="text/javascript"${1: src="$2"}>$3</script>$0
+snippet scr "js script" 
+<script type="text/javascript" src="$1">$2</script>$0
+endsnippet
+
+snippet iscr "Description"
+<script type="text/javascript">
+    $0
+</script>
 endsnippet
 
 snippet br "br" w

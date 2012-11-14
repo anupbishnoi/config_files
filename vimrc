@@ -19,12 +19,15 @@ set smartcase
 set gdefault
 set showmatch
 set nobackup
+set noswapfile
 set showcmd          " display incomplete commands
 set incsearch        " do incremental searching
 set autoread
 set relativenumber
 set wildmenu
 set autowrite
+set autowriteall
+set switchbuf=usetab
 set backspace=indent,eol,start
 set modelines=0 " turn off security exploit
 set tabstop=4
@@ -58,8 +61,8 @@ nnoremap <leader>jo J
 nnoremap <D-j> J
 nnoremap <c-tab> gt
 nnoremap <c-s-tab> gT
-nnoremap K :bn<cr>
-nnoremap J :bp<cr>
+nnoremap K :sbnext<cr>
+nnoremap J :sbprevious<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
 nnoremap <tab> <c-w>w
@@ -119,64 +122,48 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 " ## Plugins
 
 " Tabular
-if exists(":Tabularize")
-    nnoremap <leader>t<space> :Tabularize /
-    vnoremap <leader>t<space> :Tabularize /
-    nnoremap <leader>t: :Tabularize /:\zs<cr>
-    vnoremap <leader>t: :Tabularize /:\zs<cr>
-    nnoremap <leader>t= :Tabularize /=<cr>
-    vnoremap <leader>t= :Tabularize /=<cr>
-endif
+nnoremap <leader>t<space> :Tabularize /
+vnoremap <leader>t<space> :Tabularize /
+nnoremap <leader>t: :Tabularize /:\zs<cr>
+vnoremap <leader>t: :Tabularize /:\zs<cr>
+nnoremap <leader>t= :Tabularize /=<cr>
+vnoremap <leader>t= :Tabularize /=<cr>
 
 " UltiSnips
-if exists("UltiSnipsEdit")
-    nnoremap <D-e> :UltiSnipsEdit<cr>
-    nnoremap <leader>ej :UltiSnipsEdit<cr>
-endif
+nnoremap <D-e> :UltiSnipsEdit<cr>
+nnoremap <leader>sn :UltiSnipsEdit<cr>
 
 " JSLint
-if exists(":JSLintUpdate")
-    nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
-    "nnoremap <leader>jc :JSLintToggle<cr>:JSLintUpdate<cr>:cc<cr>
-    let g:JSLintHighlightErrorLine = 0
-endif
+nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
+"nnoremap <leader>jc :JSLintToggle<cr>:JSLintUpdate<cr>:cc<cr>
+let g:JSLintHighlightErrorLine = 0
 
 " Powerline status bar
-if exists(":Powerline")
-    let g:Powerline_symbols = 'fancy'
-    "let g:Powerline_theme = 'solarized256'
-    let g:Powerline_colorscheme = 'solarized256'
-endif
+let g:Powerline_symbols = 'fancy'
+"let g:Powerline_theme = 'solarized256'
+let g:Powerline_colorscheme = 'solarized256'
 
 " Git
-if exists(":Git")
-    nnoremap <leader>g  :w<cr>:Git
-    nnoremap <leader>gc :w<cr>:Gcommit<cr>
-    nnoremap <leader>gg :w<cr>:Git push<cr>
-    nnoremap <leader>gd :w<cr>:Gdiff<cr>
-    nnoremap <leader>gs :w<cr>:Gstatus<cr>
-    nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
-    nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
-endif
+nnoremap <leader>g  :w<cr>:Git
+nnoremap <leader>gc :w<cr>:Gcommit<cr>
+nnoremap <leader>gg :w<cr>:Git push<cr>
+nnoremap <leader>gd :w<cr>:Gdiff<cr>
+nnoremap <leader>gs :w<cr>:Gstatus<cr>
+nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
+nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 
 " Coffee
-if exists(":CoffeeCompile")
-    nnoremap <leader>js :CoffeeCompile watch vert<cr>
-    nnoremap <leader>jq <c-w>l:q<cr>
-    vnoremap <leader>js :CoffeeCompile<cr>
-    "nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
-    let coffee_make_options = '--bare'
-endif
+nnoremap <leader>js :CoffeeCompile watch vert<cr>
+nnoremap <leader>jq <c-w>l:q<cr>
+vnoremap <leader>js :CoffeeCompile<cr>
+"nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
+let coffee_make_options = '--bare'
 
 " NERDTree and NERDCommenter
-if exists(":NERDTree")
-    nnoremap <leader>nd :NERDTreeToggle<cr>
-endif
+nnoremap <leader>nd :NERDTreeToggle<cr>
 
 " Compile and open markdown as HTML
-if exists(":Mm")
-    nnoremap <leader>md :Mm<cr>
-endif
+nnoremap <leader>md :Mm<cr>
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
@@ -187,11 +174,8 @@ let g:SuperTabLongestHighlight = 1
 let g:SuperTabRetainCompletionDuration = 'insert'
 
 " MRU - Most recently used files
-if exists(":MRU")
-    nnoremap <leader>lf :MRU<cr>
-    let MRU_Max_Entries=20
-    "let MRU_Exclude_Files='.*vimrc.*'
-endif
+nnoremap <leader>lf :MRU<cr>
+let MRU_Max_Entries=20
 
 " Use Ack instead of Grep when available
 if executable("ack")
@@ -204,10 +188,10 @@ if has("autocmd")
     " Put these in an autocmd group, so that we can delete them easily.
     augroup vimrcEx
         au!
-        au FocusLost * :wa
+        au BufLeave * silent! :wa
         autocmd FileType javascript setlocal fdm=expr 
         autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
-        if has("gui")
+        if has("gui_running")
             autocmd FileType javascript hi Folded guifg=bg
         else
             autocmd FileType javascript hi Folded ctermfg=bg
