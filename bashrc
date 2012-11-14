@@ -45,13 +45,8 @@ if [ -f ~/.todo/completion ]; then
 fi
 complete -F _todo t
 
-export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
-export PYTHONPATH="$HOME/lib/python2.7/site-packages"
-LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
-export EDITOR=/usr/local/bin/vim
-
-_PS1 ()
-{
+# Passed string shortened to specified characters
+function shortened_str () {
     local PRE= NAME="$1" LENGTH="$2";
     [[ "$NAME" != "${NAME#$HOME/}" || -z "${NAME#$HOME}" ]] &&
         PRE+='~' NAME="${NAME#$HOME}" LENGTH=$[LENGTH-1];
@@ -59,12 +54,13 @@ _PS1 ()
     echo "$PRE$NAME"
 }
 
-function parse_git_status() {
-    local git_status="`git status -unormal 2>&1`"
-    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
-        if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+# Colors for the three possible git commit states
+function git_status_color() {
+    local status="`git status -unormal 2>&1`"
+    if ! [[ "$status" =~ Not\ a\ git\ repo ]]; then
+        if [[ "$status" =~ nothing\ to\ commit ]]; then
             echo -n 32
-        elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+        elif [[ "$status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
             echo -n 34
         else
             echo -n 35
@@ -72,8 +68,25 @@ function parse_git_status() {
     fi
 }
 
-function parse_git_branch() {
+# No. of commits ahead of origin
+function git_ahead() {
+    brinfo=$(git branch -v | grep git-branch)
+    if [[ $brinfo =~ ("[ahead "([[:digit:]]*)]) ]]
+    then
+        echo "(${BASH_REMATCH[2]})"
+    fi
+}
+
+# Name of current branch
+function git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.\)\(.*\)/(\1)/'
 }
 
-PS1='\[\e[36m\]$(_PS1 "$PWD" 23) \[\e[$(parse_git_status)m\]$(parse_git_branch)\[\e[36m\]→\[\e[0m\] '
+# Awesome Bash Prompt
+PS1='\[\e[36m\]$(shortened_str "$PWD" 23) \[\e[$(git_status_color)m\]$(git_branch)\[\e[36m\]→\[\e[0m\] '
+
+export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
+export PYTHONPATH="$HOME/lib/python2.7/site-packages"
+LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
+export EDITOR=/usr/local/bin/vim
+
