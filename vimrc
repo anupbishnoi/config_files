@@ -68,7 +68,7 @@ nnoremap <c-k> <c-y>
 nnoremap <tab> <c-w>w
 nnoremap Q :w<cr>:bd<cr>
 "nnoremap <leader>q <c-w>q
-nnoremap <leader>q :bd<cr>
+nnoremap <leader>q :b #<cr>:bd #<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap @ @q
@@ -188,7 +188,7 @@ if has("autocmd")
     " Put these in an autocmd group, so that we can delete them easily.
     augroup vimrcEx
         au!
-        au BufLeave * silent! :wa
+        au InsertLeave * silent! :w
         autocmd FileType javascript setlocal fdm=expr 
         autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
         if has("gui_running")

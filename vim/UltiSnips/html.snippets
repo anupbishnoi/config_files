@@ -8,14 +8,14 @@ snippet data "data-bind" w
 data-bind="${1:${2:handler}: ${3:value}}"$0
 endsnippet
 
-snippet templ "knockout template" w
+snippet tmpl "knockout template" w
 <script type="text/html" id="${1:${2:element}Template}">
     $0
 </script>
 endsnippet
 
-snippet templ: "Template name, data specification" w
-template: { name: $1, data: $2 }$0
+snippet tmpl: "Template name, data specification" w
+template: { name: $1,${2: }data: $3 }$0
 endsnippet
 
 snippet tb "target blank" w
