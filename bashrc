@@ -68,22 +68,13 @@ function git_status_color() {
     fi
 }
 
-# No. of commits ahead of origin
-function git_ahead() {
-    brinfo=$(git branch -v | grep git-branch)
-    if [[ $brinfo =~ ("[ahead "([[:digit:]]*)]) ]]
-    then
-        echo "(${BASH_REMATCH[2]})"
-    fi
-}
-
 # Name of current branch
-function git_branch() {
+function git_branch_first_letter() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.\)\(.*\)/(\1)/'
 }
 
 # Awesome Bash Prompt
-PS1='\[\e[36m\]$(shortened_str "$PWD" 23) \[\e[$(git_status_color)m\]$(git_branch)\[\e[36m\]→\[\e[0m\] '
+PS1='\[\e[36m\]$(shortened_str "$PWD" 23) \[\e[$(git_status_color)m\]$(git_branch_first_letter)\[\e[36m\]→\[\e[0m\] '
 
 export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
 export PYTHONPATH="$HOME/lib/python2.7/site-packages"
