@@ -85,7 +85,6 @@ nnoremap <leader><cr> i<cr><esc>
 nnoremap <leader>> <c-w>999>
 nnoremap <leader>r :edit<cr>
 nnoremap <leader>F zR
-nnoremap <leader><leader> @q
 nnoremap <leader>s<space> :grep 
 nnoremap <leader>sh :split<cr>
 nnoremap <leader>sv :vsplit<cr>
@@ -98,6 +97,7 @@ nnoremap <leader>mm :grep \\#mark<cr><cr>
 nnoremap <leader>oo :! open .<cr><cr>
 
 vnoremap <leader>s :s/
+vnoremap . :normal .<cr>
 
 " Ack/grep results jumping
 nnoremap <c-n> :cn<cr>
@@ -200,7 +200,7 @@ if has("autocmd")
         au!
         au InsertLeave * silent! :w
         au BufRead,BufNewFile * let b:start_time=localtime()
-        au CursorHold * call UpdateFile()
+        au CursorHold * silent! call UpdateFile()
         au BufWritePre * let b:start_time=localtime()
 
         autocmd FileType javascript setlocal fdm=expr 
