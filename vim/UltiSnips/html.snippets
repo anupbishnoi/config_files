@@ -36,6 +36,25 @@ snippet css "include css file" w
 <link rel="stylesheet" type="text/css" href="$1">$0
 endsnippet
 
+snippet qunit "qunit html boilerplate" w
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>$1</title>
+        <link rel="stylesheet" type="text/css" href="${2:../dist/app}.css">
+        <script type="text/javascript" src="${3:../dist/lib}.js"></script>
+        <script type="text/javascript" src="${4:../dist/app}.js"></script>
+        <script type="text/javascript" src="$5.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            
+        </div>
+    </body>
+</html>
+endsnippet
+
 ##############
 #  Elements  #
 ##############

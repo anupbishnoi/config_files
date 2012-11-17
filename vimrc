@@ -180,8 +180,18 @@ let MRU_Max_Entries=20
 " Use Ack instead of Grep when available
 if executable("ack")
     "set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
-    set grepprg=ack\ -H\ --ignore-dir=js/lib\ --ignore-dir=docs\ --ignore-dir=css\ --ignore-dir=dist\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
+    set grepprg=ack\ -iH\ --sort-files\ --ignore-dir=node_modules\ --ignore-dir=js/lib\ --ignore-dir=docs\ --ignore-dir=css\ --ignore-dir=dist\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
 endif
+
+" only write if needed and update the start time after the save
+function! UpdateFile()
+  if ((localtime() - b:start_time) >= 1)
+    update
+    let b:start_time=localtime()
+  "else
+    "echo "Only " . (localtime() - b:start_time) . " seconds have elapsed so far."
+  endif
+endfunction
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -189,6 +199,10 @@ if has("autocmd")
     augroup vimrcEx
         au!
         au InsertLeave * silent! :w
+        au BufRead,BufNewFile * let b:start_time=localtime()
+        au CursorHold * call UpdateFile()
+        au BufWritePre * let b:start_time=localtime()
+
         autocmd FileType javascript setlocal fdm=expr 
         autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
         if has("gui_running")
