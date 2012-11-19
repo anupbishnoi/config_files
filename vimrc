@@ -61,8 +61,8 @@ nnoremap <leader>jo J
 nnoremap <D-j> J
 nnoremap <c-tab> gt
 nnoremap <c-s-tab> gT
-nnoremap K :sbnext<cr>
-nnoremap J :sbprevious<cr>
+nnoremap K :bn<cr>
+nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
 nnoremap <tab> <c-w>w
@@ -215,7 +215,8 @@ if has("autocmd")
         au FileType helpfile nnoremap <buffer><cr> <c-[>  " Enter selects subject
         au FileType helpfile nnoremap <buffer><bs> <c-T>  " Backspace to go back
 
-        au! BufRead,BufNewFile *.haml             setfiletype haml
+        au! BufRead,BufNewFile *.cshtml         setfiletype html
+        au! BufRead,BufNewFile *.haml           setfiletype haml
         autocmd FileType text setlocal textwidth=78
         " When editing a file, always jump to the last known cursor position.
         " Don't do it when the position is invalid or when inside an event handler
