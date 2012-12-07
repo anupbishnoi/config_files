@@ -1,6 +1,8 @@
 *.swp
 *.swo
+*.bak
 *~
+*.un~
 tags
 logs
 pids

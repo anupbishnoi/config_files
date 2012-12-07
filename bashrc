@@ -45,6 +45,10 @@ if [ -f ~/.todo/completion ]; then
 fi
 complete -F _todo t
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
 # Passed string shortened to specified characters
 function shortened_str () {
     local PRE= NAME="$1" LENGTH="$2";

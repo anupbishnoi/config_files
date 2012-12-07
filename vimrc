@@ -52,12 +52,12 @@ set guioptions=aAce
 set guifont=Monaco\ for\ Powerline:h18  " based on Monaco:h18
 "set colorcolumn=80
 "set transparency=2
+set sessionoptions=curdir,buffers,tabpages,winsize
 
 "nnoremap <tab> %
 "vnoremap <tab> %
 "nnoremap j gj
 "nnoremap k gk
-nnoremap <leader>jo J
 nnoremap <D-j> J
 nnoremap <c-tab> gt
 nnoremap <c-s-tab> gT
@@ -66,13 +66,14 @@ nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
 nnoremap <tab> <c-w>w
-nnoremap Q :w<cr>:bd<cr>
-"nnoremap <leader>q <c-w>q
-nnoremap <leader>q :b #<cr>:bd #<cr>
+nnoremap Q :bd<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap @ @q
 
+nnoremap <leader>jo J
+"nnoremap <leader>q <c-w>q
+nnoremap <leader>q :b #<cr>:bd #<cr>
 nnoremap <leader>L :source .vimrc.local<cr>
 nnoremap <leader>et :tabe <c-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>vv V`]
@@ -91,13 +92,14 @@ nnoremap <leader>sv :vsplit<cr>
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
 nnoremap <leader>ls :ls<cr>:buffer 
-nnoremap <leader>tt :grep \\#todo\:<cr><cr>
-nnoremap <leader>tl :grep \\#todo\ later\:<cr><cr>
-nnoremap <leader>mm :grep \\#mark<cr><cr>
+nnoremap <leader>tt :grep TODO\:<cr><cr>
+nnoremap <leader>tl :grep TODO later\:<cr><cr>
+nnoremap <leader>mm :grep MARK\:<cr><cr>
 nnoremap <leader>oo :! open .<cr><cr>
 
 vnoremap <leader>s :s/
 vnoremap . :normal .<cr>
+vnoremap <leader>jp :!python -mjson.tool<cr>
 
 " Ack/grep results jumping
 nnoremap <c-n> :cn<cr>
@@ -112,9 +114,6 @@ nnoremap <D-v> "+p
 " Editing help
 "inoremap <leader><cr> <Esc>o
 inoremap <leader>l <Esc>$a
-inoremap <leader>f <Esc>$a -><cr>
-inoremap <leader>g <Esc>$a, -><cr>
-inoremap <leader>> <esc>$a -> 
 
 " Press ^F from command mode to insert the current file name
 cmap <c-f> <c-r>=expand("%:p")<cr>
@@ -153,11 +152,12 @@ nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 
 " Coffee
-nnoremap <leader>js :CoffeeCompile watch vert<cr>
-nnoremap <leader>jq <c-w>l:q<cr>
-vnoremap <leader>js :CoffeeCompile<cr>
+"nnoremap <leader>js :CoffeeCompile watch vert<cr>
+"nnoremap <leader>jq <c-w>l:q<cr>
+"vnoremap <leader>js :CoffeeCompile<cr>
+
 "nnoremap <leader>ch :CoffeeLint! \| cwindow<cr>
-let coffee_make_options = '--bare'
+"let coffee_make_options = '--bare'
 
 " NERDTree and NERDCommenter
 nnoremap <leader>nd :NERDTreeToggle<cr>

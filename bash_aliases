@@ -11,6 +11,7 @@ alias t='todo.sh'
 
 # coding tools
 alias jsdocs='rocco -l js'
+# jsdocs -o output/ file.js
 
 # git aliases
 alias gd="git diff"
@@ -32,3 +33,4 @@ alias gcp="git cherry-pick"
 alias gl="git log --pretty='format:%Cgreen%h%Creset %an - %s' --graph"
 alias gpom="git pull origin master"
 alias gcd='cd "`git rev-parse --show-toplevel`"'
+alias gcl="git clone"

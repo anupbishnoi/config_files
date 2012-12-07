@@ -5,7 +5,7 @@ extends php
 ############
 
 snippet data "data-bind" w
-data-bind="${1:${2:handler}: ${3:value}}"$0
+data-bind="${1:handler: value}"$0
 endsnippet
 
 snippet tmpl "knockout template" w
@@ -60,6 +60,32 @@ snippet qunit "qunit html boilerplate" w
 </html>
 endsnippet
 
+snippet poc "Proof of Concept boilerplate" w
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Proof of Concept: $1</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.1.0.debug.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                ${4:var vm = window.vm = {
+                    $5
+                };
+
+                ko.applyBindings(vm);}
+            });
+        </script>
+    </head>
+    <body>
+        <div${6: style="margin-top: 200px auto 0 auto;"}">
+            $0
+        </div>
+    </body>
+</html>
+endsnippet
+
 ##############
 #  Elements  #
 ##############
@@ -102,7 +128,7 @@ snippet em "em" w
 endsnippet
 
 snippet div "div" w
-<div${1: id="$2"}${3: class="$4"}$5>
+<div${2: class="$3"}$4>
     $0
 </div>
 endsnippet
@@ -163,4 +189,22 @@ endsnippet
 
 snippet a "anchor" w
 <a href="$1">$0</a>
+endsnippet
+
+snippet form "form element" w
+<form action="$1" method="${2:post}">
+    $0
+</form>
+endsnippet
+
+snippet field "fieldset element" w
+<fieldset class="$1">
+    $0
+</fieldset>
+endsnippet
+
+snippet button "button element" w
+<button${1: type="$2"}${3: class="$4"}>
+    $0
+</button>
 endsnippet

@@ -3,13 +3,10 @@ let coffee_linter = '/usr/local/n/versions/0.7.8/bin/coffeelint'
 " open vimrc in a split window"
 nnoremap <leader>ev :e ~/config_files/vimrc<cr>
 nnoremap <leader>el :e ~/config_files/vimrc.local<cr>
-nnoremap <leader>ew :w ~/config_files/vimrc<cr>:source ~/config_files/vimrc<cr>
-nnoremap <leader>eq :w<cr>:source ~/config_files/vimrc<cr>:bd<cr>
+nnoremap <leader>ew :source ~/config_files/vimrc<cr>
 
-nnoremap <leader>ss :mks! ~/code/session.vim<cr>
-nnoremap <leader>sd :!rm  ~/code/session.vim<cr>
-nnoremap <leader>sl :so   ~/code/session.vim<cr>
+nnoremap <leader>ss :mks! ~/code/sessions/
+nnoremap <leader>sd :!rm  ~/code/sessions/
+nnoremap <leader>sl :so   ~/code/sessions/
 
-"cd ~/code/projects/vidyamandir
-cd ~/code/projects/bmw/frontend
 nnoremap <leader>eL :e .vimrc.local<cr>
