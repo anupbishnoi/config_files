@@ -2,7 +2,7 @@
 alias ll='ls -hlaoptAFG'
 alias la='ls -ptAFG'
 alias ls='ls -ptFG'
-alias grep='grep -inr'
+alias grep='grep -in'
 
 # GTD tools
 alias ijust='echo >> ~/ijust'
@@ -38,7 +38,17 @@ alias gll="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' -
 alias glplain="git log --pretty=format:'%h %s [%cn]'"
 alias gldate="git log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short"
 alias gld="git log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=relative"
-alias gle="git log --oneline --decorate"
-alias gfl="git log -u"
-alias gdlc="git diff --cached HEAD^"
+alias glfile="git log -u"
+alias gdlast="git diff --cached HEAD^"
+alias gf="git ls-files | grep -i"
+alias glt="git describe --tags --abbrev=0"
 
+gdr_func() {
+    git diff $1^..$1
+}
+alias gdr=gdr_func
+
+glc_func() {
+    git log $1^..$1
+}
+alias glc=glc_func
