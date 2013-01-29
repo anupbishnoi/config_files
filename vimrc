@@ -81,6 +81,7 @@ nnoremap <leader>J :m+<cr>
 nnoremap <leader>jj yyp
 nnoremap <leader>K :m-2<cr>
 nnoremap <leader>kk yyP
+nnoremap <leader>k} ddkkpkdd>>
 nnoremap <leader>w :w<cr>
 nnoremap <leader><cr> i<cr><esc>
 nnoremap <leader>> <c-w>999>
@@ -96,6 +97,7 @@ nnoremap <leader>tt :grep TODO\:<cr><cr>
 nnoremap <leader>tl :grep TODO later\:<cr><cr>
 nnoremap <leader>mm :grep MARK\:<cr><cr>
 nnoremap <leader>oo :! open .<cr><cr>
+nnoremap <leader>W :%s/\s\+$//<cr>
 
 vnoremap <leader>s :s/
 vnoremap . :normal .<cr>
@@ -133,9 +135,7 @@ nnoremap <D-e> :UltiSnipsEdit<cr>
 nnoremap <leader>sn :UltiSnipsEdit<cr>
 
 " JSLint
-nnoremap <leader>jn :JSLintUpdate<cr>:cc<cr>
-"nnoremap <leader>jc :JSLintToggle<cr>:JSLintUpdate<cr>:cc<cr>
-let g:JSLintHighlightErrorLine = 0
+nnoremap <leader>jn :JSHint<cr>
 
 " Powerline status bar
 let g:Powerline_symbols = 'fancy'
@@ -180,7 +180,7 @@ let MRU_Max_Entries=20
 " Use Ack instead of Grep when available
 if executable("ack")
     "set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-dir=client/helpers/lib\ --ignore-dir=app/lib\ --ignore-dir=public\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
-    set grepprg=ack\ -iH\ --sort-files\ --ignore-dir=node_modules\ --ignore-dir=js/lib\ --ignore-dir=docs\ --ignore-dir=css\ --ignore-dir=dist\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
+    set grepprg=ack\ -H\ --sort-files\ --ignore-dir=node_modules\ --ignore-dir=js/lib\ --ignore-dir=docs\ --ignore-dir=css\ --ignore-dir=dist\ --type-add\ js=.coffee\ --type-add\ html=.less\ --type-add\ html=.md
 endif
 
 " only write if needed and update the start time after the save
@@ -217,6 +217,8 @@ if has("autocmd")
 
         au! BufRead,BufNewFile *.cshtml         setfiletype html
         au! BufRead,BufNewFile *.haml           setfiletype haml
+        au! BufRead,BufNewFile *.tmpl           setfiletype html
+        autocmd FileType htmlcheetah set ft=html
         autocmd FileType text setlocal textwidth=78
         " When editing a file, always jump to the last known cursor position.
         " Don't do it when the position is invalid or when inside an event handler

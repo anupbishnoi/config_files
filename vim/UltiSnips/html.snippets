@@ -33,12 +33,12 @@ style="${0:display: none}"
 endsnippet
 
 snippet css "include css file" w
-<link rel="stylesheet" type="text/css" href="$1">$0
+<link rel="stylesheet" href="$1">$0
 endsnippet
 
 snippet qunit "qunit html boilerplate" w
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>$1</title>
@@ -62,7 +62,7 @@ endsnippet
 
 snippet poc "Proof of Concept boilerplate" w
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Proof of Concept: $1</title>
@@ -92,7 +92,7 @@ endsnippet
 
 snippet html "html" w
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>$1</title>$2
@@ -106,10 +106,10 @@ snippet html "html" w
 endsnippet
 
 snippet scr "js script" 
-<script type="text/javascript" src="$1">$2</script>$0
+<script type="text/javascript" src="$1"></script>$0
 endsnippet
 
-snippet iscr "Description"
+snippet script "Description"
 <script type="text/javascript">
     $0
 </script>
@@ -131,6 +131,12 @@ snippet div "div" w
 <div${2: class="$3"}$4>
     $0
 </div>
+endsnippet
+
+snippet sec "section" w
+<section${1: class="$3"}$4>
+    $0
+</section>
 endsnippet
 
 snippet span "span" w

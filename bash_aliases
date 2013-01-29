@@ -12,27 +12,41 @@ alias t='todo.sh'
 # coding tools
 alias jsdocs='rocco -l js'
 # jsdocs -o output/ file.js
+alias serve='python -m SimpleHTTPServer'
 
 # git aliases
-alias gd="git diff"
-alias ga="git add"
-alias gbd="git branch -D"
 alias gst="git status"
+alias gd="git diff"
+alias gdlast="git diff --cached HEAD^"
+
+alias gb="git branch"
+alias gbd="git branch -D"
+alias gba="git branch -a"
+
+alias ga="git add"
+alias gc="git commit -a"
 alias gca="git add .; git commit -a"
 alias gcm="git add .; git commit -a -m"
-alias gm="git merge --no-ff"
-alias gpt="git push --tags"
+
 alias gp="git push"
 alias gpo="git push origin"
-alias grh="git reset --hard"
-alias gb="git branch"
+alias gpom="git push origin master"
+alias gpt="git push --tags"
+
+alias gpl="git pull"
+alias gplo="git pull origin"
+alias gplom="git pull origin master"
+
 alias gcob="git checkout -b"
 alias gco="git checkout"
-alias gba="git branch -a"
+alias gback="git checkout HEAD^"
+
+alias grh="git reset --hard"
+alias gm="git merge --no-ff"
 alias gcp="git cherry-pick"
-alias gpom="git pull origin master"
 alias gcd='cd "`git rev-parse --show-toplevel`"'
 alias gcl="git clone"
+
 alias glog="git log"
 alias gl="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate"
 alias gll="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat"
@@ -41,7 +55,6 @@ alias glplain="git log --pretty=format:'%h %s [%cn]'"
 alias gldate="git log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short"
 alias gld="git log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=relative"
 alias glfile="git log -u"
-alias gdlast="git diff --cached HEAD^"
 alias gf="git ls-files | grep -i"
 alias glt="git describe --tags --abbrev=0"
 

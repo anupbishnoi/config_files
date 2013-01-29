@@ -80,8 +80,16 @@ function git_branch_first_letter() {
 # Awesome Bash Prompt
 PS1='\[\e[36m\]$(shortened_str "$PWD" 23) \[\e[$(git_status_color)m\]$(git_branch_first_letter)\[\e[36m\]→\[\e[0m\] '
 
-export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
+export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:$HOME/.node/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
 export PYTHONPATH="$HOME/lib/python2.7/site-packages"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
 export EDITOR=/usr/local/bin/vim
 
+
+#export PATH=/Applications/SenchaSDKTools-2.0.0-beta3:$PATH
+
+#export SENCHA_SDK_TOOLS_2_0_0_BETA3="/Applications/SenchaSDKTools-2.0.0-beta3"
+
+#export PATH=/Users/anup/bin/Sencha/Cmd/3.0.0.250:$PATH
+
+#export SENCHA_CMD_3_0_0="/Users/anup/bin/Sencha/Cmd/3.0.0.250"

@@ -15,6 +15,12 @@ snippet closure "IIFE function closure" w
 }());
 endsnippet
 
+snippet iife "iife without use_strict"
+(function () {
+    $0
+}());
+endsnippet
+
 snippet j "jquery object" w
 $($1)$0;
 endsnippet  
@@ -24,7 +30,13 @@ jQuery($1)$0;
 endsnippet  
 
 snippet $( "document ready" w
-$(function () {
+$(document).ready(function () {
+    $0
+});
+endsnippet
+
+snippet bb "Backbone extend"
+Backbone.${1:View}.extend({
     $0
 });
 endsnippet
@@ -109,7 +121,13 @@ for (${2:i} = 0; $2 < ${1:list}.length; $2 += 1) {
 }
 endsnippet
 
-snippet func "function (fun)" w
+snippet fun "anonymous function" w
+function ($1) {
+    $0
+}$2
+endsnippet
+
+snippet func "function" w
 function $1($2) {
     $0
 }$3
