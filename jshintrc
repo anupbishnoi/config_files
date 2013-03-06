@@ -19,13 +19,18 @@
 
     "predef"        : [  // Extra globals.
         "google",
-        "Zepto",
         "_",
         "$",
+        "Zepto",
+        "App",
         "ensure",
         "Backbone",
-        "App",
-        "JST"
+        "Reveal",
+        "hljs",
+        "Remotes",
+        "JST",
+        "log",
+        "Path"
     ],
 
 
@@ -66,6 +71,7 @@
     "supernew"      : false,  // Tolerate `new function () { ... };` and `new Object;`.
     "undef"         : true,   // Require all non-global variables be declared before they are used.
 
+    "validthis"     : true,   // Allow using `this` loosely in strict mode
 
     // Persone styling prefrences.
     "newcap"        : true,   // Require capitalization of all constructor functions e.g. `new F()`.

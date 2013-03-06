@@ -81,7 +81,8 @@ nnoremap <leader>J :m+<cr>
 nnoremap <leader>jj yyp
 nnoremap <leader>K :m-2<cr>
 nnoremap <leader>kk yyP
-nnoremap <leader>k} ddkkpkdd>>
+nnoremap <leader>} VdkkVp>>
+vnoremap <leader>} dkkVp
 nnoremap <leader>w :w<cr>
 nnoremap <leader><cr> i<cr><esc>
 nnoremap <leader>> <c-w>999>
@@ -98,10 +99,15 @@ nnoremap <leader>tl :grep TODO later\:<cr><cr>
 nnoremap <leader>mm :grep MARK\:<cr><cr>
 nnoremap <leader>oo :! open .<cr><cr>
 nnoremap <leader>W :%s/\s\+$//<cr>
+nnoremap <leader>< f<
+nnoremap <leader>> f>
 
 vnoremap <leader>s :s/
 vnoremap . :normal .<cr>
-vnoremap <leader>jp :!python -mjson.tool<cr>
+vnoremap <leader>jn :!python -mjson.tool<cr>
+
+" JS Beautifier
+nnoremap <leader>jf :call JsBeautify()<cr>
 
 " Ack/grep results jumping
 nnoremap <c-n> :cn<cr>
@@ -135,7 +141,7 @@ nnoremap <D-e> :UltiSnipsEdit<cr>
 nnoremap <leader>sn :UltiSnipsEdit<cr>
 
 " JSLint
-nnoremap <leader>jn :JSHint<cr>
+nnoremap <leader>jh :JSHint<cr>
 
 " Powerline status bar
 let g:Powerline_symbols = 'fancy'
@@ -210,7 +216,8 @@ if has("autocmd")
         else
             autocmd FileType javascript hi Folded ctermfg=bg
         endif
-        autocmd syntax javascript normal zM
+        " to hide comments
+        "autocmd syntax javascript normal zM
 
         au FileType helpfile nnoremap <buffer><cr> <c-[>  " Enter selects subject
         au FileType helpfile nnoremap <buffer><bs> <c-T>  " Backspace to go back
@@ -218,6 +225,10 @@ if has("autocmd")
         au! BufRead,BufNewFile *.cshtml         setfiletype html
         au! BufRead,BufNewFile *.haml           setfiletype haml
         au! BufRead,BufNewFile *.tmpl           setfiletype html
+
+        " don't indent my html
+        au BufEnter *.html set indentexpr=|set cindent
+
         autocmd FileType htmlcheetah set ft=html
         autocmd FileType text setlocal textwidth=78
         " When editing a file, always jump to the last known cursor position.

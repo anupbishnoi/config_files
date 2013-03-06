@@ -36,6 +36,24 @@ snippet css "include css file" w
 <link rel="stylesheet" href="$1">$0
 endsnippet
 
+snippet code "<pre><code>" w
+<pre><code contenteditable>
+</code></pre>
+endsnippet
+
+snippet icode "inline code" w
+<span class="code">$1</span>$0
+endsnippet
+
+snippet slide "horizontal slide with header" w
+<section>
+    <h3>$1</h3>
+    <pre><code contenteditable>$0
+    </code></pre>
+    <p>$2</p>
+</section>
+endsnippet
+
 snippet qunit "qunit html boilerplate" w
 <!DOCTYPE html>
 <html lang="en">
@@ -194,7 +212,7 @@ snippet h6 "h6" w
 endsnippet
 
 snippet a "anchor" w
-<a href="$1">$0</a>
+<a href="$1">$2</a>$0
 endsnippet
 
 snippet form "form element" w

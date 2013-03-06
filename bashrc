@@ -93,3 +93,6 @@ export EDITOR=/usr/local/bin/vim
 #export PATH=/Users/anup/bin/Sencha/Cmd/3.0.0.250:$PATH
 
 #export SENCHA_CMD_3_0_0="/Users/anup/bin/Sencha/Cmd/3.0.0.250"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
