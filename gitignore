@@ -11,4 +11,5 @@ pids
 session.vim
 session.vis
 .DS_Store
-node_modules
+.gitpush
+node_modules/

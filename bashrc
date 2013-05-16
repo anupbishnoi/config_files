@@ -96,3 +96,4 @@ export EDITOR=/usr/local/bin/vim
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export DEBUG="apper,cgi,app"

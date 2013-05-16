@@ -65,15 +65,21 @@ nnoremap K :bn<cr>
 nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
-nnoremap <tab> <c-w>w
+"nnoremap Q :b #<cr>:bd #<cr>
 nnoremap Q :bd<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap @ @q
 
+nnoremap <tab> <c-w>w
+nnoremap <leader>qq :b #<cr>:bd #<cr>
+nnoremap <leader>qw <c-w>q
+nnoremap <leader>qp :bd#<cr>
+nnoremap <leader>> <c-w>999>
+nnoremap <leader>es :vsp<cr>
+
 nnoremap <leader>jo J
-"nnoremap <leader>q <c-w>q
-nnoremap <leader>q :b #<cr>:bd #<cr>
+"nnoremap <leader>q :b #<cr>:bd #<cr>
 nnoremap <leader>L :source .vimrc.local<cr>
 nnoremap <leader>et :tabe <c-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>vv V`]
@@ -85,7 +91,6 @@ nnoremap <leader>} VdkkVp>>
 vnoremap <leader>} dkkVp
 nnoremap <leader>w :w<cr>
 nnoremap <leader><cr> i<cr><esc>
-nnoremap <leader>> <c-w>999>
 nnoremap <leader>r :edit<cr>
 nnoremap <leader>F zR
 nnoremap <leader>s<space> :grep 
@@ -99,12 +104,13 @@ nnoremap <leader>tl :grep TODO later\:<cr><cr>
 nnoremap <leader>mm :grep MARK\:<cr><cr>
 nnoremap <leader>oo :! open .<cr><cr>
 nnoremap <leader>W :%s/\s\+$//<cr>
+nnoremap <leader>M :%s/<c-v><c-m>//<cr>
 nnoremap <leader>< f<
 nnoremap <leader>> f>
 
 vnoremap <leader>s :s/
 vnoremap . :normal .<cr>
-vnoremap <leader>jn :!python -mjson.tool<cr>
+vnoremap <leader>jp :!python -mjson.tool<cr>
 
 " JS Beautifier
 nnoremap <leader>jf :call JsBeautify()<cr>
@@ -209,6 +215,8 @@ if has("autocmd")
         au CursorHold * silent! call UpdateFile()
         au BufWritePre * let b:start_time=localtime()
 
+        au FileType html compiler html
+
         autocmd FileType javascript setlocal fdm=expr 
         autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
         if has("gui_running")
@@ -227,9 +235,12 @@ if has("autocmd")
         au! BufRead,BufNewFile *.tmpl           setfiletype html
 
         " don't indent my html
-        au BufEnter *.html set indentexpr=|set cindent
+        au FileType html setlocal indentexpr=|setlocal cindent
 
-        autocmd FileType htmlcheetah set ft=html
+        au FileType html setlocal tabstop=2|setlocal shiftwidth=2|setlocal softtabstop=2
+        "au FileType css  setlocal tabstop=2|setlocal shiftwidth=2|setlocal softtabstop=2
+
+        autocmd FileType htmlcheetah setlocal ft=html
         autocmd FileType text setlocal textwidth=78
         " When editing a file, always jump to the last known cursor position.
         " Don't do it when the position is invalid or when inside an event handler

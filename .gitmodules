@@ -76,3 +76,6 @@
 [submodule "vim/bundle/jsbeautify"]
 	path = vim/bundle/jsbeautify
 	url = git://github.com/maksimr/vim-jsbeautify.git
+[submodule "vim/bundle/htmlvalidator"]
+	path = vim/bundle/htmlvalidator
+	url = git://github.com/sorin-ionescu/vim-htmlvalidator.git

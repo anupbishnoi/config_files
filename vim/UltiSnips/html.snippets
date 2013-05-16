@@ -4,13 +4,19 @@ extends php
 #  Custom  #
 ############
 
-snippet data "data-bind" w
+snippet bind "data-bind" w
 data-bind="${1:handler: value}"$0
+endsnippet
+
+snippet arti "article element" w
+<article$1>
+  $0
+</article>
 endsnippet
 
 snippet tmpl "knockout template" w
 <script type="text/html" id="${1:${2:element}Template}">
-    $0
+  $0
 </script>
 endsnippet
 
@@ -23,10 +29,22 @@ target="_blank"$0
 endsnippet
 
 snippet style "style"
-<style type="text/css">
-    $0
-</style> 
+<style${1: type="text/css"}>
+  $2
+</style>$0
 endsnippet   
+
+snippet styl "style without type" 
+<style>
+  $1
+</style>$0
+endsnippet
+
+snippet { "curlies for css"
+{
+  $1
+}$0
+endsnippet
 
 snippet sty "inline style" w
 style="${0:display: none}"
@@ -45,62 +63,47 @@ snippet icode "inline code" w
 <span class="code">$1</span>$0
 endsnippet
 
-snippet slide "horizontal slide with header" w
-<section>
-    <h3>$1</h3>
-    <pre><code contenteditable>$0
+snippet hr "horizontal rule"
+<hr>$0
+endsnippet
+
+snippet twoface "Two Face (CSS/HTML code + demo)" w
+<div class="two-face">
+  <div class="face demo">
+    <div class='change-face edit' title='Edit code'></div>
+    <div class="inner-container demo">
+      <iframe class="content"></iframe>
+    </div>
+  </div>
+  <div class="face code">
+    <div class='change-face run' title='Run code'></div>
+    <pre class="inner-container"><code class="content" contenteditable>$0
     </code></pre>
-    <p>$2</p>
-</section>
+  </div>
+</div>$1
 endsnippet
 
 snippet qunit "qunit html boilerplate" w
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>$1</title>
-        <link rel="stylesheet" type="text/css" href="${2:../dist/app}.css">
-        <script type="text/javascript" src="${3:../dist/lib}.js"></script>
-        <script type="text/javascript" src="${4:../dist/app}.js"></script>
-        <script type="text/javascript" src="$5.js"></script>
-    </head>
-    <body>
-        <h1 id="qunit-header">${6:Test Suite}</h1>
-        <h2 id="qunit-banner"></h2>
-        <div id="qunit-testrunner-toolbar"></div>
-        <h2 id="qunit-userAgent"></h2>
-        <ol id="qunit-tests"></ol>
-        <div id="qunit-fixture">
-            $0
-        </div>
-    </body>
-</html>
-endsnippet
-
-snippet poc "Proof of Concept boilerplate" w
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Proof of Concept: $1</title>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.1.0.debug.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                ${4:var vm = window.vm = {
-                    $5
-                };
-
-                ko.applyBindings(vm);}
-            });
-        </script>
-    </head>
-    <body>
-        <div${6: style="margin-top: 200px auto 0 auto;"}">
-            $0
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>$1</title>
+    <link rel="stylesheet" type="text/css" href="${2:../dist/app}.css">
+    <script type="text/javascript" src="${3:../dist/lib}.js"></script>
+    <script type="text/javascript" src="${4:../dist/app}.js"></script>
+    <script type="text/javascript" src="$5.js"></script>
+  </head>
+  <body>
+    <h1 id="qunit-header">${6:Test Suite}</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="qunit-fixture">
+      $0
+    </div>
+  </body>
 </html>
 endsnippet
 
@@ -111,15 +114,15 @@ endsnippet
 snippet html "html" w
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>$1</title>$2
-    </head>
-    <body>
-        <div${3: class="${4:wrapper}"}>
-            $5
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>$1</title>$2
+  </head>
+  <body>
+    ${3:<div$4>
+      $5
+    </div>}
+  </body>
 </html>
 endsnippet
 
@@ -127,10 +130,18 @@ snippet scr "js script"
 <script type="text/javascript" src="$1"></script>$0
 endsnippet
 
+snippet jqscr "jquery script" 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/${1:1.9.1}/jquery${2:.min}.js"></script>
+endsnippet
+
+snippet koscr "knockout script" 
+<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-${1:2.2.1}${2:.debug}.js"></script>
+endsnippet
+
 snippet script "Description"
 <script type="text/javascript">
-    $0
-</script>
+  $1
+</script>$0
 endsnippet
 
 snippet br "br" w
@@ -146,15 +157,27 @@ snippet em "em" w
 endsnippet
 
 snippet div "div" w
-<div${2: class="$3"}$4>
-    $0
-</div>
+<div$1>
+  $2
+</div>$0
+endsnippet
+
+snippet idiv "div without indent"
+<div$1>$2</div>$0
 endsnippet
 
 snippet sec "section" w
-<section${1: class="$3"}$4>
-    $0
-</section>
+<section$1>
+  $2
+</section>$0
+endsnippet
+
+snippet id "id=" w
+id="$1"$0
+endsnippet
+
+snippet clas "class=" w
+class="$1"$0
 endsnippet
 
 snippet span "span" w
@@ -162,9 +185,12 @@ snippet span "span" w
 endsnippet
 
 snippet p "paragraph" w
-<p>
-    $0
-</p>
+<p$1>$2</p>$0
+endsnippet
+
+snippet comm "comment"
+<!-- $1 -->
+$0
 endsnippet
 
 snippet img "image" w
@@ -173,18 +199,18 @@ endsnippet
 
 snippet ul "unordered list" w
 <ul>
-    $0
-</ul>
+  $1
+</ul>$0
 endsnippet
 
 snippet ol "ordered list" w
 <ol>
-    $0
-</ol>
+  $1
+</ol>$0
 endsnippet
 
 snippet li "list item" w
-<li>$0</li>
+<li>$1</li>$0
 endsnippet
 
 snippet h1 "h1" w
@@ -217,18 +243,22 @@ endsnippet
 
 snippet form "form element" w
 <form action="$1" method="${2:post}">
-    $0
+  $0
 </form>
 endsnippet
 
 snippet field "fieldset element" w
-<fieldset class="$1">
-    $0
+<fieldset$1>
+  $0
 </fieldset>
 endsnippet
 
 snippet button "button element" w
-<button${1: type="$2"}${3: class="$4"}>
-    $0
+<button$3>
+  $0
 </button>
+endsnippet
+
+snippet type "type=" w
+type="$1"$0
 endsnippet

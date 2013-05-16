@@ -18,19 +18,8 @@
     "dojo"          : false,
 
     "predef"        : [  // Extra globals.
-        "google",
-        "_",
-        "$",
-        "Zepto",
-        "App",
-        "ensure",
-        "Backbone",
-        "Reveal",
-        "hljs",
-        "Remotes",
-        "JST",
-        "log",
-        "Path"
+        "define",
+        "require"
     ],
 
 
@@ -61,7 +50,7 @@
     "indent"        : 4,      // Require indentation of 4
     "maxparams"     : 5,      // Limit function parameters to 5
     "quotmark"      : "double", // Require Double quotes for strings, just like in JSON
-    "latedef"       : true,   // Prohibit variable use before definition.
+    "latedef"       : false,  // Prohibit variable use before definition.
     "loopfunc"      : false,  // Allow functions to be defined within loops.
     "noarg"         : true,   // Prohibit use of `arguments.caller` and `arguments.callee`.
     "regexp"        : true,   // Prohibit `.` and `[^...]` in regular expressions.

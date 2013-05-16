@@ -3,9 +3,17 @@ alias ll="ls -hlaoptAFG"
 alias la="ls -ptAFG"
 alias ls="ls -ptFG"
 alias als="vim ~/.bash_aliases; . ~/.bash_aliases"
+alias autoj="vim ~/.local/share/autojump/autojump.txt"
 alias tree="tree -I node_modules"
-alias noex="chmod -x *.*"
+alias noex="chmod -x *.*; chmod -x .*.un~"
 alias whereis="find . | grep -i"
+
+function mvboth() {
+    mv $1 $2; mv .$1.un~ .$2.un~;
+}
+function rmboth() {
+    rm $1; rm .$1.un~;
+}
 
 # GTD tools
 alias ijust="echo >> ~/ijust"
@@ -36,12 +44,20 @@ alias gc="git commit -a"
 alias gca="git add .; git commit -a"
 alias gcm="git add .; git commit -a -m"
 
-alias gp="git push"
+function gp() {
+    if [ -f "./.gitpush" ]
+    then
+        ./.gitpush
+    else
+        git push origin master
+    fi
+}
 alias gpo="git push origin"
 alias gpom="git push origin master"
 alias gpt="git push --tags"
 
 alias gph="git push; git push heroku master"
+alias gpa="./gitpushto"
 
 alias gpl="git pull"
 alias gplo="git pull origin"
@@ -71,12 +87,20 @@ alias glfile="git log -u"
 alias gf="git ls-files | grep -i"
 alias glt="git describe --tags --abbrev=0"
 
-gdc_func() {
+function gdc() {
     git diff $1^..$1
 }
-alias gdc=gdc_func
 
-glc_func() {
+function glc() {
     git log $1^..$1
 }
-alias glc=glc_func
+
+# git svn helpers
+alias gspl="git svn rebase"
+alias gsps="git svn dcommit"
+
+# ssh to ec2
+alias ec2="ssh -i ~/.ssh/roughregister.pem ubuntu@ec2-54-245-241-110.us-west-2.compute.amazonaws.com"
+alias ec2bk="ssh -i ~/.ssh/roughregister.pem ubuntu@ec2-54-245-201-234.us-west-2.compute.amazonaws.com"
+
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
