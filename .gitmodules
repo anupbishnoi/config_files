@@ -79,3 +79,6 @@
 [submodule "vim/bundle/htmlvalidator"]
 	path = vim/bundle/htmlvalidator
 	url = git://github.com/sorin-ionescu/vim-htmlvalidator.git
+[submodule "vim/bundle/distraction-free"]
+	path = vim/bundle/distraction-free
+	url = git://github.com/laktek/distraction-free-writing-vim.git
