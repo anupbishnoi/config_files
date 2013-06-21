@@ -104,3 +104,5 @@ alias ec2="ssh -i ~/.ssh/roughregister.pem ubuntu@ec2-54-245-241-110.us-west-2.c
 alias ec2bk="ssh -i ~/.ssh/roughregister.pem ubuntu@ec2-54-245-201-234.us-west-2.compute.amazonaws.com"
 
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
+
+alias ip="ifconfig | grep '\s*inet\ '"
