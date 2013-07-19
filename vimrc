@@ -219,11 +219,6 @@ if has("autocmd")
 
         autocmd FileType javascript setlocal fdm=expr 
         autocmd FileType javascript setlocal fde=getline(v:lnum)=~'^\\s*\\/\\/'?1:getline(prevnonblank(v:lnum))=~'^\\s*\\/\\/'?1:getline(nextnonblank(v:lnum))=~'^\\s*\\/\\/'?1:0
-        if has("gui_running")
-            autocmd FileType javascript hi Folded guifg=bg
-        else
-            autocmd FileType javascript hi Folded ctermfg=bg
-        endif
         " to hide comments
         "autocmd syntax javascript normal zM
 
@@ -263,6 +258,6 @@ if has("autocmd")
     augroup END
 endif " has("autocmd")
 
-colorscheme solarized
+" colorscheme solarized
 
 source ~/.vimrc.local
