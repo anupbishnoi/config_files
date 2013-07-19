@@ -76,3 +76,6 @@
 [submodule "vim/bundle/htmlvalidator"]
 	path = vim/bundle/htmlvalidator
 	url = git://github.com/sorin-ionescu/vim-htmlvalidator.git
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/powerline.git
