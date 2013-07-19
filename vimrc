@@ -258,6 +258,6 @@ if has("autocmd")
     augroup END
 endif " has("autocmd")
 
-" colorscheme solarized
+colorscheme solarized
 
 source ~/.vimrc.local
