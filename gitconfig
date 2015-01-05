@@ -1,5 +1,8 @@
 
 # DO NOT EDIT BELOW THIS LINE
+[user]
+    name = Anup Bishnoi
+    email = pixelsallover@gmail.com
 [push]
     default = tracking
 [branch]
