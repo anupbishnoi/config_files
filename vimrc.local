@@ -1,6 +1,5 @@
 let coffee_linter = '/usr/local/n/versions/0.7.8/bin/coffeelint'
 
-" open vimrc in a split window"
 nnoremap <leader>ev :e ~/config_files/vimrc<cr>
 nnoremap <leader>el :e ~/config_files/vimrc.local<cr>
 nnoremap <leader>jl :e ~/config_files/jshintrc<cr>
@@ -10,4 +9,3 @@ nnoremap <leader>ss :mks! ~/code/sessions/
 nnoremap <leader>sd :!rm  ~/code/sessions/
 nnoremap <leader>sl :so   ~/code/sessions/
 
-nnoremap <leader>eL :e .vimrc.local<cr>
