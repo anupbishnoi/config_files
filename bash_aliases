@@ -25,6 +25,7 @@ alias nt="npm test"
 alias gst="git status"
 alias gd="git diff"
 alias gdlast="git diff --cached HEAD^"
+alias gs="git show"
 
 alias gb="git branch"
 alias gbd="git branch -D"
