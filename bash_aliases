@@ -2,10 +2,6 @@
 alias ll="ls -hlaoptAFG"
 alias la="ls -ptAFG"
 alias ls="ls -ptFG"
-alias als="vim ~/.bash_aliases; . ~/.bash_aliases"
-alias tree="tree -I node_modules"
-alias noex="chmod -x *.*; chmod -x .*.un~"
-alias findfile="find . | grep -i"
 
 function mvboth() {
     mv $1 $2; mv .$1.un~ .$2.un~;
@@ -14,18 +10,12 @@ function rmboth() {
     rm $1; rm .$1.un~;
 }
 
-# coding tools
-alias serve="python -m SimpleHTTPServer"
-
-# npm
-alias ns="npm start"
-alias nt="npm test"
-
 # git aliases
 alias gst="git status"
 alias gd="git diff"
 alias gdlast="git diff --cached HEAD^"
 alias gs="git show"
+alias gsts="git stash"
 
 alias gb="git branch"
 alias gbd="git branch -D"
@@ -33,18 +23,12 @@ alias gba="git branch -a"
 alias gbr="git branch -m"  # rename a branch
 
 alias ga="git add"
-alias gc="git commit -a"
-alias gca="git add .; git commit -a"
-alias gcm="git add .; git commit -a -m"
+alias gaa="git add --all"
+alias gc="git commit"
+alias gca="git commit -a"
+alias gcm="git commit -a -m"
 
-function gp() {
-    if [ -f "./.gitpush" ]
-    then
-        ./.gitpush
-    else
-        git push
-    fi
-}
+alias gp="git push"
 alias gpo="git push origin"
 alias gpom="git push origin master"
 alias gpt="git push --tags"
@@ -60,7 +44,9 @@ alias gcolast="git checkout HEAD^"
 alias grollback="git reset --hard HEAD^"
 
 alias grh="git reset --hard"
-alias gm="git merge --no-ff"
+alias gm="git merge"
+alias gm="git merge"
+alias gm="git merge"
 alias gcp="git cherry-pick"
 alias gcd='cd "`git rev-parse --show-toplevel`"'
 alias gcl="git clone"
@@ -90,3 +76,4 @@ alias gsps="git svn dcommit"
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 
 alias ip="ifconfig | grep '\s*inet\ '"
+

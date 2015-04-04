@@ -1,7 +1,12 @@
+" TODO: complete documentation here
+
+" TODO: features to add
+" - scroll current cursor position to middle of page
+" - find next instance of same word in file
+
+" load vim modules
 call pathogen#infect()
-let $PATH=substitute(system("echo \$PATH"), "\r\*\n", "", "g")
 syntax enable
-let mapleader = ","
 
 if has("autocmd")
   filetype plugin indent on
@@ -63,23 +68,25 @@ nnoremap K :bn<cr>
 nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
-nnoremap Q :bd<cr>
+nnoremap Q :w<cr>:bd<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap @ @q
 
 nnoremap <tab> <c-w>w
+
+let mapleader = ","
 nnoremap <leader>qq <c-w>q
 nnoremap <leader>> <c-w>999>
 nnoremap <leader>es :vsp<cr>
 
 nnoremap <leader>jo J
-nnoremap <leader>L :source .vimrc.local<cr>
+nnoremap <leader>lv :source ~/.vimrc<cr>
 nnoremap <leader>et :tabe <c-R>=expand("%:p:h") . "/" <cr>
+nnoremap <leader>ef :e <c-R>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>vv V`]
 nnoremap <leader>J :m+<cr>
 nnoremap <leader>K :m-2<cr>
-nnoremap <leader>kk yyP
 nnoremap <leader>} VdkkVp>>
 vnoremap <leader>} dkkVp
 nnoremap <leader>w :w<cr>
@@ -91,9 +98,6 @@ nnoremap <leader>sv :vsplit<cr>
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
 nnoremap <leader>ls :ls<cr>:buffer 
-nnoremap <leader>tt :grep TODO\:<cr><cr>
-nnoremap <leader>tl :grep TODO later\:<cr><cr>
-nnoremap <leader>mm :grep MARK\:<cr><cr>
 nnoremap <leader>oo :! open .<cr><cr>
 nnoremap <leader>W :%s/\s\+$//<cr>
 nnoremap <leader>M :%s/<c-v><c-m>//<cr>
@@ -115,7 +119,7 @@ vnoremap <D-x> "+d
 nnoremap <D-v> "+p
 
 " Editing help
-"inoremap <leader><cr> <Esc>o
+inoremap <leader><cr> <Esc>o
 inoremap <leader>l <Esc>$a
 
 " Press ^F from command mode to insert the current file name
@@ -151,16 +155,16 @@ nnoremap <leader>nd :NERDTreeToggle<cr>
 nnoremap <leader>md :Mm<cr>
 
 " SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabMidWordCompletion = 0
-let g:SuperTabMappingForward = '<tab>'
-let g:SuperTabMappingBackward = '<s-tab>'
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabRetainCompletionDuration = 'insert'
+"let g:SuperTabDefaultCompletionType = 'context'
+"let g:SuperTabMidWordCompletion = 0
+let g:SuperTabMappingForward = '<s-tab>' "'<tab>'
+"let g:SuperTabMappingBackward = '<s-tab>'
+"let g:SuperTabLongestHighlight = 1
+"let g:SuperTabRetainCompletionDuration = 'insert'
 
 " MRU - Most recently used files
 nnoremap <leader>lf :MRU<cr>
-let MRU_Max_Entries=20
+let MRU_Max_Entries=50
 
 " Use Ack instead of Grep when available
 if executable("ack")
@@ -222,3 +226,4 @@ set background=light
 colorscheme solarized
 
 source ~/.vimrc.local
+
