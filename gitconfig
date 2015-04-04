@@ -1,8 +1,5 @@
 
 # DO NOT EDIT BELOW THIS LINE
-[user]
-    name = Anup Bishnoi
-    email = pixelsallover@gmail.com
 [push]
     default = tracking
 [branch]
@@ -13,5 +10,3 @@
     branch = auto
 [core]
     excludesfile = ~/.gitignore
-[format]
-    pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
