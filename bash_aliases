@@ -11,11 +11,11 @@ function rmboth() {
 }
 
 # git aliases
-alias gst="git status"
+alias g="git status"
 alias gd="git diff"
 alias gdlast="git diff --cached HEAD^"
 alias gs="git show"
-alias gsts="git stash"
+alias gst="git stash"
 
 alias gb="git branch"
 alias gbd="git branch -D"
@@ -51,14 +51,14 @@ alias gcp="git cherry-pick"
 alias gcd='cd "`git rev-parse --show-toplevel`"'
 alias gcl="git clone"
 
+alias gun="git config user.name"
+alias gue="git config user.email"
+
 alias gl="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate"
-alias gll="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat"
+alias glf="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat"
 alias glplain="git log"
 alias gldate="git log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short"
 alias gld="git log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=relative"
-alias glfile="git log -u"
-alias gf="git ls-files | grep -i"
-alias glt="git describe --tags --abbrev=0"
 
 function gdc() {
     git diff $1^..$1

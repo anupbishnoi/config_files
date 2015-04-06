@@ -119,7 +119,6 @@ vnoremap <D-x> "+d
 nnoremap <D-v> "+p
 
 " Editing help
-inoremap <leader><cr> <Esc>o
 inoremap <leader>l <Esc>$a
 
 " Press ^F from command mode to insert the current file name
