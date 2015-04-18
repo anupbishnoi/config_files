@@ -69,6 +69,7 @@ nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
 nnoremap Q :w<cr>:bd<cr>
+nnoremap ql :bd #<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap @ @q

@@ -78,6 +78,6 @@ PS1='\[\e[36m\]$(shortened_str "$PWD" 23) \[\e[$(git_status_color)m\]$(git_branc
 export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:$HOME/.node/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
 export PYTHONPATH="$HOME/lib/python2.7/site-packages"
 LYNX_CFG=~/.lynx/lynx.cfg; export LYNX_CFG
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/bin/vim
 
 export DEBUG="apper,cgi,app"

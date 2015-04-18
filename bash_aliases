@@ -34,6 +34,8 @@ alias gpo="git push origin"
 alias gpom="git push origin master"
 alias gpt="git push --tags"
 
+alias gf="git fetch"
+
 alias gpl="git pull"
 alias gplo="git pull origin"
 alias gplom="git pull origin master"
@@ -75,4 +77,5 @@ alias gsps="git svn dcommit"
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 
 alias ip="ifconfig | grep '\s*inet\ '"
+alias als="vim ~/.bash_aliases; . ~/.bash_aliases"
 
