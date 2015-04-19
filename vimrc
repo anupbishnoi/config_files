@@ -8,10 +8,6 @@
 call pathogen#infect()
 syntax enable
 
-if has("autocmd")
-  filetype plugin indent on
-endif
-
 set nocompatible
 set expandtab
 set nofoldenable
@@ -68,8 +64,10 @@ nnoremap K :bn<cr>
 nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
-nnoremap Q :w<cr>:bd<cr>
+nnoremap Q :b #<cr>:bd #<cr>
+"nnoremap Q :w<cr>:bd<cr>
 nnoremap ql :bd #<cr>
+nnoremap <space> :b #<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap @ @q
@@ -83,8 +81,8 @@ nnoremap <leader>es :vsp<cr>
 
 nnoremap <leader>jo J
 nnoremap <leader>lv :source ~/.vimrc<cr>
-nnoremap <leader>et :tabe <c-R>=expand("%:p:h") . "/" <cr>
-nnoremap <leader>ef :e <c-R>=expand("%:p:h") . "/" <cr>
+nnoremap <leader>et :tabe <c-r>=expand("%:p:h") . "/" <cr>
+nnoremap <leader>ef :e <c-r>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>vv V`]
 nnoremap <leader>J :m+<cr>
 nnoremap <leader>K :m-2<cr>
@@ -128,8 +126,10 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 " ## Plugins
 
 " UltiSnips
-nnoremap <D-e> :UltiSnipsEdit<cr>
 nnoremap <leader>sn :UltiSnipsEdit<cr>
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Powerline status bar
 let g:Powerline_symbols = 'fancy'
@@ -137,12 +137,12 @@ let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'solarized256'
 
 " Git
-nnoremap <leader>g  :w<cr>:Git
+nnoremap <leader>g<space>  :w<cr>:Git 
 nnoremap <leader>gc :w<cr>:Gcommit<cr>
 nnoremap <leader>gg :w<cr>:Git push<cr>
 nnoremap <leader>gd :w<cr>:Gdiff<cr>
 nnoremap <leader>gs :w<cr>:Gstatus<cr>
-nnoremap <leader>ga :w<cr>:Git add .<cr>:Gcommit -m "
+nnoremap <leader>ga :w<cr>:Git add <c-r>=expand("%:p")<cr><cr><cr>
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 
 " JSLint
@@ -157,7 +157,7 @@ nnoremap <leader>md :Mm<cr>
 " SuperTab
 "let g:SuperTabDefaultCompletionType = 'context'
 "let g:SuperTabMidWordCompletion = 0
-let g:SuperTabMappingForward = '<s-tab>' "'<tab>'
+"let g:SuperTabMappingForward = '<tab>'
 "let g:SuperTabMappingBackward = '<s-tab>'
 "let g:SuperTabLongestHighlight = 1
 "let g:SuperTabRetainCompletionDuration = 'insert'
@@ -220,10 +220,12 @@ if has("autocmd")
         \ endif
     endif
   augroup END
+
+  filetype plugin indent on
 endif " has("autocmd")
+
+source ~/.vimrc.local
 
 set background=light
 colorscheme solarized
-
-source ~/.vimrc.local
 

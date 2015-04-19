@@ -4,25 +4,18 @@
 ###########################################################################
 
 snippet cons "console log" w
-console.log($1);$0
+console.log($1);
+$0
 endsnippet
 
-snippet closure "IIFE function closure" w
-(function () {
-    "use strict";
-
-    $0
-}());
-endsnippet
-
-snippet iife "iife without use_strict"
+snippet iife "IIFE function closure" w
 (function () {
     $0
 }());
 endsnippet
 
-snippet j "jquery object" w
-$($1)$0;
+snippet $ "jquery object" w
+$('$1')$0;
 endsnippet  
 
 snippet J "jquery object" w
@@ -31,31 +24,43 @@ endsnippet
 
 snippet $( "document ready" w
 $(function () {
-    $0
+  $0
 });
 endsnippet
 
 snippet require "requirejs"
 require([$1], function () {
-    $0
+  $0
 });
 endsnippet
 
 snippet req "require"
-require("$1")${2:;}$0
+require('$1')${2:;}$0
 endsnippet
 
 snippet define "define (requirejs)"
 define(${1:[
-    $2
+  $2
 ], }function () {
-    $0
+  $0
 });
+endsnippet
+
+snippet def "Object.defineProperty"
+Object.defineProperty($1.prototype, '$2', {
+	get: function () {
+		$3
+	},
+	set: function ($4) {
+		$5
+	}
+});
+$0
 endsnippet
 
 snippet bb "Backbone extend"
 Backbone.${1:View}.extend({
-    $0
+  $0
 });
 endsnippet
 
@@ -66,7 +71,7 @@ endsnippet
 
 snippet comp "ko.computed" w
 ko.computed(function () {
-    $0
+  $0
 })${1:,}
 endsnippet
 
@@ -76,7 +81,7 @@ endsnippet
 
 snippet extend "underscore extend" w
 _(${1:obj}).extend({
-    $0
+  $0
 });
 endsnippet
 
@@ -86,28 +91,24 @@ endsnippet
 
 snippet { "curly opening" w
 {
-    $0
+  $0
 }${1:}
 endsnippet
 
 snippet ({ "object argument" i
 ({
-    $1
+  $1
 });$0
 endsnippet
 
 snippet [ "Description" w
 [
-    $0
+  $0
 ]${1:}
 endsnippet
 
-snippet jsp "jsp-like inline template"
+snippet <% "jsp-like inline template"
 <%= $1 %>$0
-endsnippet
-
-snippet "jsp "jsp-like inline template"
-"<%= $1 %>$0
 endsnippet
 
 snippet unwrap "ko unwrap observable" i
@@ -117,16 +118,6 @@ endsnippet
 ###########################################################################
 #                            TextMate Snippets                            #
 ###########################################################################
-
-snippet get "Get Elements"
-getElement${1/(T)|.*/(?1:s)/}By${1:T}${1/(T)|(I)|.*/(?1:agName)(?2:d)/}('$2')
-endsnippet
-
-snippet "":f "object method string" w
-"${1:${2:#thing}:${3:click}}": function (element){
-	$0
-}${10:,}
-endsnippet
 
 snippet :f "Object Method" w
 ${1:method_name}: function (${3:attribute}){
@@ -146,33 +137,33 @@ endsnippet
 
 snippet for "for (...) {...}" w
 for (${2:i} = 0; $2 < ${1:list}.length; $2++) {
-    $0
+  $0
 }
 endsnippet
 
 snippet fun "anonymous function" w
 function ($1) {
-    $0
+  $0
 }$2
 endsnippet
 
 snippet func "function" w
 function $1($2) {
-    $0
+  $0
 }$3
 endsnippet
 
 snippet if "if" w
 if ($1) {
-    $3
+  $3
 }${2: else {
-    $4
+  $4
 }}$0
 endsnippet
 
 snippet timeout "setTimeout function" w
 setTimeout(function () {
-    $0
+  $0
 }, ${1:100});
 endsnippet
 
