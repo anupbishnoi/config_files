@@ -14,6 +14,8 @@ function rmboth() {
 }
 
 # git aliases
+alias gcf="vim .git/config"
+
 alias g="git status"
 alias gd="git diff"
 alias gdlast="git diff --cached HEAD^"
