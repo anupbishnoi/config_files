@@ -39,10 +39,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# CUSTOM
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+# CUSTOM CODE
 
 # Passed string shortened to specified characters
 function shortened_str () {
