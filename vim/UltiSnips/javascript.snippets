@@ -35,7 +35,7 @@ require([$1], function () {
 endsnippet
 
 snippet req "require"
-require('$1')${2:;}$0
+require('$1')$0
 endsnippet
 
 snippet define "define (requirejs)"
@@ -44,6 +44,12 @@ define(${1:[
 ], }function () {
   $0
 });
+endsnippet
+
+snippet proto ".prototype"
+$1.prototype.$2 = function ($3) {
+	$0
+};
 endsnippet
 
 snippet def "Object.defineProperty"
