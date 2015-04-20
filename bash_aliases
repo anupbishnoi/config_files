@@ -3,6 +3,9 @@ alias ll="ls -hlaoptAFG"
 alias la="ls -ptAFG"
 alias ls="ls -ptFG"
 
+alias ..="cd .."
+alias ...="cd ../.."
+
 function mvboth() {
     mv $1 $2; mv .$1.un~ .$2.un~;
 }
