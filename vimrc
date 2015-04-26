@@ -97,10 +97,11 @@ nnoremap <leader>sh :split<cr>
 nnoremap <leader>sv :vsplit<cr>
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
-nnoremap <leader>ls :ls<cr>:buffer
+nnoremap <leader>ls :ls<cr>:buffer 
 nnoremap <leader>oo :! open .<cr><cr>
 nnoremap <leader>W :%s/\s\+$//<cr>
 nnoremap <leader>M :%s/<c-v><c-m>//<cr>
+nnoremap <leader>s<space> :grep 
 
 vnoremap <leader>s :s/
 vnoremap <leader>jp :!python -mjson.tool<cr>
@@ -130,7 +131,11 @@ nnoremap <leader>jf :call JsBeautify()<cr>
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
-"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
+if has("autocmd")
+  autocmd FileType vim let g:airline#extensions#whitespace#checks = [ 'indent' ]
+endif
+
 
 " UltiSnips
 nnoremap <leader>sn :UltiSnipsEdit<cr>
@@ -171,12 +176,6 @@ nnoremap <leader>md :Mm<cr>
 " MRU - Most recently used files
 nnoremap <leader>lf :MRU<cr>
 let MRU_Max_Entries=50
-
-" Use Ack instead of Grep when available
-if executable("ack")
-  "set grepprg=ack\ -H\ --ignore-dir=.meteor\ --ignore-dir=lib\ --ignore-di
-  set grepprg=ack\ -H\ --sort-files\ --ignore-dir=node_modules\ --ignore-di
-endif
 
 " only write if needed and update the start time after the save
 function! UpdateFile()
@@ -225,6 +224,7 @@ if has("autocmd")
         \   endif                    |
         \ endif
     endif
+
   augroup END
 
   filetype plugin indent on
