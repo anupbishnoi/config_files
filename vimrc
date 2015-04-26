@@ -132,6 +132,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+" GReplace
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
 " Git
 nnoremap <leader>g<space>  :w<cr>:Git 
 nnoremap <leader>gc :w<cr>:Gcommit<cr>
