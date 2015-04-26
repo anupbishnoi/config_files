@@ -97,16 +97,13 @@ nnoremap <leader>sh :split<cr>
 nnoremap <leader>sv :vsplit<cr>
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
-nnoremap <leader>ls :ls<cr>:buffer 
+nnoremap <leader>ls :ls<cr>:buffer
 nnoremap <leader>oo :! open .<cr><cr>
 nnoremap <leader>W :%s/\s\+$//<cr>
 nnoremap <leader>M :%s/<c-v><c-m>//<cr>
 
 vnoremap <leader>s :s/
 vnoremap <leader>jp :!python -mjson.tool<cr>
-
-" JS Beautifier
-nnoremap <leader>jf :call JsBeautify()<cr>
 
 " Ack/grep results jumping
 nnoremap <c-n> :cn<cr>
@@ -126,6 +123,15 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 
 " ## Plugins
 
+" JS Beautifier
+nnoremap <leader>jf :call JsBeautify()<cr>
+
+" Airline
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+"let g:airline#extensions#tabline#fnamemod = ':t'
+
 " UltiSnips
 nnoremap <leader>sn :UltiSnipsEdit<cr>
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -137,7 +143,7 @@ set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
 
 " Git
-nnoremap <leader>g<space>  :w<cr>:Git 
+nnoremap <leader>g<space>  :w<cr>:Git
 nnoremap <leader>gc :w<cr>:Gcommit<cr>
 nnoremap <leader>gg :w<cr>:Git push<cr>
 nnoremap <leader>gd :w<cr>:Gdiff<cr>
