@@ -55,6 +55,7 @@ set guifont=Monaco\ for\ Powerline:h18  " based on Monaco:h18
 "set colorcolumn=80
 "set transparency=2
 set sessionoptions=curdir,buffers,tabpages,winsize
+"set paste
 
 "nnoremap j gj
 "nnoremap k gk

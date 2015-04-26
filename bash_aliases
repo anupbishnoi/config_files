@@ -1,7 +1,7 @@
 # some bash aliases
-alias ll="ls -hlaoptAFG"
-alias la="ls -ptAFG"
-alias ls="ls -ptFG"
+alias ll="ls --color=auto -hlaoptAFG"
+alias la="ls --color=auto -ptAFG"
+alias ls="ls --color=auto -ptFG"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -12,6 +12,8 @@ function mvboth() {
 function rmboth() {
     rm $1; rm .$1.un~;
 }
+alias mvboth=mvboth
+alias rmboth=rmboth
 
 # git aliases
 alias gcf="vim .git/config"
@@ -79,7 +81,8 @@ function glc() {
 alias gspl="git svn rebase"
 alias gsps="git svn dcommit"
 
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
+# Image gallery from file system (n-gallery)
+alias gallery="~/node_modules/n-gallery/bin/n-gallery"
 
 alias ip="ifconfig | grep '\s*inet\ '"
 alias als="vim ~/.bash_aliases; . ~/.bash_aliases"

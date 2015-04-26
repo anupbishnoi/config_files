@@ -4,8 +4,7 @@
 ###########################################################################
 
 snippet cons "console log" w
-console.log($1);
-$0
+console.log($1);$0
 endsnippet
 
 snippet iife "IIFE function closure" w
@@ -46,10 +45,16 @@ define(${1:[
 });
 endsnippet
 
-snippet proto ".prototype"
+snippet pro ".prototype = function"
 $1.prototype.$2 = function ($3) {
-	$0
+	$4
 };
+endsnippet
+
+snippet proto ".prototype. full"
+$1.prototype.$2 = ${3:function ($4) }{
+	$0
+}$5;
 endsnippet
 
 snippet def "Object.defineProperty"
@@ -97,14 +102,22 @@ endsnippet
 
 snippet { "curly opening" w
 {
-  $0
-}${1:}
+  $1$0
+}$2
 endsnippet
 
 snippet ({ "object argument" i
 ({
   $1
 });$0
+endsnippet
+
+snippet ( "bracket opening" i
+($1)$0
+endsnippet
+
+snippet ' "quote opening" i
+'$1'$0
 endsnippet
 
 snippet [ "Description" w
@@ -135,14 +148,8 @@ snippet :, "Object Value JS" w
 ${1:value_name}:${0:value},
 endsnippet
 
-snippet forf "for (...) {...} (faster)" w
-for (${2:i} = ${1:list}.length - 1; $2 >= 0; $2 -= 1){
-	${3:$1[$2]}$0
-}
-endsnippet
-
 snippet for "for (...) {...}" w
-for (${2:i} = 0; $2 < ${1:list}.length; $2++) {
+for ($1 = 0; $2 < $3.length; $4++) {
   $0
 }
 endsnippet
