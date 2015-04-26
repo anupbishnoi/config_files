@@ -51,7 +51,7 @@ set complete=.,w,b,u
 set completeopt=longest,menu
 set clipboard=unnamed
 set guioptions=aAce
-set guifont=Monaco\ for\ Powerline:h18  " based on Monaco:h18
+set guifont=Monaco:h18  " based on Monaco:h18
 "set colorcolumn=80
 "set transparency=2
 set sessionoptions=curdir,buffers,tabpages,winsize
@@ -131,11 +131,6 @@ nnoremap <leader>sn :UltiSnipsEdit<cr>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" Powerline status bar
-let g:Powerline_symbols = 'fancy'
-"let g:Powerline_theme = 'solarized256'
-let g:Powerline_colorscheme = 'solarized256'
 
 " Git
 nnoremap <leader>g<space>  :w<cr>:Git 

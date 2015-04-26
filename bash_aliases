@@ -1,3 +1,10 @@
+# Image gallery from file system (n-gallery)
+alias gallery="~/node_modules/n-gallery/bin/n-gallery"
+
+alias ip="ifconfig | grep '\s*inet\ '"
+alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm'"
+alias als="vim ~/.bash_aliases; . ~/.bash_aliases"
+
 # some bash aliases
 alias ll="ls --color=auto -hlaoptAFG"
 alias la="ls --color=auto -ptAFG"
@@ -80,10 +87,4 @@ function glc() {
 # git svn helpers
 alias gspl="git svn rebase"
 alias gsps="git svn dcommit"
-
-# Image gallery from file system (n-gallery)
-alias gallery="~/node_modules/n-gallery/bin/n-gallery"
-
-alias ip="ifconfig | grep '\s*inet\ '"
-alias als="vim ~/.bash_aliases; . ~/.bash_aliases"
 
