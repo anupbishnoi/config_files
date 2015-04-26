@@ -7,21 +7,12 @@
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/markdown"]
-	path = vim/bundle/markdown
-	url = https://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/vividchalk"]
-	path = vim/bundle/vividchalk
-	url = https://github.com/tpope/vim-vividchalk.git
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "vim/bundle/coffee-script"]
-	path = vim/bundle/coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/bundle/greplace"]
 	path = vim/bundle/greplace
 	url = https://github.com/vim-scripts/greplace.vim.git
@@ -34,9 +25,6 @@
 [submodule "vim/bundle/nerd-commenter"]
 	path = vim/bundle/nerd-commenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/ack"]
-	path = vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "vim/bundle/handlebars"]
 	path = vim/bundle/handlebars
 	url = https://github.com/nono/vim-handlebars.git
@@ -49,15 +37,9 @@
 [submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/markdown-preview"]
-	path = vim/bundle/markdown-preview
-	url = https://github.com/nelstrom/vim-markdown-preview.git
 [submodule "vim/bundle/mru"]
 	path = vim/bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
 [submodule "vim/bundle/signature"]
 	path = vim/bundle/signature
 	url = git://github.com/kshenoy/vim-signature.git
