@@ -58,3 +58,6 @@
 [submodule "vim/bundle/htmlvalidator"]
 	path = vim/bundle/htmlvalidator
 	url = git://github.com/sorin-ionescu/vim-htmlvalidator.git
+[submodule "vim/bundle/airline"]
+	path = vim/bundle/airline
+	url = https://github.com/bling/vim-airline
