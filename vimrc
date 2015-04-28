@@ -126,6 +126,10 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 
 " ## Plugins
 
+" CtrlP
+let g:ctrlp_map = '<c-o>'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 " Multiple cursors
 let g:multi_cursor_next_key='<c-p>'
 let g:multi_cursor_prev_key='<c-y>'
