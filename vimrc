@@ -126,6 +126,13 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 
 " ## Plugins
 
+" Multiple cursors
+let g:multi_cursor_next_key='<c-p>'
+let g:multi_cursor_prev_key='<c-y>'
+let g:multi_cursor_skip_key='<c-x>'
+let g:multi_cursor_quit_key='<Esc>'
+" let g:multi_cursor_start_key='<bslash>'
+
 " JS Beautifier
 nnoremap <leader>jf :call JsBeautify()<cr>
 
