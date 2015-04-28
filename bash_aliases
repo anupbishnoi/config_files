@@ -3,7 +3,7 @@ alias gallery="~/node_modules/n-gallery/bin/n-gallery"
 
 alias ip="ifconfig | grep '\s*inet\ '"
 alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm'"
-alias als="vim ~/.bash_aliases; . ~/.bash_aliases"
+alias als="vim ~/.bash_aliases; source ~/.bash_aliases"
 
 # some bash aliases
 alias ll="ls --color=auto -hlaoptAFG"
@@ -37,6 +37,7 @@ alias gba="git branch -a"
 alias gbr="git branch -m"  # rename a branch
 
 alias ga="git add"
+alias gap="git add -p"
 alias gaa="git add --all"
 alias gc="git commit"
 alias gca="git commit -a"

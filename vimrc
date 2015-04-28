@@ -55,7 +55,6 @@ set guifont=Monaco:h18  " based on Monaco:h18
 "set colorcolumn=80
 "set transparency=2
 set sessionoptions=curdir,buffers,tabpages,winsize
-"set paste
 
 "nnoremap j gj
 "nnoremap k gk
@@ -98,18 +97,21 @@ nnoremap <leader>sv :vsplit<cr>
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
 nnoremap <leader>ls :ls<cr>:buffer 
-nnoremap <leader>oo :! open .<cr><cr>
 nnoremap <leader>W :%s/\s\+$//<cr>
 nnoremap <leader>M :%s/<c-v><c-m>//<cr>
 nnoremap <leader>s<space> :grep 
+nnoremap <leader>mh :set nonumber<cr>
+nnoremap <leader>ms :set number<cr>
+nnoremap <leader>sp :set paste<cr>
+nnoremap <leader>hp :set nopaste<cr>
 
 vnoremap <leader>s :s/
 vnoremap <leader>jp :!python -mjson.tool<cr>
 
 " Ack/grep results jumping
-nnoremap <c-n> :cn<cr>
-nnoremap <c-p> :cp<cr>
-nnoremap <c-o> :copen<cr>
+nnoremap <leader>n :cn<cr>
+nnoremap <leader>p :cp<cr>
+nnoremap <leader>o :copen<cr>
 
 " For MacVim
 vnoremap <D-c> "+y
@@ -160,7 +162,7 @@ nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 nnoremap <leader>js :JSHint<cr>
 
 " NERDTree and NERDCommenter
-nnoremap <leader>nd :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
 
 " Compile and open markdown as HTML
 nnoremap <leader>md :Mm<cr>
