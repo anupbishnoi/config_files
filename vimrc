@@ -108,6 +108,12 @@ nnoremap <leader>hp :set nopaste<cr>
 vnoremap <leader>s :s/
 vnoremap <leader>jp :!python -mjson.tool<cr>
 
+" Deleting without copying
+nnoremap <leader>d "_d
+nnoremap <leader>x "_x
+vnoremap <leader>d "_d
+vnoremap <leader>x "_x
+
 " Ack/grep results jumping
 nnoremap <leader>n :cn<cr>
 nnoremap <leader>p :cp<cr>
