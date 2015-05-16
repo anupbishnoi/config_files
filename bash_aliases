@@ -1,9 +1,12 @@
 # Image gallery from file system (n-gallery)
 alias gallery="~/node_modules/n-gallery/bin/n-gallery"
 
+# Misc system stuff
 alias ip="ifconfig | grep '\s*inet\ '"
 alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm'"
 alias als="vim ~/.bash_aliases; source ~/.bash_aliases"
+alias update="sudo apt-get update && sudo apt-get upgrade -y"
+alias trip="sudo tripwire --check --interactive"
 
 # some bash aliases
 alias ll="ls --color=auto -hlaoptAFG"
@@ -22,6 +25,8 @@ function rmboth() {
 alias mvboth=mvboth
 alias rmboth=rmboth
 
+alias rmf="rm -rf"
+
 # git aliases
 alias gcf="vim .git/config"
 
@@ -30,6 +35,8 @@ alias gd="git diff"
 alias gdlast="git diff --cached HEAD^"
 alias gs="git show"
 alias gst="git stash"
+alias gstl="git stash list"
+alias gsta="git stash apply"
 
 alias gb="git branch"
 alias gbd="git branch -D"
@@ -44,10 +51,14 @@ alias gca="git commit -a"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
 
+alias gcra="git commit --amend --reset-author -F .git/rebase-merge/message"
+alias grc="git rebase --continue"
+
 alias gp="git push"
 alias gpo="git push origin"
 alias gpom="git push origin master"
 alias gpt="git push --tags"
+alias gpu="git push -u"
 
 alias gf="git fetch"
 
@@ -55,7 +66,7 @@ alias gpl="git pull"
 alias gplo="git pull origin"
 alias gplom="git pull origin master"
 
-alias gcob="git checkout -b"
+alias gcob="git checkout -b --no-track"
 alias gco="git checkout"
 alias gcolast="git checkout HEAD^"
 
@@ -68,10 +79,10 @@ alias gcp="git cherry-pick"
 alias gcd='cd "`git rev-parse --show-toplevel`"'
 alias gcl="git clone"
 
-alias gun="git config user.name"
-alias gue="git config user.email"
+alias gcu="git config user.name"
+alias gce="git config user.email"
 
-alias gl="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate"
+alias gl="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]%Cgreen (%ar)' --decorate --graph"
 alias glf="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat"
 alias glplain="git log"
 alias gldate="git log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short"
@@ -88,4 +99,7 @@ function glc() {
 # git svn helpers
 alias gspl="git svn rebase"
 alias gsps="git svn dcommit"
+
+# grunt helpers
+alias grt="grunt test"
 
