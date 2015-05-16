@@ -15,11 +15,11 @@ endsnippet
 
 snippet $ "jquery object" w
 $('$1')$0;
-endsnippet  
+endsnippet
 
 snippet J "jquery object" w
 jQuery($1)$0;
-endsnippet  
+endsnippet
 
 snippet $( "document ready" w
 $(function () {
@@ -75,6 +75,22 @@ Backbone.${1:View}.extend({
 });
 endsnippet
 
+snippet exp "expect (Jasmine)" w
+expect($1).to${2:Equal}($3);$0
+endsnippet
+
+snippet it "it (Jasmine)" w
+it('$1', function () {
+	$2
+});$0
+endsnippet
+
+snippet desc "describe (Jasmine)" w
+describe('$1', function () {
+	$2
+});$0
+endsnippet
+
 snippet glo "jshint globals declaration"
 /*globals ${1:Backbone:false}$2 */
 $0
@@ -104,6 +120,12 @@ snippet { "curly opening" w
 {
   $1$0
 }$2
+endsnippet
+
+snippet {; "curly opening" w
+{
+  $1$0
+};$2
 endsnippet
 
 snippet ({ "object argument" i
@@ -158,6 +180,18 @@ snippet fun "anonymous function" w
 function ($1) {
   $0
 }$2
+endsnippet
+
+snippet (f "anon function with closing" i
+(function ($1) {
+  $2
+});$0
+endsnippet
+
+snippet f; "anon function with one closing" w
+function ($2) {
+	$1
+});$0
 endsnippet
 
 snippet func "function" w
