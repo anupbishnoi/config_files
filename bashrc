@@ -96,6 +96,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Git completion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 # Passed string shortened to specified characters
 function shortened_str () {
     local PRE= NAME="$1" LENGTH="$2";
