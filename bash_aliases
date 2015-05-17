@@ -1,10 +1,14 @@
+# SSH aliases
+alias sshstart='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa_github_byondrealdev'
+
 # Image gallery from file system (n-gallery)
 alias gallery="~/node_modules/n-gallery/bin/n-gallery"
 
 # Misc system stuff
 alias ip="ifconfig | grep '\s*inet\ '"
 alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm'"
-alias als="vim ~/.bash_aliases; source ~/.bash_aliases"
+alias als="vim ~/.bash_aliases && source ~/.bash_aliases"
+alias bashrc="vim ~/.bashrc && source ~/.bashrc"
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
 alias trip="sudo tripwire --check --interactive"
 
@@ -26,6 +30,11 @@ alias mvboth=mvboth
 alias rmboth=rmboth
 
 alias rmf="rm -rf"
+
+# npm aliases
+alias ni="npm install"
+alias nis="npm install --save"
+alias nt="npm test"
 
 # git aliases
 alias gcf="vim .git/config"
@@ -66,7 +75,7 @@ alias gpl="git pull"
 alias gplo="git pull origin"
 alias gplom="git pull origin master"
 
-alias gcob="git checkout -b --no-track"
+alias gcob="git checkout -b"
 alias gco="git checkout"
 alias gcolast="git checkout HEAD^"
 

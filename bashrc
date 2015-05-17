@@ -19,9 +19,15 @@ shopt -s histappend
 HISTSIZE=5000
 HISTFILESIZE=5000
 
+# add commands to history right away between terminals
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# turn off terminal suspension feature (ctrl-s)
+stty -ixon
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -60,7 +66,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     PS1='\[\e[36m\]$(shortened_str "$PWD" 23) \[\e[$(git_status_color)m\]$(git_branch)\[\e[36m\]→\[\e[0m\] '
-    
+
 else
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='$(shortened_str "$PWD" 23) $(git_branch) → '
@@ -100,6 +106,10 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+__git_complete gco _git_checkout
+__git_complete gp _git_push
+__git_complete gcl _git_clone
+__git_complete gb _git_branch
 
 # Passed string shortened to specified characters
 function shortened_str () {
@@ -132,3 +142,7 @@ function git_branch() {
 export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:$HOME/.node/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
 export EDITOR=/usr/bin/vim
 export DEBUG="apper,cgi,app"
+
+# Start SSH server
+sshstart
+
