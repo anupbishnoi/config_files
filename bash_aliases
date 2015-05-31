@@ -1,6 +1,3 @@
-# SSH aliases
-alias sshstart='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa_github_byondrealdev'
-
 # Grunt aliases
 alias gruntloop="while true; do grunt build; sleep 2; done"
 

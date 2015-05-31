@@ -141,5 +141,7 @@ export EDITOR=/usr/bin/vim
 export DEBUG="apper,cgi,app"
 
 # Start SSH server
-sshstart
+if ! [ "$(uname)" == "Darwin" ]; then
+  eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa_github_byondrealdev
+fi
 
