@@ -2,7 +2,7 @@ nnoremap <leader>ev :e ~/config_files/vimrc<cr>
 nnoremap <leader>el :e ~/config_files/vimrc.local<cr>
 nnoremap <leader>jl :e ~/config_files/jshintrc<cr>
 
-nnoremap <leader>ss :mks! ~/code/sessions/
-nnoremap <leader>sd :!rm  ~/code/sessions/
-nnoremap <leader>sl :so   ~/code/sessions/
+nnoremap <leader>ss :mks! ~/.vimsessions/
+nnoremap <leader>sd :!rm  ~/.vimsessions/
+nnoremap <leader>sl :so   ~/.vimsessions/
 

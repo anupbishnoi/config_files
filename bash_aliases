@@ -1,6 +1,12 @@
 # SSH aliases
 alias sshstart='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa_github_byondrealdev'
 
+# Grunt aliases
+alias gruntloop="while true; do grunt build; sleep 2; done"
+
+# Mikael's spritepacker
+alias spritepacker="node ~/node_modules/spritepacker/src/cmd.js"
+
 # Image gallery from file system (n-gallery)
 alias gallery="~/node_modules/n-gallery/bin/n-gallery"
 
@@ -30,6 +36,10 @@ alias mvboth=mvboth
 alias rmboth=rmboth
 
 alias rmf="rm -rf"
+
+# nginx aliases
+alias nginxedit="sudo vim /etc/nginx/sites-available/dev.byondreal.net && sudo service nginx restart"
+alias nginxview="vim /etc/nginx/sites-available/dev.byondreal.net"
 
 # npm aliases
 alias ni="npm install"
