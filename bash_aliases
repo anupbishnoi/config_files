@@ -17,11 +17,20 @@ alias als="vim ~/.bash_aliases && source ~/.bash_aliases"
 alias bashrc="vim ~/.bashrc && source ~/.bashrc"
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
 alias trip="sudo tripwire --check --interactive"
+if ! hash tac 2>/dev/null; then
+  alias tac="tail -r"
+fi
 
 # some bash aliases
-alias ll="ls --color=auto -hlaoptAFG"
-alias la="ls --color=auto -ptAFG"
-alias ls="ls --color=auto -ptFG"
+if [ "$(uname)" == "Darwin" ]; then
+  alias ll="ls -hlaoptAFG"
+  alias la="ls -ptAFG"
+  alias ls="ls -ptFG"
+else
+  alias ll="ls --color=auto -hlaoptAFG"
+  alias la="ls --color=auto -ptAFG"
+  alias ls="ls --color=auto -ptFG"
+fi
 
 alias ..="cd .."
 alias ...="cd ../.."
