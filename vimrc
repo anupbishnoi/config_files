@@ -8,6 +8,10 @@
 call pathogen#infect()
 syntax enable
 
+if has("autocmd")
+  filetype plugin indent on
+endif
+
 set nocompatible
 set expandtab
 set nofoldenable
@@ -245,8 +249,6 @@ if has("autocmd")
     endif
 
   augroup END
-
-  filetype plugin indent on
 endif " has("autocmd")
 
 source ~/.vimrc.local
