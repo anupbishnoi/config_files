@@ -140,8 +140,6 @@ export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/
 export EDITOR=/usr/bin/vim
 export DEBUG="apper,cgi,app"
 
-# Start SSH server
-if ! [ "$(uname)" == "Darwin" ]; then
-  eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa_github_byondrealdev
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
 fi
-
