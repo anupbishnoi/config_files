@@ -121,6 +121,8 @@ function glc() {
     git log $1^..$1
 }
 
+alias gsu="git submodule foreach \"(git checkout master; git pull)&\""
+
 # git svn helpers
 alias gspl="git svn rebase"
 alias gsps="git svn dcommit"
