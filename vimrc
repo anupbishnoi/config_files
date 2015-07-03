@@ -131,6 +131,7 @@ nnoremap <D-v> "+p
 
 " Editing help
 inoremap <leader>l <Esc>$a
+inoremap <leader>k <esc>O
 
 " Press ^F from command mode to insert the current file name
 cmap <c-f> <c-r>=expand("%:p")<cr>

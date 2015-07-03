@@ -136,7 +136,8 @@ function git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/^* \(.*\)/(\1)/'
 }
 
-export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/local/bin:$HOME/.node/bin:/var/lib/gems/1.8/bin:/usr/local/mysql/bin:/usr/lib/python2.7/site-packages:/usr/local/lib/node_modules
+export GEM_HOME=$HOME/.gem
+export PATH=$PATH:$HOME/bin:$GEM_HOME/bin
 export EDITOR=/usr/bin/vim
 export DEBUG="apper,cgi,app"
 
