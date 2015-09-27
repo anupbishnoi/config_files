@@ -130,3 +130,9 @@ alias gsps="git svn dcommit"
 # grunt helpers
 alias grt="grunt test"
 
+# screen helpers
+alias sls="screen -ls"
+alias sr="screen -r"
+alias sd="screen -D"
+alias sn="screen -S"
+
