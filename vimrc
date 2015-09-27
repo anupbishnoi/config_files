@@ -76,6 +76,7 @@ nnoremap <space> :b #<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap @ @q
+inoremap <c-space> <c-n>
 
 nnoremap <tab> <c-w>w
 
@@ -102,7 +103,7 @@ nnoremap <leader>sv :vsplit<cr>
 nnoremap <leader>C :lcd %:p:h<cr>
 nnoremap <leader>vl v$h
 nnoremap <leader>ls :ls<cr>:buffer 
-nnoremap <leader>W :%s/\s\+$//<cr>
+nnoremap <leader>W :%s/\s\+$//<cr>:retab<cr>
 nnoremap <leader>M :%s/<c-v><c-m>//<cr>
 nnoremap <leader>s<space> :grep 
 nnoremap <leader>mh :set nonumber<cr>
@@ -141,6 +142,7 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 " CtrlP
 let g:ctrlp_map = '<c-o>'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+nnoremap <leader>co :CtrlPClearAllCaches<cr>
 
 " Multiple cursors
 let g:multi_cursor_next_key='<c-p>'
