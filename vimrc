@@ -109,7 +109,7 @@ nnoremap <leader>s<space> :grep
 nnoremap <leader>mh :set nonumber<cr>
 nnoremap <leader>ms :set number<cr>
 nnoremap <leader>sp :set paste<cr>
-nnoremap <leader>hp :set nopaste<cr>
+nnoremap <leader>np :set nopaste<cr>
 
 vnoremap <leader>s :s/
 vnoremap <leader>jp :!python -mjson.tool<cr>
