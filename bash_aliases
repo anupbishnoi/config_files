@@ -1,12 +1,3 @@
-# Grunt aliases
-alias gruntloop="while true; do grunt build; sleep 2; done"
-
-# Mikael's spritepacker
-alias spritepacker="node ~/node_modules/spritepacker/src/cmd.js"
-
-# Image gallery from file system (n-gallery)
-alias gallery="~/node_modules/n-gallery/bin/n-gallery"
-
 # Misc system stuff
 alias ip="ifconfig | grep '\s*inet\ '"
 alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm'"
@@ -53,10 +44,12 @@ body() {
 }
 alias topmem="ps aux | body sort -nr -k 4 | head -10"
 alias topcpu="ps aux | body sort -nr -k 3 | head -10"
+alias openports="netstat -tulpn"
 
 # nginx aliases
-alias nginxedit="sudo vim /etc/nginx/sites-available/dev.byondreal.net && sudo service nginx restart"
-alias nginxview="vim /etc/nginx/sites-available/dev.byondreal.net"
+alias nginxedit="sudo vim /etc/nginx/sites-available/default && sudo service nginx restart"
+alias nginxview="vim /etc/nginx/sites-available/default"
+alias nginxcheck="nginx -c /etc/nginx/nginx.conf -t"
 
 # npm aliases
 alias ni="npm install"
