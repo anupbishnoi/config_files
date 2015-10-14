@@ -140,3 +140,6 @@ alias sr="screen -r"
 alias sd="screen -D"
 alias sn="screen -S"
 
+# docker helpers
+alias docker="sudo docker"
+
