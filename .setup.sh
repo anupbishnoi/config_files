@@ -2,6 +2,11 @@
 
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
+if ! [[ -L "../.bashrc" ]]
+then
+  rm ../.bashrc
+fi
+
 for name in *; do
   target="$HOME/.$name"
   if [ -e $target ]; then
