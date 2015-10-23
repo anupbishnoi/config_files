@@ -75,7 +75,7 @@ nnoremap ql :bd #<cr>
 nnoremap <space> :b #<cr>
 nnoremap _ g;
 nnoremap + g,
-nnoremap @ @q
+nnoremap ! @q
 inoremap <c-space> <c-n>
 
 nnoremap <tab> <c-w>w
@@ -163,6 +163,9 @@ if has("autocmd")
   autocmd FileType vim let g:airline#extensions#whitespace#checks = [ 'indent' ]
 endif
 
+" Tabular
+nnoremap <leader>/: :Tabularize /^[^:]*\zs:/l0l1<cr>
+nnoremap <leader>/= :Tabularize /^[^=]*\zs=/l0l1<cr>
 
 " UltiSnips
 nnoremap <leader>sn :UltiSnipsEdit<cr>
