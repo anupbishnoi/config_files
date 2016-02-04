@@ -80,6 +80,7 @@ alias gca="git commit -a"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
 
+alias gcmsg="git commit --amend"
 alias gcra="git commit --amend --reset-author -F .git/rebase-merge/message"
 alias grc="git rebase --continue"
 
@@ -142,4 +143,8 @@ alias sn="screen -S"
 
 # docker helpers
 alias docker="sudo docker"
+
+# user management
+alias users="cat /etc/passwd | grep home"
+alias deleteuser="userdel -r"
 
