@@ -16,6 +16,7 @@ set nocompatible
 set expandtab
 set nofoldenable
 set showmode
+set mouse=a
 "set hidden
 set ttyfast
 set undofile

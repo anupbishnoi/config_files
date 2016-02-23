@@ -11,17 +11,18 @@ fi
 
 # some bash aliases
 if [ "$(uname)" == "Darwin" ]; then
-  alias ll="ls -hlaoptAFG"
-  alias la="ls -ptAFG"
-  alias ls="ls -ptFG"
+  alias ll="ls -hlopAFG"
+  alias la="ls -p1AFG"
+  alias ls="ls -p1FG"
 else
-  alias ll="ls --color=auto -hlaoptAFG"
-  alias la="ls --color=auto -ptAFG"
+  alias ll="ls --color=auto -hloptAFG"
+  alias la="ls --color=auto -pt1AFG"
   alias ls="ls --color=auto -ptFG"
 fi
 
 alias ..="cd .."
 alias ...="cd ../.."
+alias serve="python -m SimpleHTTPServer 2> /dev/null"
 
 function mvboth() {
     mv $1 $2; mv .$1.un~ .$2.un~;
@@ -80,7 +81,7 @@ alias gca="git commit -a"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
 
-alias gcra="git commit --amend --reset-author -F .git/rebase-merge/message"
+alias gcra="git commit --amend --reset-author --no-edit"
 alias grc="git rebase --continue"
 
 alias gp="git push"
@@ -143,3 +144,6 @@ alias sn="screen -S"
 # docker helpers
 alias docker="sudo docker"
 
+if [ -f ~/.bash_aliases.local ]; then
+    . ~/.bash_aliases.local
+fi
