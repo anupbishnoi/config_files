@@ -166,7 +166,9 @@ endif
 
 " Tabular
 nnoremap <leader>/: :Tabularize /^[^:]*\zs:/l0l1<cr>
-nnoremap <leader>/= :Tabularize /^[^=]*\zs=/l0l1<cr>
+nnoremap <leader>/: :Tabularize /=<cr>
+"nnoremap <leader>/= :Tabularize /^[^=]*=/l0l1<cr>
+nnoremap <leader>/, :Tabularize /^[^\,]*\zs\,/l0l1<cr>
 
 " UltiSnips
 nnoremap <leader>sn :UltiSnipsEdit<cr>

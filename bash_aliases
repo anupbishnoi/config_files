@@ -82,6 +82,7 @@ alias gcm="git commit -m"
 alias gcam="git commit -am"
 
 alias gcra="git commit --amend --reset-author --no-edit"
+alias gcmsg="git commit --amend"
 alias grc="git rebase --continue"
 
 alias gp="git push"
@@ -147,3 +148,7 @@ alias docker="sudo docker"
 if [ -f ~/.bash_aliases.local ]; then
     . ~/.bash_aliases.local
 fi
+
+# user management
+alias users="cat /etc/passwd | grep home"
+alias deleteuser="userdel -r"
