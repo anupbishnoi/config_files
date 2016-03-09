@@ -9,8 +9,12 @@ endsnippet
 
 snippet iife "IIFE function closure" w
 (function () {
-    $0
+  $0
 }());
+endsnippet
+
+snippet ; "object property" w
+$1: $0
 endsnippet
 
 snippet $ "jquery object" w
@@ -161,9 +165,9 @@ endsnippet
 ###########################################################################
 
 snippet :f "Object Method" w
-${1:method_name}: function (${3:attribute}){
+${1:name}: function (${2:args}) {
 	$0
-}${10:,}
+},${3}
 endsnippet
 
 snippet :, "Object Value JS" w

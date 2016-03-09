@@ -75,7 +75,7 @@ nnoremap ql :bd #<cr>
 nnoremap <space> :b #<cr>
 nnoremap _ g;
 nnoremap + g,
-nnoremap @ @q
+nnoremap ! @q
 inoremap <c-space> <c-n>
 
 nnoremap <tab> <c-w>w
