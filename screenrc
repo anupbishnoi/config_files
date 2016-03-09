@@ -5,7 +5,8 @@ shelltitle 'sh'
 backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*"'
 escape ^Ll
 defscrollback 10000
+termcapinfo xterm* ti@:te@
 
-#hardstatus string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
 hardstatus string "%-Lw%{= bW} %n%f %t %{-}%+Lw %= %l | %C%a %M %d"
+#termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007:ti@:te@'
 

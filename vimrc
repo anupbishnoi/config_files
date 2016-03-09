@@ -16,6 +16,7 @@ set nocompatible
 set expandtab
 set nofoldenable
 set showmode
+set mouse=a
 "set hidden
 set ttyfast
 set undofile
@@ -38,7 +39,7 @@ set modelines=0 " turn off security exploit
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set textwidth=70
+set textwidth=80
 set foldmethod=indent
 set foldnestmax=10
 set foldlevel=1
@@ -147,7 +148,7 @@ nnoremap <leader>co :CtrlPClearAllCaches<cr>
 " Multiple cursors
 let g:multi_cursor_next_key='<c-p>'
 let g:multi_cursor_prev_key='<c-y>'
-let g:multi_cursor_skip_key='<c-x>'
+let g:mlti_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<Esc>'
 " let g:multi_cursor_start_key='<bslash>'
 
@@ -163,6 +164,11 @@ if has("autocmd")
   autocmd FileType vim let g:airline#extensions#whitespace#checks = [ 'indent' ]
 endif
 
+" Tabular
+nnoremap <leader>/: :Tabularize /^[^:]*\zs:/l0l1<cr>
+nnoremap <leader>/: :Tabularize /=<cr>
+"nnoremap <leader>/= :Tabularize /^[^=]*=/l0l1<cr>
+nnoremap <leader>/, :Tabularize /^[^\,]*\zs\,/l0l1<cr>
 
 " UltiSnips
 nnoremap <leader>sn :UltiSnipsEdit<cr>
