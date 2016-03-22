@@ -190,7 +190,14 @@ nnoremap <leader>ga :w<cr>:Git add <c-r>=expand("%:p")<cr><cr><cr>
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 
 " JSLint
-nnoremap <leader>js :cc<cr>
+"nnoremap <leader>js :cc<cr>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " NERDTree and NERDCommenter
 nnoremap <leader>t :NERDTreeToggle<cr>
