@@ -225,9 +225,10 @@ if has("autocmd")
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
     au!
-    au InsertLeave * silent! :w
+    "These write file when you leave insert mode
+    "au InsertLeave * silent! :w
+    "au CursorHold * silent! call UpdateFile()
     au BufRead,BufNewFile * let b:start_time=localtime()
-    au CursorHold * silent! call UpdateFile()
     au BufWritePre * let b:start_time=localtime()
 
     au FileType helpfile nnoremap <buffer><cr> <c-[>  " Enter selects subject
@@ -249,14 +250,6 @@ if has("autocmd")
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal g`\"" |
       \ endif
-    if has("unix")
-      autocmd BufWritePost *
-        \ if getline(1) =~ '^#!'     |
-        \   if getline(1) =~ '/bin/' |
-        \     !chmod u+x <afile>     |
-        \   endif                    |
-        \ endif
-    endif
 
   augroup END
 endif " has("autocmd")
