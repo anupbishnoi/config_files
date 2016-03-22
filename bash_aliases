@@ -2,6 +2,7 @@
 alias ip="ifconfig | grep '\s*inet\ '"
 alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm'"
 alias als="vim ~/.bash_aliases && source ~/.bash_aliases"
+alias alslocal="vim ~/.bash_aliases.local && source ~/.bash_aliases"
 alias bashrc="vim ~/.bashrc && source ~/.bashrc"
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
 alias trip="sudo tripwire --check --interactive"
@@ -63,6 +64,15 @@ alias gcf="vim .git/config"
 alias g="git status"
 alias gd="git diff"
 alias gdlast="git diff --cached HEAD^"
+function gnew() {
+  local mergebase=`git merge-base HEAD $1`
+  git diff $mergebase..$1
+}
+function gnewstat() {
+  local mergebase=`git merge-base HEAD $1`
+  git diff --stat $mergebase..$1
+}
+
 alias gs="git show"
 alias gst="git stash"
 alias gstl="git stash list"
@@ -70,6 +80,7 @@ alias gsta="git stash apply"
 
 alias gb="git branch"
 alias gbd="git branch -D"
+alias gbdo="git push origin --delete"
 alias gba="git branch -a"
 alias gbr="git branch -m"  # rename a branch
 
@@ -88,8 +99,9 @@ alias grc="git rebase --continue"
 alias gp="git push"
 alias gpo="git push origin"
 alias gpom="git push origin master"
-alias gpt="git push --tags"
+alias gpt="git push && git push --tags"
 alias gpu="git push -u"
+alias gpuo="git push -u origin"
 
 alias gf="git fetch"
 

@@ -4,7 +4,7 @@ hardstatus alwayslastline
 shelltitle 'sh'
 backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*"'
 escape ^Ll
-defscrollback 5000
+defscrollback 10000
 termcapinfo xterm* ti@:te@
 
 hardstatus string "%-Lw%{= bW} %n%f %t %{-}%+Lw %= %l | %C%a %M %d"
