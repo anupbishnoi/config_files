@@ -190,7 +190,7 @@ nnoremap <leader>ga :w<cr>:Git add <c-r>=expand("%:p")<cr><cr><cr>
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 
 " JSLint
-nnoremap <leader>js :JSHint<cr>
+nnoremap <leader>js :cc<cr>
 
 " NERDTree and NERDCommenter
 nnoremap <leader>t :NERDTreeToggle<cr>
