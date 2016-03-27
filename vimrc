@@ -175,7 +175,6 @@ nnoremap <leader>sn :UltiSnipsEdit<cr>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsUsePythonVersion = 3
 
 " GReplace
 set grepprg=ag
