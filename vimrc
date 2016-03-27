@@ -175,6 +175,7 @@ nnoremap <leader>sn :UltiSnipsEdit<cr>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsUsePythonVersion = 3
 
 " GReplace
 set grepprg=ag
@@ -188,6 +189,7 @@ nnoremap <leader>gd :w<cr>:Gdiff<cr>
 nnoremap <leader>gs :w<cr>:Gstatus<cr>
 nnoremap <leader>ga :w<cr>:Git add <c-r>=expand("%:p")<cr><cr><cr>
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
+nnoremap <leader>gb :Gblame<cr>
 
 " JSLint
 nnoremap <leader>js :JSHint<cr>
