@@ -145,6 +145,8 @@ alias gsu="git submodule foreach \"(git checkout master; git pull)&\""
 alias gspl="git svn rebase"
 alias gsps="git svn dcommit"
 
+alias todos="git grep -l TODO | xargs -n1 git blame | grep '$(git config user.name)' | grep TODO"
+
 # grunt helpers
 alias grt="grunt test"
 
