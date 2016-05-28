@@ -188,6 +188,7 @@ nnoremap <leader>gd :w<cr>:Gdiff<cr>
 nnoremap <leader>gs :w<cr>:Gstatus<cr>
 nnoremap <leader>ga :w<cr>:Git add <c-r>=expand("%:p")<cr><cr><cr>
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
+nnoremap <leader>gb :Gblame<cr>
 
 " JSLint
 let g:syntastic_always_populate_loc_list = 1
