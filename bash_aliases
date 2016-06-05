@@ -156,9 +156,6 @@ alias sr="screen -r"
 alias sd="screen -D"
 alias sn="screen -S"
 
-# docker helpers
-alias docker="sudo docker"
-
 if [ -f ~/.bash_aliases.local ]; then
     . ~/.bash_aliases.local
 fi
