@@ -191,16 +191,16 @@ nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 nnoremap <leader>gb :Gblame<cr>
 
 " JSLint
-"nnoremap <leader>js :cc<cr>
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+nnoremap <leader>js :SyntasticCheck<cr>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-
-nnoremap <leader>js :SyntasticCheck<cr>
 
 " NERDTree and NERDCommenter
 nnoremap <leader>t :NERDTreeToggle<cr>
