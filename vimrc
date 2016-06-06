@@ -203,6 +203,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " NERDTree and NERDCommenter
+let g:NERDSpaceDelims = 1
 nnoremap <leader>t :NERDTreeToggle<cr>
 
 " Compile and open markdown as HTML
