@@ -139,7 +139,9 @@ function git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/^* \(.*\)/(\1)/'
 }
 
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+command -v brew >/dev/null 2>&1 && \
+  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && \
+  . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export GEM_HOME=$HOME/.gem
 export PATH=$PATH:$HOME/bin:$GEM_HOME/bin:$GEM_HOME/ruby/2.0.0/bin
