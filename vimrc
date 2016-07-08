@@ -135,6 +135,9 @@ nnoremap <D-v> "+p
 inoremap <leader>l <Esc>$a
 inoremap <leader>k <esc>O
 
+" JSON Formatter
+nnoremap <leader>jf :%!python -mjson.tool<cr>:%s/    /  /gg<cr>
+
 " Press ^F from command mode to insert the current file name
 cmap <c-f> <c-r>=expand("%:p")<cr>
 
@@ -151,9 +154,6 @@ let g:multi_cursor_prev_key='<c-y>'
 let g:mlti_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<Esc>'
 " let g:multi_cursor_start_key='<bslash>'
-
-" JS Beautifier
-nnoremap <leader>jf :call JsBeautify()<cr>
 
 " Airline
 " Enable the list of buffers
@@ -203,6 +203,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " NERDTree and NERDCommenter
+let g:NERDSpaceDelims = 1
 nnoremap <leader>t :NERDTreeToggle<cr>
 let NERDSpaceDelims=1
 
