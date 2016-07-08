@@ -48,6 +48,10 @@ alias topmem="ps aux | body sort -nr -k 4 | head -10"
 alias topcpu="ps aux | body sort -nr -k 3 | head -10"
 alias openports="netstat -tulpn"
 
+# docker aliases
+alias cleandocker="docker rm -v $(docker ps -a -q -f status=exited | xargs) && docker rmi $(docker images -f dangling=true -q | xargs)"
+alias cleanerdocker='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) && docker ps -a | cut -c-12 | xargs docker rm'
+
 # nginx aliases
 alias nginxedit="sudo vim /etc/nginx/sites-available/default && sudo service nginx restart"
 alias nginxview="vim /etc/nginx/sites-available/default"
@@ -156,9 +160,6 @@ alias sr="screen -r"
 alias sd="screen -D"
 alias sn="screen -S"
 
-# docker helpers
-alias docker="sudo docker"
-
 if [ -f ~/.bash_aliases.local ]; then
     . ~/.bash_aliases.local
 fi
@@ -166,3 +167,4 @@ fi
 # user management
 alias users="cat /etc/passwd | grep home"
 alias deleteuser="userdel -r"
+alias generatepassword="cat /dev/random | LC_CTYPE=C tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | fold -w 12 | head -n 4"
