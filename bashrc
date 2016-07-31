@@ -143,7 +143,7 @@ function git_branch() {
 
 export GEM_HOME=$HOME/.gem
 export PATH=$PATH:$HOME/bin:$GEM_HOME/bin:$GEM_HOME/ruby/2.0.0/bin
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
 export DEBUG="apper,cgi,app"
 
 if [ -f ~/.resty.sh ]; then

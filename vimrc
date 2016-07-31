@@ -17,7 +17,7 @@ set expandtab
 set nofoldenable
 set showmode
 set mouse=a
-"set hidden
+set hidden
 set ttyfast
 set undofile
 set ignorecase
@@ -31,8 +31,8 @@ set incsearch        " do incremental searching
 set autoread
 "set relativenumber
 set wildmenu
-set autowrite
-set autowriteall
+" set autowrite
+" set autowriteall
 set switchbuf=usetab
 set backspace=indent,eol,start
 set modelines=0 " turn off security exploit
@@ -137,6 +137,7 @@ inoremap <leader>k <esc>O
 
 " JSON Formatter
 nnoremap <leader>jf :%!python -mjson.tool<cr>:%s/    /  /gg<cr>
+vnoremap <leader>jf :!python -mjson.tool<cr>
 
 " Press ^F from command mode to insert the current file name
 cmap <c-f> <c-r>=expand("%:p")<cr>
@@ -190,11 +191,14 @@ nnoremap <leader>ga :w<cr>:Git add <c-r>=expand("%:p")<cr><cr><cr>
 nnoremap <leader>ge :Gedit HEAD<cr><cr><cr>
 nnoremap <leader>gb :Gblame<cr>
 
+" TagBar
+nnoremap <leader>tb :TagbarToggle<cr>
+
 " JSLint
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 nnoremap <leader>js :SyntasticCheck<cr>

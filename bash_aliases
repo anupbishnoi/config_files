@@ -146,6 +146,14 @@ alias gspl="git svn rebase"
 alias gsps="git svn dcommit"
 
 alias todos="git grep -l TODO | xargs -n1 git blame | grep '$(git config user.name)' | grep TODO"
+function fade() {
+  if ! [ $# -eq 3 ]; then
+    echo "Usage: fade source.png 30% source-faded.png"
+  else
+    convert $1 -fill white -colorize $2 $3
+  fi
+}
+
 
 # grunt helpers
 alias grt="grunt test"

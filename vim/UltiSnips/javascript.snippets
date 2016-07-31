@@ -8,7 +8,7 @@ console.log($1);$0
 endsnippet
 
 snippet iife "IIFE function closure" w
-(function () {
+(function() {
   $0
 }());
 endsnippet
@@ -26,13 +26,13 @@ jQuery($1)$0;
 endsnippet
 
 snippet $( "document ready" w
-$(function () {
+$(function() {
   $0
 });
 endsnippet
 
 snippet require "requirejs"
-require([$1], function () {
+require([$1], function() {
   $0
 });
 endsnippet
@@ -41,32 +41,36 @@ snippet req "require"
 require('$1')$0
 endsnippet
 
+snippet req; "require"
+require('$1');$0
+endsnippet
+
 snippet define "define (requirejs)"
 define(${1:[
   $2
-], }function () {
+], }function() {
   $0
 });
 endsnippet
 
 snippet pro ".prototype = function"
-$1.prototype.$2 = function ($3) {
+$1.prototype.$2 = function($3) {
 	$4
 };
 endsnippet
 
 snippet proto ".prototype. full"
-$1.prototype.$2 = ${3:function ($4) }{
+$1.prototype.$2 = ${3:function($4) }{
 	$0
 }$5;
 endsnippet
 
 snippet def "Object.defineProperty"
 Object.defineProperty($1.prototype, '$2', {
-	get: function () {
+	get: function() {
 		$3
 	},
-	set: function ($4) {
+	set: function($4) {
 		$5
 	}
 });
@@ -84,13 +88,13 @@ expect($1).to${2:Equal}($3);$0
 endsnippet
 
 snippet it "it (Jasmine)" w
-it('$1', function () {
+it('$1', function() {
 	$2
 });$0
 endsnippet
 
 snippet desc "describe (Jasmine)" w
-describe('$1', function () {
+describe('$1', function() {
 	$2
 });$0
 endsnippet
@@ -101,7 +105,7 @@ $0
 endsnippet
 
 snippet comp "ko.computed" w
-ko.computed(function () {
+ko.computed(function() {
   $0
 })${1:,}
 endsnippet
@@ -126,6 +130,18 @@ snippet { "curly opening" w
 }$2
 endsnippet
 
+snippet {, "curly with comma at end" w
+{
+  $1$0
+},$2
+endsnippet
+
+snippet [{ "curly opening in array" w
+[{
+  $1$0
+}]$2
+endsnippet
+
 snippet {; "curly opening" w
 {
   $1$0
@@ -148,8 +164,8 @@ endsnippet
 
 snippet [ "Description" w
 [
-  $0
-]${1:}
+  $1$0
+]$2
 endsnippet
 
 snippet <% "jsp-like inline template"
@@ -165,7 +181,7 @@ endsnippet
 ###########################################################################
 
 snippet :f "Object Method" w
-${1:name}: function (${2:args}) {
+${1:name}: function(${2:args}) {
 	$0
 },${3}
 endsnippet
@@ -181,20 +197,20 @@ for ($1 = 0; $2 < $3.length; $4++) {
 endsnippet
 
 snippet fun "anonymous function" w
-function ($1) {
+function($1) {
   $0
 }$2
 endsnippet
 
-snippet (f "anon function with closing" i
-(function ($1) {
-  $2
+snippet f; "anon function with one closing" w
+function() {
+  $1
 });$0
 endsnippet
 
-snippet f; "anon function with one closing" w
-function ($2) {
-	$1
+snippet fun; "anon function with arg, and one closing" w
+function($1) {
+  $2
 });$0
 endsnippet
 
@@ -213,9 +229,21 @@ if ($1) {
 endsnippet
 
 snippet timeout "setTimeout function" w
-setTimeout(function () {
+setTimeout(function() {
   $0
 }, ${1:100});
+endsnippet
+
+snippet ass "assert" !b
+assert($1);$0
+endsnippet
+
+snippet ase "assert equal" !b
+assert.equal($1, $2);$0
+endsnippet
+
+snippet ade "assert deep equal" !b
+assert.deepEqual($1, $2);$0
 endsnippet
 
 # vim:ft=snippets:
