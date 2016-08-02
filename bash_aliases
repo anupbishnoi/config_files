@@ -167,4 +167,4 @@ fi
 # user management
 alias users="cat /etc/passwd | grep home"
 alias deleteuser="userdel -r"
-alias generatepassword="cat /dev/random | LC_CTYPE=C tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | fold -w 12 | head -n 4"
+alias generatepassword="cat /dev/random | LC_CTYPE=C tr -dc 'a-zA-Z0-9-_' | fold -w 12 | head -n 4"

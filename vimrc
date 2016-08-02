@@ -194,7 +194,7 @@ nnoremap <leader>gb :Gblame<cr>
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 nnoremap <leader>js :SyntasticCheck<cr>
