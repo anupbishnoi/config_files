@@ -31,8 +31,8 @@ set incsearch        " do incremental searching
 set autoread
 "set relativenumber
 set wildmenu
-" set autowrite
-" set autowriteall
+"set autowrite
+"set autowriteall
 set switchbuf=usetab
 set backspace=indent,eol,start
 set modelines=0 " turn off security exploit
@@ -209,6 +209,7 @@ set statusline+=%*
 " NERDTree and NERDCommenter
 let g:NERDSpaceDelims = 1
 nnoremap <leader>t :NERDTreeToggle<cr>
+let NERDSpaceDelims=1
 
 " Compile and open markdown as HTML
 nnoremap <leader>md :Mm<cr>
