@@ -82,3 +82,6 @@
 [submodule "vim/bundle/indent-object"]
 	path = vim/bundle/indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
+[submodule "vim/bundle/python"]
+	path = vim/bundle/python
+	url = https://github.com/vim-scripts/python.vim
