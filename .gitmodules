@@ -82,3 +82,12 @@
 [submodule "vim/bundle/airline-themes"]
 	path = vim/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "vim/bundle/indent-object"]
+	path = vim/bundle/indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object
+[submodule "vim/bundle/python"]
+	path = vim/bundle/python
+	url = https://github.com/vim-scripts/python.vim
+[submodule "vim/bundle/python-match"]
+	path = vim/bundle/python-match
+	url = https://github.com/vim-scripts/python_match.vim
