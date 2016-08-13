@@ -49,8 +49,8 @@ alias topcpu="ps aux | body sort -nr -k 3 | head -10"
 alias openports="netstat -tulpn"
 
 # docker aliases
-alias cleandocker="docker rm -v $(docker ps -a -q -f status=exited | xargs) && docker rmi $(docker images -f dangling=true -q | xargs)"
-alias cleanerdocker='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) && docker ps -a | cut -c-12 | xargs docker rm'
+# alias cleandocker="docker rm -v $(docker ps -a -q -f status=exited | xargs) && docker rmi $(docker images -f dangling=true -q | xargs)"
+# alias cleanerdocker='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) && docker ps -a | cut -c-12 | xargs docker rm'
 
 # nginx aliases
 alias nginxedit="sudo vim /etc/nginx/sites-available/default && sudo service nginx restart"
