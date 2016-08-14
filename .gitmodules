@@ -91,3 +91,6 @@
 [submodule "vim/bundle/python-match"]
 	path = vim/bundle/python-match
 	url = https://github.com/vim-scripts/python_match.vim
+[submodule "vim/bundle/indent-line"]
+	path = vim/bundle/indent-line
+	url = https://github.com/Yggdroot/indentLine
