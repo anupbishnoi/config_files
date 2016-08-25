@@ -136,7 +136,7 @@ inoremap <leader>l <Esc>$a
 inoremap <leader>k <esc>O
 
 " JSON Formatter
-nnoremap <leader>jf :%!python -mjson.tool<cr>:%s/    /  /gg<cr>
+nnoremap <leader>jf :%!python -mjson.tool<cr>:%s/    /  /gg<cr>:w<cr>
 vnoremap <leader>jf :!python -mjson.tool<cr>
 
 " Press ^F from command mode to insert the current file name
@@ -164,6 +164,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 if has("autocmd")
   autocmd FileType vim let g:airline#extensions#whitespace#checks = [ 'indent' ]
 endif
+
+" indentLine
+let g:indentLine_color_term = 7
 
 " Tabular
 nnoremap <leader>/: :Tabularize /^[^:]*\zs:/l0l1<cr>

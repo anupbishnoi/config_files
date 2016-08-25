@@ -163,10 +163,10 @@ function fade() {
 alias grt="grunt test"
 
 # screen helpers
-alias sls="screen -ls"
-alias sr="screen -r"
-alias sd="screen -D"
-alias sn="screen -S"
+alias sls="tmux list-sessions"
+alias sr="tmux -CC attach -t"
+alias sd="tmux detach"
+alias sn="tmux -CC new -s"
 
 if [ -f ~/.bash_aliases.local ]; then
     . ~/.bash_aliases.local
