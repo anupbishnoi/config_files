@@ -1,6 +1,6 @@
 # Misc system stuff
 alias ip="ifconfig | grep '\s*inet\ '"
-alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm'"
+alias tree="tree -aF -L 5 -I 'node_modules|*.un~|.git|.npm|ShaderCache|metadata|Temp'"
 alias als="vim ~/.bash_aliases && source ~/.bash_aliases"
 alias alslocal="vim ~/.bash_aliases.local && source ~/.bash_aliases"
 alias bashrc="vim ~/.bashrc && source ~/.bashrc"
@@ -10,15 +10,16 @@ if ! hash tac 2>/dev/null; then
   alias tac="tail -r"
 fi
 
-# some bash aliases
 if [ "$(uname)" == "Darwin" ]; then
   alias ll="ls -hlopAFG"
   alias la="ls -p1AFG"
   alias ls="ls -p1FG"
+  alias filesizes="du -hs * | gsort -h"
 else
   alias ll="ls --color=auto -hloptAFG"
   alias la="ls --color=auto -pt1AFG"
   alias ls="ls --color=auto -ptFG"
+  alias filesizes="du -hs * | sort -h"
 fi
 
 alias ..="cd .."
@@ -175,3 +176,22 @@ fi
 alias users="cat /etc/passwd | grep home"
 alias deleteuser="userdel -r"
 alias generatepassword="cat /dev/random | LC_CTYPE=C tr -dc 'a-zA-Z0-9-_' | fold -w 12 | head -n 4"
+
+alias npmdeploy="npm version patch && git push && git push --tags && npm publish" 
+
+function video2gif() {
+  if ! [ $# -eq 4 ]; then
+    echo "Usage: video2gif input.mov 10 640 output.gif     # (for fps 10 & width 640)"
+  else
+    ffmpeg -y -i $1 -vf fps=$2,scale=$3:-1:flags=lanczos,palettegen /tmp/palette.png
+    ffmpeg -i $1 -i /tmp/palette.png -filter_complex "fps=$2,scale=$3:-1:flags=lanczos[x];[x][1:v]paletteuse" $4
+  fi
+}
+
+function videoslower() {
+  if ! [ $# -eq 3 ]; then
+    echo "Usage: videoslower input.mov 0.5 output.mov   # (0.5 means twice as fast)"
+  else
+    ffmpeg -i $1 -filter:v "setpts=$2*PTS" $3
+  fi
+}
