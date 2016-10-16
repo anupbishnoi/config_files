@@ -12,6 +12,8 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
+let @/='SEARCH_TERM'
+set hlsearch
 set nocompatible
 set expandtab
 set nofoldenable
@@ -61,6 +63,7 @@ set guifont=Monaco:h18  " based on Monaco:h18
 "set colorcolumn=80
 "set transparency=2
 set sessionoptions=curdir,buffers,tabpages,winsize
+" set viminfo^=h
 
 "nnoremap j gj
 "nnoremap k gk
@@ -70,21 +73,26 @@ nnoremap K :bn<cr>
 nnoremap J :bp<cr>
 nnoremap <c-j> <c-e>
 nnoremap <c-k> <c-y>
-nnoremap Q :b #<cr>:bd #<cr>
+nnoremap Q :bp<cr>:bd #<cr>
 "nnoremap Q :w<cr>:bd<cr>
 nnoremap ql :bd #<cr>
 nnoremap <space> :b #<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap ! @q
-inoremap <c-space> <c-n>
-
+nnoremap <esc> :nohlsearch<cr>
+nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <tab> <c-w>w
+nnoremap ; :
+vnoremap ; :
 
 let mapleader = ","
 nnoremap <leader>qq <c-w>q
 nnoremap <leader>> <c-w>999>
 nnoremap <leader>es :vsp<cr>
+
+" substitute word under cursor
+nnoremap <Leader>sw :%s/\<<C-r><C-w>\>/
 
 nnoremap <leader>jo J
 nnoremap <leader>lv :source ~/.vimrc<cr>
@@ -162,7 +170,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 if has("autocmd")
-  autocmd FileType vim let g:airline#extensions#whitespace#checks = [ 'indent' ]
+  au FileType vim let g:airline#extensions#whitespace#checks = [ 'indent' ]
 endif
 
 " indentLine
@@ -260,15 +268,21 @@ if has("autocmd")
     " don't indent my html
     au FileType html setlocal indentexpr=|setlocal cindent
 
-    autocmd FileType htmlcheetah setlocal ft=html
-    autocmd FileType text setlocal textwidth=78
+    au FileType htmlcheetah setlocal ft=html
+    au FileType text setlocal textwidth=78
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
+    au BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal g`\"" |
       \ endif
+
+    " don't show swap file crap, just open same file again as read-only
+    " au SwapExists * let v:swapchoice = 'o'
+    " au SwapExists * echomsg ErrorMsg
+    " au SwapExists * echo 'Duplicate edit session (read-only)'
+    " au SwapExists * echohl None
 
   augroup END
 endif " has("autocmd")
