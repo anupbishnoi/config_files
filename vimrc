@@ -89,7 +89,6 @@ vnoremap ; :
 let mapleader = ","
 nnoremap <leader>qq <c-w>q
 nnoremap <leader>> <c-w>999>
-nnoremap <leader>es :vsp<cr>
 
 " substitute word under cursor
 nnoremap <Leader>sw :%s/\<<C-r><C-w>\>/
@@ -153,6 +152,11 @@ vnoremap <leader>jf :!python -mjson.tool<cr>
 cmap <c-f> <c-r>=expand("%:p")<cr>
 
 " ## Plugins
+
+" Elm
+nnoremap <leader>el :ElmEvalLine<CR>
+vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " CtrlP
 let g:ctrlp_map = '<c-o>'
