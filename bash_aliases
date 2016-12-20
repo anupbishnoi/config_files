@@ -25,6 +25,7 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias serve="python -m SimpleHTTPServer 2> /dev/null"
+alias filename="${filename%.*}"
 
 function mvboth() {
     mv $1 $2; mv .$1.un~ .$2.un~;

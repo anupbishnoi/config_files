@@ -144,7 +144,7 @@ command -v brew >/dev/null 2>&1 && \
   . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export GEM_HOME=$HOME/.gem
-export PATH=$PATH:$HOME/bin:$GEM_HOME/bin:$GEM_HOME/ruby/2.0.0/bin
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:$HOME/bin:$GEM_HOME/bin:$GEM_HOME/ruby/2.0.0/bin"
 export EDITOR=vim
 export DEBUG="apper,cgi,app"
 

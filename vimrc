@@ -98,6 +98,8 @@ vnoremap <leader>} dkkVp
 nnoremap <leader>w :w<cr>
 nnoremap <leader><cr> i<cr><esc>
 nnoremap <leader>r :edit<cr>
+" reverse lines
+nnoremap <leader>R :g/^/m0<cr>
 nnoremap <leader>F zR
 nnoremap <leader>sh :split<cr>
 nnoremap <leader>sv :vsplit<cr>
@@ -201,9 +203,10 @@ nnoremap <leader>tb :TagbarToggle<cr>
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+" let g:syntastic_python_python_exec = 'python3'
 nnoremap <leader>js :SyntasticCheck<cr>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -254,6 +257,7 @@ if has("autocmd")
     au FileType helpfile nnoremap <buffer><bs> <c-T>  " Backspace to go back
 
     au! BufRead,BufNewFile *.cshtml     setfiletype html
+    au! BufRead,BufNewFile *.es6        setfiletype javascript
     au! BufRead,BufNewFile *.haml       setfiletype haml
     au! BufRead,BufNewFile *.tmpl       setfiletype html
 
