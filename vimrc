@@ -120,9 +120,13 @@ nnoremap <leader>mh :set nonumber<cr>
 nnoremap <leader>ms :set number<cr>
 nnoremap <leader>sp :set paste<cr>
 nnoremap <leader>np :set nopaste<cr>
+nnoremap <leader>fd :s/\(-\)\(\w\)/\U\2/g<cr>
+nnoremap <leader>fq :s/\(: \)\(.\+\);/\1'\2',/g<cr>
 
 vnoremap <leader>s :s/
 vnoremap <leader>jp :!python -mjson.tool<cr>
+vnoremap <leader>fd :s/\(-\)\(\w\)/\U\2/g<cr>
+vnoremap <leader>fq :s/\(: \)\(.\+\);/\1'\2',/g<cr>
 
 " Deleting without copying
 nnoremap <leader>d "_d
@@ -157,6 +161,12 @@ cmap <c-f> <c-r>=expand("%:p")<cr>
 nnoremap <leader>el :ElmEvalLine<CR>
 vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
 nnoremap <leader>em :ElmMakeCurrentFile<CR>
+nnoremap <leader>er :ElmRepl<CR>
+
+if has("autocmd")
+  " au BufWritePost *.elm ElmMakeFile("Main.elm")
+endif
+
 
 " CtrlP
 let g:ctrlp_map = '<c-o>'
@@ -214,7 +224,7 @@ nnoremap <leader>tb :TagbarToggle<cr>
 " JSLint
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')

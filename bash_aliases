@@ -61,7 +61,9 @@ alias nginxcheck="nginx -c /etc/nginx/nginx.conf -t"
 # npm aliases
 alias ni="npm install"
 alias nis="npm install --save"
+alias nid="npm install --save-dev"
 alias nt="npm test"
+alias nv="npm version"
 
 # git aliases
 alias gcf="vim .git/config"

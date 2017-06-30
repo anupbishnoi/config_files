@@ -6,3 +6,4 @@ nnoremap <leader>ss :mks! ~/.vimsessions/
 nnoremap <leader>sd :!rm  ~/.vimsessions/
 nnoremap <leader>sl :so   ~/.vimsessions/
 
+let g:syntastic_javascript_checkers = []
