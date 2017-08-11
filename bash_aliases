@@ -64,6 +64,8 @@ alias nis="npm install --save"
 alias nid="npm install --save-dev"
 alias nt="npm test"
 alias nv="npm version"
+alias nvp="npm version patch"
+alias nvpush="npm version patch && git push && git push --tags"
 
 # git aliases
 alias gcf="vim .git/config"
