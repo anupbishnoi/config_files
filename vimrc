@@ -80,9 +80,11 @@ nnoremap <space> :b #<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap ! @q
-nnoremap <esc> :nohlsearch<cr>
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <tab> <c-w>w
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 nnoremap ; :
 vnoremap ; :
 
