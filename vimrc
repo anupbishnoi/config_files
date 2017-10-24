@@ -124,6 +124,11 @@ nnoremap <leader>sp :set paste<cr>
 nnoremap <leader>np :set nopaste<cr>
 nnoremap <leader>fd :s/\(-\)\(\w\)/\U\2/g<cr>
 nnoremap <leader>fq :s/\(: \)\(.\+\);/\1'\2',/g<cr>
+nnoremap <leader>ti4 :set shiftwidth=4<cr>:set tabstop=4<cr>:set softtabstop=4<cr>
+nnoremap <leader>ti2 :set shiftwidth=2<cr>:set tabstop=2<cr>:set softtabstop=2<cr>
+
+nnoremap <leader>bgd :set bg=dark<cr>
+nnoremap <leader>bgl :set bg=light<cr>
 
 vnoremap <leader>s :s/
 vnoremap <leader>jp :!python -mjson.tool<cr>
@@ -147,8 +152,9 @@ vnoremap <D-x> "+d
 nnoremap <D-v> "+p
 
 " Editing help
-inoremap <leader>l <Esc>$a
+inoremap <leader>l <esc>$a
 inoremap <leader>k <esc>O
+inoremap <leader>dd <esc>ddk$
 
 " JSON Formatter
 nnoremap <leader>jf :%!python -mjson.tool<cr>:%s/    /  /gg<cr>:w<cr>
@@ -172,7 +178,8 @@ endif
 
 " CtrlP
 let g:ctrlp_map = '<c-o>'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" From https://github.com/kien/ctrlp.vim/issues/174
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 nnoremap <leader>co :CtrlPClearAllCaches<cr>
 
 " Multiple cursors
