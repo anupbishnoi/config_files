@@ -75,10 +75,6 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -144,7 +140,9 @@ command -v brew >/dev/null 2>&1 && \
   . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export GEM_HOME=$HOME/.gem
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:$HOME/bin:$GEM_HOME/bin:$GEM_HOME/ruby/2.0.0/bin"
+export PATH="./bin:./node_modules/.bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+export PATH="$PATH:$GEM_HOME/bin:$GEM_HOME/ruby/2.0.0/bin"
 export EDITOR=vim
 export DEBUG="apper,cgi,app"
 
@@ -155,3 +153,5 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh

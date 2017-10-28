@@ -10,6 +10,10 @@ if ! hash tac 2>/dev/null; then
   alias tac="tail -r"
 fi
 
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 if [ "$(uname)" == "Darwin" ]; then
   alias ll="ls -hlopAFG"
   alias la="ls -p1AFG"
@@ -26,6 +30,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias serve="python -m SimpleHTTPServer 2> /dev/null"
 alias filename="${filename%.*}"
+alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 
 function mvboth() {
     mv $1 $2; mv .$1.un~ .$2.un~;
@@ -182,7 +187,7 @@ alias users="cat /etc/passwd | grep home"
 alias deleteuser="userdel -r"
 alias generatepassword="cat /dev/random | LC_CTYPE=C tr -dc 'a-zA-Z0-9-_' | fold -w 12 | head -n 4"
 
-alias npmdeploy="npm version patch && git push && git push --tags && npm publish" 
+alias npmdeploy="npm version patch && git push && git push --tags && npm publish"
 
 function video2gif() {
   if ! [ $# -eq 4 ]; then
