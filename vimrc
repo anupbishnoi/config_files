@@ -208,10 +208,10 @@ nnoremap <leader>/: :Tabularize /=<cr>
 nnoremap <leader>/, :Tabularize /^[^\,]*\zs\,/l0l1<cr>
 
 " UltiSnips
-nnoremap <leader>sn :UltiSnipsEdit<cr>
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" nnoremap <leader>sn :UltiSnipsEdit<cr>
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " GReplace
 set grepprg=ag

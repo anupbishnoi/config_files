@@ -43,9 +43,6 @@
 [submodule "vim/bundle/signature"]
 	path = vim/bundle/signature
 	url = git://github.com/kshenoy/vim-signature.git
-[submodule "vim/bundle/ultisnips"]
-	path = vim/bundle/ultisnips
-	url = git://github.com/vim-scripts/UltiSnips.git
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
