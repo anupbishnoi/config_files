@@ -138,6 +138,8 @@ function git_branch() {
 command -v brew >/dev/null 2>&1 && \
   [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && \
   . $(brew --prefix)/etc/profile.d/autojump.sh
+command -v direnv >/dev/null 2>&1 && \
+  eval "$(direnv hook bash)"
 
 export GEM_HOME=$HOME/.gem
 export GOPATH=$HOME/go
