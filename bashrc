@@ -140,11 +140,14 @@ command -v brew >/dev/null 2>&1 && \
   . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export GEM_HOME=$HOME/.gem
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 export PATH="./bin:./node_modules/.bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
-export PATH="$PATH:$GEM_HOME/bin:$GEM_HOME/ruby/2.0.0/bin"
+export PATH="$PATH:$GEM_HOME/bin:$GOPATH/bin:$GEM_HOME/ruby/2.0.0/bin"
+
 export EDITOR=vim
-export DEBUG="apper,cgi,app"
+export DEBUG="*"
 
 if [ -f ~/.resty.sh ]; then
     . ~/.resty.sh

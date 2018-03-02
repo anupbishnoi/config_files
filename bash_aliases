@@ -87,7 +87,6 @@ function gnewstat() {
   git diff --stat $mergebase..$1
 }
 
-alias gs="git show"
 alias gst="git stash"
 alias gstl="git stash list"
 alias gsta="git stash apply"

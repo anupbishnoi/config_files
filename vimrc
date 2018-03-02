@@ -80,6 +80,7 @@ nnoremap <space> :b #<cr>
 nnoremap _ g;
 nnoremap + g,
 nnoremap ! @q
+nnoremap F gf
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <tab> <c-w>w
 nnoremap <esc> :noh<return><esc>
@@ -316,6 +317,6 @@ endif " has("autocmd")
 
 source ~/.vimrc.local
 
-set background=dark
+set background=light
 colorscheme solarized
 
