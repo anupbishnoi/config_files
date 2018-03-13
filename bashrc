@@ -150,6 +150,7 @@ export PATH="$PATH:$GEM_HOME/bin:$GOPATH/bin:$GEM_HOME/ruby/2.0.0/bin"
 
 export EDITOR=vim
 export DEBUG="*"
+export HOMEBREW_NO_ANALYTICS=1
 
 if [ -f ~/.resty.sh ]; then
     . ~/.resty.sh
