@@ -139,6 +139,9 @@ command -v brew >/dev/null 2>&1 && \
   [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && \
   . $(brew --prefix)/etc/profile.d/autojump.sh
 
+command -v direnv >/dev/null 2>&1 && \
+  eval "$(direnv hook bash)"
+
 export GEM_HOME=$HOME/.gem
 export PATH="./bin:./node_modules/.bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
