@@ -266,6 +266,9 @@ nnoremap <leader>md :Mm<cr>
 nnoremap <leader>lf :MRU<cr>
 let MRU_Max_Entries=50
 
+" Linediff
+" vnoremap 
+
 " only write if needed and update the start time after the save
 function! UpdateFile()
   if ((localtime() - b:start_time) >= 1)

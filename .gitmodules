@@ -94,3 +94,6 @@
 [submodule "vim/bundle/elm"]
 	path = vim/bundle/elm
 	url = https://github.com/lambdatoast/elm.vim.git
+[submodule "vim/bundle/linediff"]
+	path = vim/bundle/linediff
+	url = https://github.com/AndrewRadev/linediff.vim.git
