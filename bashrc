@@ -140,6 +140,8 @@ command -v brew >/dev/null 2>&1 && \
   . $(brew --prefix)/etc/profile.d/autojump.sh
 command -v direnv >/dev/null 2>&1 && \
   eval "$(direnv hook bash)"
+command -v rbenv >/dev/null 2>&1 && \
+  eval "$(rbenv init -)"
 
 export GEM_HOME=$HOME/.gem
 export GOPATH=$HOME/go
@@ -147,6 +149,7 @@ export GOBIN=$GOPATH/bin
 export PATH="./bin:./node_modules/.bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export PATH="$PATH:$GEM_HOME/bin:$GOPATH/bin:$GEM_HOME/ruby/2.0.0/bin"
+export PATH="$PATH:$HOME/.fastlane/bin"
 
 export EDITOR=vim
 export DEBUG="*"
