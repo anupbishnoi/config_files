@@ -319,6 +319,6 @@ endif " has("autocmd")
 
 source ~/.vimrc.local
 
-set background=light
+set background=dark
 colorscheme solarized
 
