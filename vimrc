@@ -83,8 +83,7 @@ nnoremap ! @q
 nnoremap F gf
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <tab> <c-w>w
-nnoremap <esc> :noh<return><esc>
-nnoremap <esc>^[ <esc>^[
+nnoremap <esc> :noh<cr><esc>
 
 nnoremap ; :
 vnoremap ; :
@@ -94,7 +93,7 @@ nnoremap <leader>qq <c-w>q
 nnoremap <leader>> <c-w>999>
 
 " substitute word under cursor
-nnoremap <Leader>sw :%s/\<<C-r><C-w>\>/
+nnoremap <leader>sw :%s/\<<C-r><C-w>\>/
 
 nnoremap <leader>jo J
 nnoremap <leader>lv :source ~/.vimrc<cr>
@@ -156,6 +155,9 @@ nnoremap <D-v> "+p
 inoremap <leader>l <esc>$a
 inoremap <leader>k <esc>O
 inoremap <leader>dd <esc>ddk$
+inoremap <leader>w <esc>:w<cr>
+inoremap <leader>( (<esc>ea)<esc>%a
+inoremap jj <esc>
 
 " JSON Formatter
 nnoremap <leader>jf :%!python -mjson.tool<cr>:%s/    /  /gg<cr>:w<cr>

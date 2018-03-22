@@ -143,6 +143,9 @@ command -v direnv >/dev/null 2>&1 && \
 command -v rbenv >/dev/null 2>&1 && \
   eval "$(rbenv init -)"
 
+command -v direnv >/dev/null 2>&1 && \
+  eval "$(direnv hook bash)"
+
 export GEM_HOME=$HOME/.gem
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
