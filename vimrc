@@ -84,6 +84,7 @@ nnoremap F gf
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <tab> <c-w>w
 nnoremap <esc> :noh<cr><esc>
+nnoremap <esc>^[ <esc>^[
 
 nnoremap ; :
 vnoremap ; :
@@ -160,8 +161,8 @@ inoremap <leader>( (<esc>ea)<esc>%a
 inoremap jj <esc>
 
 " JSON Formatter
-nnoremap <leader>jf :%!python -mjson.tool<cr>:%s/    /  /gg<cr>:w<cr>
-vnoremap <leader>jf :!python -mjson.tool<cr>
+nnoremap <leader>jf :%!python -m json.tool<cr>:%s/    /  /gg<cr>:w<cr>
+vnoremap <leader>jf :!python -m json.tool<cr>
 
 " Press ^F from command mode to insert the current file name
 cmap <c-f> <c-r>=expand("%:p")<cr>
@@ -267,7 +268,8 @@ nnoremap <leader>lf :MRU<cr>
 let MRU_Max_Entries=50
 
 " Linediff
-" vnoremap 
+vnoremap <leader>ld :Linediff<cr>
+nnoremap <leader>ldr :LinediffReset<cr>
 
 " only write if needed and update the start time after the save
 function! UpdateFile()
@@ -322,6 +324,6 @@ endif " has("autocmd")
 
 source ~/.vimrc.local
 
-set background=light
+set background=dark
 colorscheme solarized
 

@@ -177,10 +177,6 @@ alias sr="tmux -CC attach -t"
 alias sd="tmux detach"
 alias sn="tmux -CC new -s"
 
-if [ -f ~/.bash_aliases.local ]; then
-    . ~/.bash_aliases.local
-fi
-
 # user management
 alias users="cat /etc/passwd | grep home"
 alias deleteuser="userdel -r"
@@ -204,4 +200,12 @@ function videoslower() {
     ffmpeg -i $1 -filter:v "setpts=$2*PTS" $3
   fi
 }
+
+function onfilechange() {
+  fswatch -o $1 | xargs -n1 -I{} $2
+}
+
+if [ -f ~/.bash_aliases.local ]; then
+    . ~/.bash_aliases.local
+fi
 

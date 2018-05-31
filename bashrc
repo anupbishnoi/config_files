@@ -98,14 +98,20 @@ fi
 # Git completion
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
+  __git_complete ga _git_add
+  __git_complete gco _git_checkout
+  __git_complete gd _git_diff
+  __git_complete gp _git_push
+  __git_complete gcl _git_clone
+  __git_complete gb _git_branch
+  __git_complete gbd _git_branch
+  __git_complete gpu _git_push
+  __git_complete gcm _git_commit
+  __git_complete gcam _git_commit
+  __git_complete gl _git_log
+  __git_complete gpl _git_pull
+  __git_complete gst _git_stash
 fi
-__git_complete gco _git_checkout
-__git_complete gp _git_push
-__git_complete gcl _git_clone
-__git_complete gb _git_branch
-__git_complete gbd _git_branch
-__git_complete gpu _git_push
-__git_complete gco _git_push
 
 # Passed string shortened to specified characters
 function shortened_str () {
@@ -144,15 +150,18 @@ command -v direnv >/dev/null 2>&1 && \
 command -v direnv >/dev/null 2>&1 && \
   eval "$(direnv hook bash)"
 
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 export GEM_HOME=$HOME/.gem
 export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
 export PATH="./bin:./node_modules/.bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export PATH="$PATH:$GEM_HOME/bin:$GOPATH/bin:$GEM_HOME/ruby/2.0.0/bin"
 
 export EDITOR=vim
-export DEBUG="*"
+export DEBUG=
 export HOMEBREW_NO_ANALYTICS=1
 
 if [ -f ~/.resty.sh ]; then
@@ -163,4 +172,7 @@ if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
