@@ -326,5 +326,4 @@ source ~/.vimrc.local
 
 set background=dark
 colorscheme darkblue
-" colorscheme solarized
 

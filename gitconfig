@@ -1,3 +1,5 @@
+[alias]
+    pr = "!f() { git fetch $1 pull/origin/head:pull_$1; git co pull_$1; }; f"
 
 # DO NOT EDIT BELOW THIS LINE
 [push]

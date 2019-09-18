@@ -1,0 +1,3 @@
+#!/bin/sh
+
+watch 'find ~/personal/timelapse/screenshots -name "*.png" | wc -l'
