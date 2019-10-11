@@ -1,0 +1,7 @@
+#!/bin/bash
+mkdir ffmpeg_temp
+#-r sets frames per second
+#-vsync 2 means no duplicated images
+ffmpeg -i "$1" -r 1 -an -vsync 2 -f image2 frames/%05d.png
+ffmpeg -i frames/%05d.png "$1"_stopMotion.mp4
+
